@@ -1,0 +1,97 @@
+
+.wd-footrow1
+{
+    padding-left: 320px;
+    padding-top:90px;
+    font-weight: bolder;
+font-size: large;
+}
+
+.wd-footrow2
+{
+    padding-left:350px;
+    padding-top:20px;
+
+}
+
+.wd-footrow3
+{
+    padding-left: 180px;
+    font-weight: bolder;
+    padding-top:20px;
+    padding-bottom: 10px;
+    color: grey;
+
+
+}
+
+.wd-spanrow3
+{
+    background-color: lightcyan;
+    width: 90% !important;
+    padding-left: 50px!important;
+}
+
+.wd-footerbtn
+{
+    border-radius: 30px!important;
+    border-style: solid!important;
+    border-color: black!important;
+    border-width: 1px!important;
+    margin-left:-140px!important;
+    color:darkorchid!important;
+    font-weight: bolder!important;
+}
+
+.wd-footinputbox
+{
+    border-style: solid!important;
+    border-top-color: transparent!important;
+    border-left-color: transparent!important;
+    border-right-color: transparent!important;
+    border-bottom-color: black!important;
+    border-width: 1px!important;
+}
+
+input::placeholder
+{
+    font-weight: bolder;
+    color:lightgrey;
+}
+
+
+@media (max-width: 649px) {
+
+
+}
+
+
+@media(min-width: 650px)
+and (max-width: 767px){
+
+
+}
+
+
+@media (min-width: 768px)
+and (max-width: 991px){
+
+
+}
+
+@media (min-width: 992px)
+and (max-width: 1199px){
+
+
+}
+
+@media (min-width: 1200px)
+and (max-width: 1400px){
+
+
+}
+
+@media (min-width: 1401px )
+{
+
+}

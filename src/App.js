@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from "../src/Home/index.js"
+
+import {Reducer} from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
+
+import ConcertReducer from "./Reducers/Concert-Reducer.js";
+import {Provider} from "react-redux";
+
+const store = configureStore({reducer:{ConcertData: ConcertReducer}})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <Provider store={store}>
+
+          <div >
+              <Home/>
+          </div>
+
+      </Provider>
+
   );
 }
 

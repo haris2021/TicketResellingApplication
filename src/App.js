@@ -9,9 +9,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 function App() {
   return (
     <div className="App">
-     {/*<AuthForm> </AuthForm>*/}
-     {/*   <EventForm></EventForm>;*/}
-        <BrowserRouter>
+     <AuthForm> </AuthForm>
+{/*
+      <EventForm></EventForm>;
+*/}
+       {/* <BrowserRouter>
             <div className="container">
                 <Routes>
                     <Route path="/*"
@@ -20,7 +22,7 @@ function App() {
                            element={<EventForm/>}/>
                 </Routes>
             </div>
-        </BrowserRouter>
+        </BrowserRouter>*/}
     </div>
   );
 }

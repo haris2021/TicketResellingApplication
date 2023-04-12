@@ -1,5 +1,6 @@
 import {CgProfile} from "react-icons/cg";
 import "../index.css"
+import {Link} from "react-router-dom";
 
 
 const NavComponent = ( ) =>
@@ -19,37 +20,13 @@ const NavComponent = ( ) =>
 
                         <ul className="navbar-nav wd-lop">
 
-                            <li className="nav-item dropdown ">
-                                <a className="nav-link dropdown-toggle" href="#" role="button"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
-                                    Concerts
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a>
-                                    </li>
-                                    <li><a className="dropdown-item" href="#">Something else
-                                        here</a></li>
-                                </ul>
-                            </li>
+                            <Link to="/details" className="wd-removeunderline">Concerts</Link>
 
                         </ul>
 
                         <ul className="navbar-nav ">
 
-                            <li className="nav-item dropdown ">
-                                <a className="nav-link dropdown-toggle" href="#" role="button"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sports
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a>
-                                    </li>
-                                    <li><a className="dropdown-item" href="#">Something else
-                                        here</a></li>
-                                </ul>
-                            </li>
+                            <Link to="/details" className="wd-removeunderline">Movies</Link>
 
                         </ul>
 
@@ -59,7 +36,7 @@ const NavComponent = ( ) =>
 
                 <div className="wd-dropdown">
 
-                    <span className="wd-signin">Sign In</span>
+                    <Link className="wd-signin" to="/logIn">Sign In/ Up </Link>
                     <CgProfile size={25} className="wd-signinlogo"/>
 
                 </div>

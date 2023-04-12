@@ -20,7 +20,7 @@ const Home = ( ) =>
                     <span className="wd-heading">StubHub
                     <span className="wd-headingsubpart" > is the world's top destination for ticket buyers and resellers. Prices may be higher or lower than face value </span> </span>
                     <Navigation/>
-                    <Categories/>
+                    {/*<Categories/>*/}
                     <Search/>
                     <CategoriesCard/>
                     <FootBar/>

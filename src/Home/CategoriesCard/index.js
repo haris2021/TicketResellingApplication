@@ -1,8 +1,5 @@
-
 import "./index.css"
 import EachCategoryCard from "./EachCategoryCard/EachCategoryCard.js";
-
-
 
 const CategoriesCard = ( ) =>
 {

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Form, Button, Alert, Card } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Alert, Button, Card, Form} from 'react-bootstrap';
 import './AuthForm.css'
+
 const logoImage = require('./logo1.png');
 const LoginForm = ({ onSwitchToSignUp }) => {
     const [email, setEmail] = useState('');

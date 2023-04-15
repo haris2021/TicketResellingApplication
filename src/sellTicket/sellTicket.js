@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import React, {useState} from "react";
+import {Button, Card, Form} from "react-bootstrap";
 import './sellTicket.css'
 
 function EventForm() {

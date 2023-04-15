@@ -2,7 +2,6 @@ import {CgProfile} from "react-icons/cg";
 import "../index.css"
 import {Link} from "react-router-dom";
 
-
 const NavComponent = ( ) =>
 {
     return(

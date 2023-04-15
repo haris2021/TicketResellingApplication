@@ -1,6 +1,5 @@
 import "./FootBar.css"
 
-
 const FootBar = ( ) =>
 {
     return(

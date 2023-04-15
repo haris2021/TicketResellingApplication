@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import DetailInformation from "./details";
-import {findDetailsThunk} from "../services/details-thunk";
+import {findDetailsThunk} from "../Services/details-thunk";
 
 const Profile = () => {
     const {details, loading} = useSelector(state => state.details)

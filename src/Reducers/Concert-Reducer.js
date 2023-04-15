@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {FindallConcertThunk} from "../services/Concert-thunks";
+import {FindallConcertThunk} from "../Services/Concert-thunks";
 
 const InitialState =
     {

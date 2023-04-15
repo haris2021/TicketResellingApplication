@@ -20,8 +20,10 @@ const ConcertSlice = createSlice({
                 },
             [FindallConcertThunk.fulfilled]:
                 (state, { payload }) => {
+                    console.log("from reducers", payload)
                     state.loading = false
-                    state.concerts = payload
+                    state.Concerts = payload
+                    console.log("From reducer concert oprit", state.Concerts[0]);
                 },
             [FindallConcertThunk.rejected]:
                 (state, action) => {

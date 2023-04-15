@@ -20,7 +20,7 @@ const EachCategoryCard = ( ) =>
         dispatch(FindallConcertThunk())
     }, [])
 
-
+    console.log("From cateegory" ,Concerts);
 
     return(
 
@@ -35,6 +35,7 @@ const EachCategoryCard = ( ) =>
 
 
             <span className="wd-EachCategoryTitle">Concerts</span>
+
 
                     <div className="row">
 

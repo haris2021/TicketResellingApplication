@@ -3,7 +3,7 @@ import EachEvent from "../EachEvent/EachEvent.js";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 // import Concerts from "../../../Data/Concerts/Concert.json"
-import {FindallConcertThunk} from "../../../services/Concert-thunks.js";
+import {FindallConcertThunk} from "../../../Services/Concert-thunks.js";
 
 const EachCategoryCard = () => {
     const {Concerts, loading} = useSelector(state => state.ConcertData)

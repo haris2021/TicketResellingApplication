@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findDetailsThunk} from "../services/details-thunk";
+import {findDetailsThunk} from "../Services/details-thunk";
 
 const initialState = {
     details: [],

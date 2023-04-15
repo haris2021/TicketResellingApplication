@@ -24,12 +24,9 @@ const store = configureStore({reducer:{ConcertData: ConcertReducer, details: det
 
 
 
-
 function App() {
     return (
-
         <Provider store={store}>
-
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Home/>}/>
@@ -38,17 +35,10 @@ function App() {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
-
                 </Routes>
             </BrowserRouter>
-
         </Provider>
-
     );
 }
-
-
-
-
 
 export default App;

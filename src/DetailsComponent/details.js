@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Image, Button, Form, ButtonGroup} from 'react-bootstrap';
-import {
-    faMapMarkerAlt,
-    faCalendarAlt,
-    faClock
-} from "@fortawesome/free-solid-svg-icons";
+import {Button, ButtonGroup, Col, Container, Form, Image, Row} from 'react-bootstrap';
+import {faCalendarAlt, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router";
 

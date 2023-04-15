@@ -1,5 +1,5 @@
-import axios from 'axios';
 import details from '../data/details.json';
+
 const DETAILS_API = 'http://localhost:4000/api/details';
 
 export const findDetails = async () => {

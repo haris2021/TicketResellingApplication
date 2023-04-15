@@ -1,7 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {
-    findDetailsThunk
-} from "../services/details-thunk";
+import {findDetailsThunk} from "../services/details-thunk";
 
 const initialState = {
     details: [],
@@ -29,5 +27,6 @@ const detailsSlice = createSlice({
                                              }
                                      }
                                  });
+
 export default detailsSlice.reducer;
 

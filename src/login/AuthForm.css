@@ -1,0 +1,71 @@
+.auth-tabs {
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 20px;
+    border-color: #dcdcdc;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.alert-danger {
+    border-radius: 20px;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20vh;
+}
+
+.card {
+    width: 500px;
+}
+
+.auth-button-control {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-customization{
+    background-color: rebeccapurple;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+    text-align: center;
+    padding: 1rem;
+
+}
+
+.card-header img {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.white-text {
+    color: white;
+}
+

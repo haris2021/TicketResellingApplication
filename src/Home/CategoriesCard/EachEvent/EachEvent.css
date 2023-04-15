@@ -1,0 +1,20 @@
+
+
+.wd-eacheventcard
+{
+    margin-top:10px;
+    border-color: transparent!important;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.wd-eacheventimg
+{
+    border-radius: 15px;
+}
+
+.wd-EventTitle
+{
+    font-weight: bolder;
+    margin-left: -10px;
+}

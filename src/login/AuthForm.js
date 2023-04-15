@@ -1,17 +1,46 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Form, Button, Alert, Card } from 'react-bootstrap';
 import './AuthForm.css'
+import {useDispatch, useSelector} from "react-redux";
+import {CreateUserThunk, LogInThunk} from "../Services/Users-Thunks.js";
+import {useNavigate} from "react-router";
 const logoImage = require('./logo1.png');
+
+
+
+
 const LoginForm = ({ onSwitchToSignUp }) => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showError, setShowError] = useState(false);
 
+    let navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    const {login, loading} = useSelector (state => state.UserLogin);
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // TODO: Add login logic here
-        setShowError(true);
+        /*const dummy = {
+           username: email,
+            password
+        }*/
+        dispatch((LogInThunk({ Username: email, Password: password })));
     };
+
+
+    useEffect(() => {
+
+        if (login) {
+            navigate('/');
+            console.log("Logged iN")
+        } else {
+            setShowError(false);
+        }
+    }, [login]);
+
 
     return (
         <Card>
@@ -24,7 +53,7 @@ const LoginForm = ({ onSwitchToSignUp }) => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="email" style={{ marginBottom: "40px" }}>
                         <Form.Label class="white-text">Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Form.Control type="text" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Group>
 
                     <Form.Group controlId="password"style={{ marginBottom: "40px" }}>
@@ -49,14 +78,47 @@ const LoginForm = ({ onSwitchToSignUp }) => {
     );
 };
 
+
+
+
+
 const SignUpForm = ({ onSwitchToLogin }) => {
+
+    const[FirstName, setFirstName] = useState('');
+    const[LastName,setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [Location, setLocation] = useState('');
+    const [PhoneNumber,  setPhoneNumber] = useState('');
+    const [Username, setUsername] = useState('');
+    const [Image, setImage] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+
     const [showError, setShowError] = useState(false);
+
+    const dispatch  = useDispatch();
+    const navigate  = useNavigate();
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("Inside handleSubmit");
+
+        const newuser =
+            {
+                FirstName: FirstName,
+                LastName: LastName,
+                Email: email,
+                Location: Location,
+                Username: Username,
+                Image: Image,
+                Password:password,
+                Role: "User"
+            }
+
+        dispatch(CreateUserThunk(newuser));
+        navigate('/login');
         // TODO: Add sign up logic here
         setShowError(true);
     };
@@ -69,18 +131,52 @@ const SignUpForm = ({ onSwitchToLogin }) => {
             <Card.Body className="card-customization">
                 <h2 style={{textAlign: "center", color: "white"}}>Sign Up</h2>
                 {showError && <Alert variant="danger">Passwords do not match.</Alert>}
+
+
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="email" style={{ marginBottom: "30px" }}>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">FirstName</Form.Label>
+                        <Form.Control type="text" placeholder="Enter FirstName" value={FirstName} onChange={(e) => setFirstName(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">LastName</Form.Label>
+                        <Form.Control type="text" placeholder="Enter LastName" value={LastName} onChange={(e) => setLastName(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
                         <Form.Label class="white-text">Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group controlId="password" style={{ marginBottom: "30px" }}>
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">Location</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Location" value={Location} onChange={(e) => setLocation(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">Phone Number</Form.Label>
+                        <Form.Control type="Number" placeholder="Enter email" value={PhoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">Username</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Username" value={Username} onChange={(e) => setUsername(e.target.value)} />
+                    </Form.Group>
+
+                    <Form.Group controlId="email" style={{ marginBottom: "10px" }}>
+                        <Form.Label class="white-text">Image</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Image" value={Image} onChange={(e) => setImage(e.target.value)} />
+                    </Form.Group>
+
+
+                    <Form.Group controlId="password" style={{ marginBottom: "10px" }}>
                         <Form.Label class="white-text">Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group controlId="confirmPassword" style={{ marginBottom: "30px" }}>
+                    <Form.Group controlId="confirmPassword" style={{ marginBottom: "10px" }}>
                         <Form.Label class="white-text">Confirm Password</Form.Label>
                         <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                     </Form.Group>
@@ -103,13 +199,19 @@ const SignUpForm = ({ onSwitchToLogin }) => {
                             By signing in or creating an account, you acknowledge and accept our privacy policy.
                         </Button>
                     </div>
+
                 </Form>
+
             </Card.Body>
         </Card>
     );
 };
 
+
+
+
 const AuthForm = () => {
+
     const [displayLoginForm, setDisplayLoginForm] = useState(true);
 
     const handleSwitchToSignUp = () => {
@@ -134,6 +236,10 @@ const AuthForm = () => {
         </div>
     );
 };
+
+
+
+
 
 export default AuthForm;
 

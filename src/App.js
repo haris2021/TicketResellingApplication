@@ -1,17 +1,30 @@
-import {BrowserRouter} from "react-router-dom";
-import {Route, Routes} from "react-router";
-import {configureStore} from '@reduxjs/toolkit';
-import DetailsComponent from "./DetailsComponent";
-import {Provider} from "react-redux";
-import details from "./reducers/detail-reducer";
+import './App.css';
+import 'bootstrap';
 
 import AuthForm from './login/AuthForm'
-import EventForm from './sellTicket/sellTicket'
+import EventForm from './sellTicket/sellTicket.js'
+import DetailsComponent from "./DetailsComponent/index.js"
 import Profile from "./components/profile/index.js"
-import Home from "./Home";
-import ConcertReducer from "./reducers/Concert-Reducer";
+import Home from "../src/Home/index.js"
+import EditProfile from "../src/components/profile/edit-profile.js"
 
-const store = configureStore({reducer: {ConcertData: ConcertReducer, details: details}})
+import AllUserCard from "./Admin/AllUserCard/AllUserCard.js";
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import {configureStore} from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
+
+import ConcertReducer from "./Reducers/Concert-Reducer.js";
+import details from "./Reducers/detail-reducer.js";
+import UserLoginReducer from  "./Reducers/UserLogin-Reducer.js"
+
+import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
+
+
+const store = configureStore({reducer:{ConcertData: ConcertReducer, details: details, UserLogin: UserLoginReducer , UserInfo: UserInfoReducer}   }  )
+
+
 
 function App() {
     return (
@@ -20,9 +33,11 @@ function App() {
                 <Routes>
                     <Route index element={<Home/>}/>
                     <Route path="/logIn" element={<AuthForm/>}/>
+                    <Route path="/editProfile" element={<EditProfile/>}/>
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
+                    <Route path="/moreInfo" element={<AllUserCard/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

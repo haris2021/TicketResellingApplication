@@ -1,4 +1,4 @@
-import details from '../data/details.json';
+import details from '../Data/details.json';
 
 const DETAILS_API = 'http://localhost:4000/api/details';
 

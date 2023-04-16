@@ -20,6 +20,7 @@ import details from "./Reducers/detail-reducer.js";
 import UserLoginReducer from  "./Reducers/UserLogin-Reducer.js"
 
 import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
+import SearchComponent from './components/search';
 
 
 const store = configureStore({reducer:{ConcertData: ConcertReducer, details: details, UserLogin: UserLoginReducer , UserInfo: UserInfoReducer}   }  )
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
                     <Route path="/moreInfo" element={<AllUserCard/>}/>
+                    <Route path="/search/*" element={<SearchComponent/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

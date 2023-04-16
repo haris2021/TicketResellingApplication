@@ -3,17 +3,23 @@ import {Button, ButtonGroup, Col, Container, Form, Image, Row} from 'react-boots
 import {faCalendarAlt, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router";
+import {createDetailsThunk, createTuitThunk} from "../Services/details-thunk";
+import {useDispatch} from "react-redux";
 
 function DetailInformation({details}) {
-    const [review, setReview] = useState("");
+    const [review, setReview] = useState('');
     const [count, setCount] = useState(0);
     const [existingReview, setExistingReview] = useState(details.reviews);
 
-    const handleReviewChange = (event) => {
+    const dispatch = useDispatch();
+    const handleReviewChange = () => {
+        alert("called");
         const newReview = {
             newReview: review
         }
-        setReview(event.target.value);
+        console.log(newReview);
+        // dispatch(createDetailsThunk(newReview));
+        // setReview(event.target.value);
     };
 
     const handleSubmit = (event) => {
@@ -127,10 +133,10 @@ function DetailInformation({details}) {
                                     as="textarea"
                                     rows={3}
                                     value={review}
-                                    onChange={handleReviewChange}
+                                    onChange={(event) => setReview(event.target.value)}
                                 />
                             </Form.Group>
-                            <Button style={{marginTop: 12}} type="submit" variant="primary">
+                            <Button style={{marginTop: 12}} variant="primary" onClick={handleReviewChange}>
                                 Submit Review
                             </Button>
                         </Form>

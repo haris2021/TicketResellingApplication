@@ -5,9 +5,8 @@ export const findDetailsThunk = createAsyncThunk(
     '/details', async () => await service.findDetails()
 )
 
-export const createTuitThunk = createAsyncThunk(
+export const createDetailsThunk = createAsyncThunk(
     '/details', async (review) => {
-        const newReview = await service.createReview(review)
-        return newReview
+        return await service.createReview(review)
     })
 

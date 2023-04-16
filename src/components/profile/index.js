@@ -1,9 +1,9 @@
 import './index.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
-import {DeleteUserThunk} from "../../Services/Users-Thunks";
+import {DeleteUserThunk, GetAllUserThunk} from "../../Services/Users-Thunks";
 
 import Navigation from "../../Home/Navigation/index.js"
 
@@ -23,9 +23,12 @@ const ProfileComponent = () => {
 
     const CallDeleteBtn = ( id ) =>
     {
-        console.log("Dlete button clicked");
+       /* console.log("Dlete button clicked");
         dispatch(DeleteUserThunk(id));
-        navigate('/');
+        navigate('/');*/
+            dispatch(GetAllUserThunk());
+            navigate('/moreInfo');
+
     }
 
     const routeChange = (url ) =>
@@ -142,24 +145,27 @@ const ProfileComponent = () => {
                                      </div>
                                  </div>
 
-                                 <div className="row gutters-sm">
-                                     <div className="col-sm-6 mb-3">
-                                         <div className="card h-100">
-                                             <div className="card-body">
-                                                 <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">Listings</i></h6>
+                                 { u.Role ==='Admin' ? <h1>gekll</h1>
+                                                     :
+                                   <div className="row gutters-sm">
+                                       <div className="col-sm-6 mb-3">
+                                           <div className="card h-100">
+                                               <div className="card-body">
+                                                   <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">Listings</i></h6>
 
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div className="col-sm-6 mb-3">
-                                         <div className="card h-100">
-                                             <div className="card-body">
-                                                 <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">Following</i></h6>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div className="col-sm-6 mb-3">
+                                           <div className="card h-100">
+                                               <div className="card-body">
+                                                   <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">Following</i></h6>
 
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                 }
 
 
 

@@ -137,8 +137,9 @@ and (max-width: 1400px){
 
     .wd-logo
     {
-        width: 15%;
-        margin-left: 25px;
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
     }
 
     .wd-dropdown
@@ -153,12 +154,13 @@ and (max-width: 1400px){
     }
     .wd-signin
     {
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
     }
 
     .wd-signinlogo
     {
-        margin-left: 1px;
     }
 
 
@@ -169,14 +171,12 @@ and (max-width: 1400px){
 
     .wd-lol
     {
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: medium;
     }
 
     .wd-lop
     {
-        margin-left: 50px;
-        margin-right: 10px;
-
     }
 
 

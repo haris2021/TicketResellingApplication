@@ -44,6 +44,23 @@ export const Logout = async ()=>
     return response.data;
 }
 
+export const GetAllUser = async ( )=>
+{
+    console.log("Inside GetallUser service");
+    const response = await axios.get(Users_API);
+    console.log("From service" + response.data);
+    return response.data
+}
+
+export const DeleteUserByAdmin = async (id) =>
+{
+    console.log("Insdie service"+ id);
+    const response = await axios.delete(`${Users_API}/${id}`);
+    console.log("From server" + response.data);
+    return response.data;
+
+}
+
 /*export const GetProfileInfo = async ( ) =>
 {
     console.log("Inside get profileService");

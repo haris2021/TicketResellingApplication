@@ -50,3 +50,20 @@ export const LogOutThunk = createAsyncThunk ('/profile', async () =>{
     const response = await service.Logout();
     console.log("From service" + response);
 });
+
+export const GetAllUserThunk = createAsyncThunk('/moreInfo' , async ()=>{
+
+    console.log("Inside GetAllUserThunk");
+    const response = await service.GetAllUser();
+    console.log("from service" , response);
+    return response;
+});
+
+export const DeleteUserAdminThunk = createAsyncThunk ('/' , async (id)=>{
+
+    console.log("Into DeleteUseAdminThunk");
+    const response = await service.DeleteUserByAdmin(id);
+    console.log("Delted from service" , response);
+    return response;
+
+});

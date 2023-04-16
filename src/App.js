@@ -8,6 +8,8 @@ import Profile from "./components/profile/index.js"
 import Home from "../src/Home/index.js"
 import EditProfile from "../src/components/profile/edit-profile.js"
 
+import AllUserCard from "./Admin/AllUserCard/AllUserCard.js";
+
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import {configureStore} from "@reduxjs/toolkit";
@@ -35,6 +37,7 @@ function App() {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
+                    <Route path="/moreInfo" element={<AllUserCard/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

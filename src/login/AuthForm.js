@@ -118,14 +118,19 @@ const SignUpForm = ({ onSwitchToLogin }) => {
                 Username: Username,
                 Image: Image,
                 Password:password,
-                Role: 'Admin'
+                Role: Role
             }
         console.log("Inside handleSubmit", newuser);
 
-        dispatch(CreateUserThunk(newuser));
+       dispatch(CreateUserThunk(newuser));
         navigate('/');
 
     };
+
+    const callfun = ( Role ) =>
+    {
+        setRole(Role);
+    }
 
     return (
 
@@ -190,10 +195,10 @@ const SignUpForm = ({ onSwitchToLogin }) => {
                             <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         </Form.Group>*/}
 
-                        <Form.Group controlId="userType" className="d-flex justify-content-between radio-group"  onChange={(e)=>setRole(e.target.value)} style={{ marginBottom: "20px" }}>
-                            <Form.Check type="radio" label="Seller" name="userType" id="seller" value={Role} className="mx-2 white-text" />
-                            <Form.Check type="radio" label="Buyer" name="userType" id="buyer" value={Role} className="mx-2 white-text"  />
-                            <Form.Check type="radio" label="Admin" name="userType" id="admin" value={Role} className="ml-2 white-text" />
+                        <Form.Group controlId="userType" className="d-flex justify-content-between radio-group"   style={{ marginBottom: "20px" }}>
+                            <Form.Check type="radio" label="Seller" name="userType" id="seller" value={Role} onClick={()=>{callfun('Seller')}} className="mx-2 white-text" />
+                            <Form.Check type="radio" label="Buyer" name="userType" id="buyer" value={Role} onClick={()=>{callfun('Buyer')}} className="mx-2 white-text"  />
+                            <Form.Check type="radio" label="Admin" name="userType" id="admin" value={Role} onClick={()=>{callfun('Admin')}} className="ml-2 white-text" />
                         </Form.Group>
 
                         <div className="text-center">

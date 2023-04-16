@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 import {LogOutThunk} from "../../../Services/Users-Thunks.js";
+import {logoutUser} from "../../../Reducers/UserLogin-Reducer.js";
 
 const NavComponent = ( ) =>
 {
@@ -16,6 +17,7 @@ const NavComponent = ( ) =>
     {
         console.log("Calling login");
         dispatch(LogOutThunk());
+        dispatch( logoutUser());
 
     }
 
@@ -26,19 +28,23 @@ const NavComponent = ( ) =>
 
                 <div className="container-fluid">
 
-                    <div className="collapse navbar-collapse wd-lol" id="navbarNavDropdown">
+                    <div className={u._id? " wd-lol" : " wd-withoutlogin "} id="navbarNavDropdown">
 
-                        <ul className="navbar-nav wd-lop">
+                        <div className="wd-navlinks">
 
-                            <Link to="/details" className="wd-removeunderline">Concerts</Link>
+                            <ul className="navbar-nav wd-lop">
 
-                        </ul>
+                                <Link to="/details" className="wd-removeunderline">Concerts</Link>
 
-                        <ul className="navbar-nav ">
+                            </ul>
 
-                            <Link to="/details" className="wd-removeunderline">Movies</Link>
+                            <ul className="navbar-nav ">
 
-                        </ul>
+                                <Link to="/details" className="wd-removeunderline">Movies</Link>
+
+                            </ul>
+
+                        </div>
 
                     </div>
 
@@ -46,11 +52,11 @@ const NavComponent = ( ) =>
 
                 <div className="wd-dropdown">
 
-                    {u._id ?  <Link className="wd-signin" to="/Profile"> Profile </Link> :  <Link className="wd-signin" to="/logIn"> LogIn </Link> }
+                    {u._id ?  <Link className="wd-signin" to="/Profile"> Profile </Link> :  <Link className="wd-login" to="/logIn"> LogIn </Link> }
                     {u._id ? <Link className="wd-signin" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
-                    {u.Role === 'User' ? <Link className="wd-signin" to="/createEvent"> Create Event </Link> : " " }
-                    {u.Role === 'Seller' ? <Link className="wd-signin" to="/Profile"> My Tickets </Link>: " "  }
-                    <CgProfile size={25} className="wd-signinlogo"/>
+                    {u.Role === 'Seller' ? <Link className="wd-signin" to="/createEvent"> Create Event </Link> : " " }
+                    {u.Role === 'Buyer' ? <Link className="wd-signin" to="/Profile"> My Tickets </Link>: " "  }
+                    <CgProfile size={25} className={ u._id ? "wd-signinlogo " : "wd-signinlogowithoutlogin" } />
 
                 </div>
 

@@ -1,4 +1,5 @@
 
+
 .wd-logo
 {
     width: 15%;
@@ -53,15 +54,6 @@
     font-weight: bolder;
 }
 
-.wd-lop
-{
-    margin-left: 150px;
-    margin-right: 10px;
-
-}
-
-
-
 
 @media (max-width: 649px) {
 
@@ -78,17 +70,11 @@ and (max-width: 767px){
 and (max-width: 991px){
 
 
-
-
-}
-
-@media (min-width: 992px)
-and (max-width: 1199px){
-
     .wd-logo
     {
-        width: 15%;
-        margin-left: 25px;
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
     }
 
     .wd-dropdown
@@ -101,34 +87,105 @@ and (max-width: 1199px){
     {
         border: none!important;
     }
+
     .wd-signin
     {
-        padding-right: 20px;
-        padding-left: 5px;
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
     }
 
-    .wd-signinlogo
+    .wd-signinlogowithoutlogin
     {
-        margin-left: 5px;
+        margin-left: 10px;
     }
 
+    .wd-withoutlogin
+    {
+        margin-left: 50px;
+    }
 
     .wd-wholediv
     {
         margin-top:30px!important;
     }
 
-    .wd-lol
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 10px;
+    }
+
+    .wd-login
     {
         font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 10px;
+    }
+
+
+}
+
+@media (min-width: 992px)
+and (max-width: 1199px){
+
+    .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-withoutlogin
+    {
+        margin-left: 50px;
+    }
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
     }
 
     .wd-lop
     {
-        margin-left: 5px;
-
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 40px;
     }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 120px;
+    }
+
 
 }
 
@@ -152,6 +209,7 @@ and (max-width: 1400px){
     {
         border: none!important;
     }
+
     .wd-signin
     {
         font-weight: bold;
@@ -159,24 +217,41 @@ and (max-width: 1400px){
         margin-left: 15px;
     }
 
-    .wd-signinlogo
+    .wd-signinlogowithoutlogin
     {
+        margin-left: 10px;
     }
 
+    .wd-withoutlogin
+    {
+        margin-left: 200px;
+    }
 
     .wd-wholediv
     {
         margin-top:30px!important;
     }
 
-    .wd-lol
+    .wd-lop
     {
         font-weight: bold;
         font-size: medium;
+        background-color: red!important;
+        margin-right: 20px;
     }
 
-    .wd-lop
+    .wd-login
     {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 100px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline-block;
+
     }
 
 
@@ -228,6 +303,13 @@ and (max-width: 1400px){
         margin-left: 80px;
         margin-right: 10px;
 
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
     }
 
 

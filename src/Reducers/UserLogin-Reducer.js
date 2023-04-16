@@ -10,8 +10,8 @@ import {
 
 const InitialState  =
     {
-        login : false,
-        u : [],
+        login : JSON.parse(localStorage.getItem('u')) ? true:false,
+        u : JSON.parse(localStorage.getItem('u')) || {},
         allusers : [],
         loading : true
     }
@@ -31,7 +31,7 @@ const UserLoginSlice  = createSlice({
                         console.log("Username", state.u.FirstName);
                         state.login = true;
                         console.log("from Reducer" , state.login);
-
+                        localStorage.setItem('u', JSON.stringify(payload));
                     },
             [UpdateLogInThunk.fulfilled]:
                 (state,{payload}) =>
@@ -65,8 +65,20 @@ const UserLoginSlice  = createSlice({
 
 
 
+        },
+    reducers:{
+
+        loadUserFromStorage: (state) => {
+            state.u = JSON.parse(localStorage.getItem('u')) || {};
+        },
+
+        logoutUser: (state) => {
+            state.u = {};
+            localStorage.removeItem('u');
         }
+    }
                                       });
 
 
+export const { loadUserFromStorage, logoutUser } = UserLoginSlice.actions;
 export default UserLoginSlice.reducer;

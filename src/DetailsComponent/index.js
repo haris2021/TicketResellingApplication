@@ -12,24 +12,24 @@ const Profile = () => {
         dispatch(findDetailsThunk())
     }, [])
     return (
-      <div>
+        <div>
 
-          <Navigation/>
+            <Navigation/>
 
-          <ul className="list-group">
-              {
-                  loading &&
-                  <li className="list-group-item">
-                      Loading...
-                  </li>
-              }
-              {
-                  details.map((detail) =>
-                                  <DetailInformation key={detail._id} details={detail}/>)
-              }
-          </ul>
+            <ul className="list-group">
+                {
+                    loading &&
+                    <li className="list-group-item">
+                        Loading...
+                    </li>
+                }
+                {
+                    details.map((detail) =>
+                                    <DetailInformation key={detail._id} details={detail}/>)
+                }
+            </ul>
 
-      </div>
+        </div>
 
     );
 

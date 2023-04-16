@@ -3,7 +3,6 @@ import {Button, ButtonGroup, Col, Container, Form, Image, Row} from 'react-boots
 import {faCalendarAlt, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router";
-import {createDetailsThunk, createTuitThunk} from "../Services/details-thunk";
 import {useDispatch} from "react-redux";
 
 function DetailInformation({details}) {
@@ -136,7 +135,8 @@ function DetailInformation({details}) {
                                     onChange={(event) => setReview(event.target.value)}
                                 />
                             </Form.Group>
-                            <Button style={{marginTop: 12}} variant="primary" onClick={handleReviewChange}>
+                            <Button style={{marginTop: 12}} variant="primary"
+                                    onClick={handleReviewChange}>
                                 Submit Review
                             </Button>
                         </Form>

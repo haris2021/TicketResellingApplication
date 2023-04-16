@@ -38,7 +38,7 @@ const tuitsSlice = createSlice({
                                                state.tuits = []
                                            },
                                        [findTuitsThunk.fulfilled]:
-                                           (state, { payload }) => {
+                                           (state, {payload}) => {
                                                state.loading = false
                                                state.tuits = payload
                                            },
@@ -47,19 +47,19 @@ const tuitsSlice = createSlice({
                                                state.loading = false
                                                state.error = action.error
                                            },
-                                       [deleteTuitThunk.fulfilled] :
-                                           (state, { payload }) => {
+                                       [deleteTuitThunk.fulfilled]:
+                                           (state, {payload}) => {
                                                state.loading = false
                                                state.tuits = state.tuits
                                                    .filter(t => t._id !== payload)
                                            },
                                        [createTuitThunk.fulfilled]:
-                                           (state, { payload }) => {
+                                           (state, {payload}) => {
                                                state.loading = false
                                                state.tuits.push(payload)
                                            },
                                        [updateTuitThunk.fulfilled]:
-                                           (state, { payload }) => {
+                                           (state, {payload}) => {
                                                state.loading = false
                                                const tuitNdx = state.tuits
                                                    .findIndex((t) => t._id === payload._id)
@@ -85,9 +85,10 @@ const tuitsSlice = createSlice({
                                        },
                                        todoLikeToggle(state, action) {
                                            const tuitStat = state.find((tuitStat) =>
-                                                                           tuitStat._id === action.payload._id)
+                                                                           tuitStat._id
+                                                                           === action.payload._id)
 
-                                           if(tuitStat.liked === false) {
+                                           if (tuitStat.liked === false) {
                                                tuitStat.likes++;
                                                tuitStat.liked = true;
                                            } else {

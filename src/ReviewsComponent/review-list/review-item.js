@@ -19,7 +19,6 @@ const ReviewItem = ({reviewItem}) => {
     return (
         <li className="list-group-item">
             <div className="row align-items-center">
-
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
                          width={"100%"}

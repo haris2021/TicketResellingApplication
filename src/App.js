@@ -20,6 +20,7 @@ import reviews from "./Reducers/reviews-reducer";
 import UserLoginReducer from "./Reducers/UserLogin-Reducer.js"
 
 import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
+import SearchComponent from './components/search';
 
 const store = configureStore({
                                  reducer: {
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
                     <Route path="/moreInfo" element={<AllUserCard/>}/>
+                    <Route path="/search/*" element={<SearchComponent/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

@@ -1,0 +1,41 @@
+.list-group{
+	width: 90% !important;
+
+}
+
+.list-group-item{
+	margin-top:10px;
+	border-radius: none; 
+	background: #5E35B1 !important;;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+
+.list-group-item:hover{
+	transform: scaleX(1.1);
+}
+
+
+
+.check{
+	opacity: 0;
+	transition: all 0.6s ease-in-out;
+}
+
+.list-group-item:hover .check {
+	opacity: 1;
+
+}
+
+.about span{
+	
+	margin-right: 10px;
+
+}
+
+
+.search-width{
+    height: 50px;
+    width: 110px;
+}

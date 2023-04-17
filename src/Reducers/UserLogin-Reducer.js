@@ -8,7 +8,7 @@ import {
     UpdateLogInThunk
 } from "../Services/Users-Thunks.js";
 
-const InitialState  =
+const InitialState =
     {
         login : JSON.parse(localStorage.getItem('u')) ? true:false,
         u : JSON.parse(localStorage.getItem('u')) || {},
@@ -77,7 +77,7 @@ const UserLoginSlice  = createSlice({
             localStorage.removeItem('u');
         }
     }
-                                      });
+});
 
 
 export const { loadUserFromStorage, logoutUser } = UserLoginSlice.actions;

@@ -1,9 +1,8 @@
 import "./index.css"
 import EachCategoryCard from "./EachCategoryCard/EachCategoryCard.js";
 
-const CategoriesCard = ( ) =>
-{
-    return(
+const CategoriesCard = () => {
+    return (
         <div className="wd-categoriescarddiv">
 
             <EachCategoryCard/>

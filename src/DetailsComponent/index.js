@@ -5,7 +5,7 @@ import {findDetailsThunk} from "../Services/details-thunk";
 
 import Navigation from "../Home/Navigation/index.js"
 
-const Profile = () => {
+const DetailsComponent = () => {
     const {details, loading} = useSelector(state => state.details)
     const dispatch = useDispatch();
     useEffect(() => {
@@ -13,9 +13,7 @@ const Profile = () => {
     }, [])
     return (
         <div>
-
             <Navigation/>
-
             <ul className="list-group">
                 {
                     loading &&
@@ -35,4 +33,4 @@ const Profile = () => {
 
 };
 
-export default Profile;
+export default DetailsComponent;

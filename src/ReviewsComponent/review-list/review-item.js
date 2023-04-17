@@ -1,59 +1,49 @@
-import {faCheckCircle,} from '@fortawesome/free-solid-svg-icons'
+import {faHeart, faHeart as regularHeart} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
-import TuitStatItem from "../tuit-stats/tuit-stat-rep";
-import {useDispatch} from "react-redux";
-import {deleteTuitThunk} from "../../services/tuits-thunk";
 
-const TuitItem = (
-    {
-        tuititem = {
-            "_id": "123",
-            "topic": "Space",
-            "userName": "SpaceX",
-            "title": "Tesla Cybertruck lands on Mars and picks up the Curiosity rover on its 6' bed",
-            "time": "2h",
-            "liked": true,
-            "comments": 123,
-            "retweets": 432,
-            "likes": 2345,
-            "handle": "@spacex",
-            "tuit": "You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about. It’s about believing in the future and thinking that the future will be better than the past. And I can’t think of anything more exciting than going out there and being among the stars. You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about. It’s about believing in the future and thinking that the future will be better than the past. And I can’t think of anything more exciting than going out there and being among the stars",
-            "image": "tesla.jpeg",
-        }
-    }
-) => {
-    const dispatch = useDispatch();
-    const deleteTuitHandler = (id) => {
-        dispatch(deleteTuitThunk(id));
-    }
-    console.log(tuititem)
+const toggleLike = (reviewStat) => {
+    alert("Liked review")
+    // dispatch(updateTuitThunk({
+    //                              ...tuitStat,
+    //                              liked: !tuitStat.liked,
+    //                              likes: (tuitStat.liked === true) ? tuitStat.likes - 1
+    //                                                               : tuitStat.likes + 1
+    //                          }))
+    // // dispatch(todoLikeToggle(tuitStat));
+}
+
+const ReviewItem = ({reviewItem}) => {
+    console.log(JSON.stringify(reviewItem) + "in review now");
+
     return (
-        <li className="list-group-item b-0 bg-transparent">
-            <div className="row align-top">
-                <div className="col-1"><img src={`/images/${tuititem.avatar}`}
-                                            className="rounded-circle"
-                                            width={40} alt="Avatar"/>
+        <li className="list-group-item">
+            <div className="row align-items-center">
+
+                <div className="col-sm-2">
+                    <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
+                         width={"100%"}
+                         alt="Avatar"/>
+                    <span className="wd-time-handle-color">{reviewItem.userHandle}</span>
                 </div>
 
-                <div className="col-10">
-                    <span><b>{tuititem.userName}</b> <FontAwesomeIcon
-                        className={"wd-twitter-button"} icon={faCheckCircle}/></span> <span
-                    className={"wd-time-handle-color"}>{tuititem.userHandle} .</span> <span
-                    className={"wd-time-handle-color"}>{tuititem.time}</span>
-                    <br/>
-                    <span>{tuititem.tweet}</span>
-                </div>
-                <div className="col-1">
-                    <i className="fa-solid fa-ellipsis pe-2"></i>
-                    <i className="bi bi-x-lg float-end"
-                       onClick={() => deleteTuitHandler(tuititem._id)}></i>
+                <div className="col-sm-10">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <span className="wd-time-handle-color"
+                              style={{flex: 1}}>{reviewItem.review}</span>
+
+                        <span className="d-flex align-items-center">
+                            <a onClick={() => toggleLike(reviewItem)}>
+                            <FontAwesomeIcon color={reviewItem.liked ? "red" : "darkgray"}
+                                             icon={reviewItem.liked ? faHeart : regularHeart}/>
+                            </a>
+                            <span className="ml-2">{reviewItem.likes}</span>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <TuitStatItem
-                key={tuititem._id} tuititem={tuititem}/>
         </li>
     );
 };
 
-export default TuitItem;
+export default ReviewItem;

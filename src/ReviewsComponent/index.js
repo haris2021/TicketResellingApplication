@@ -1,10 +1,9 @@
 import React from "react";
+import ReviewList from "./review-list";
 
 const Reviews = () => {
     return (
-        <>
-            <ReviewList/>
-        </>
+        <ReviewList/>
     );
 };
 export default Reviews;

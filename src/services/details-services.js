@@ -1,20 +1,9 @@
-import details from '../Data/details.json';
+import axios from "axios";
 
-const DETAILS_API = 'http://localhost:4000/api/details';
-
-const reviews = [];
+const DETAILS_API = 'http://localhost:4000/api/events';
 
 export const findDetails = async () => {
-    // const response = await axios.get(DETAILS_API);
-    // const details = response;
-    // await console.log(JSON.stringify(details) + " in services");
+    const response = await axios.get(DETAILS_API);
+    const details = await response.data;
     return details;
-}
-
-export const createReview = async (review) => {
-    alert("hello reviews");
-    reviews.push(review);
-    console.log(reviews);
-    // const response = await axios.post(DETAILS_API, review)
-    // return response.data;
 }

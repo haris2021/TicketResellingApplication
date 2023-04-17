@@ -1,6 +1,5 @@
 import './App.css';
 import 'bootstrap';
-
 import AuthForm from './login/AuthForm'
 import EventForm from './sellTicket/sellTicket.js'
 import DetailsComponent from "./DetailsComponent/index.js"
@@ -17,6 +16,7 @@ import {Provider} from "react-redux";
 
 import ConcertReducer from "./Reducers/Concert-Reducer.js";
 import details from "./Reducers/detail-reducer.js";
+import reviews from "./Reducers/reviews-reducer";
 import UserLoginReducer from "./Reducers/UserLogin-Reducer.js"
 
 import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
@@ -26,7 +26,8 @@ const store = configureStore({
                                      ConcertData: ConcertReducer,
                                      details: details,
                                      UserLogin: UserLoginReducer,
-                                     UserInfo: UserInfoReducer
+                                     UserInfo: UserInfoReducer,
+                                     reviews: reviews
                                  }
                              })
 

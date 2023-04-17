@@ -44,23 +44,15 @@ const NavComponent = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     */}
-                    <div className="collapse navbar-collapse wd-lol" id="navbarNavDropdown">
-                        <ul className="navbar-nav wd-lop">
-                            <Link to="/details" className="wd-removeunderline">Concerts</Link>
-                        </ul>
-                        <ul className="navbar-nav ">
-                            <Link to="/details" className="wd-removeunderline">Movies</Link>
-                        </ul>
-                    </div>
+
                 </div>
 
                 <div className="wd-dropdown">
 
-                    <Link className="wd-signin" to="/logIn">Sign In/ Up </Link>
 
                     {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login" to="/logIn"> LogIn </Link> }
-                    {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
                     {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/createEvent"> Create Event </Link> : " " }
+                    {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
                     {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/Profile"> My Tickets </Link>: " "  }
                     <CgProfile size={25} className={ u._id ? "wd-signinlogo " : "wd-signinlogowithoutlogin" } />
                 </div>

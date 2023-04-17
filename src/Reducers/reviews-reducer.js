@@ -1,10 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findReviewsThunk} from "../Services/reviews-thunk";
+import {createReviewThunk, findReviewsThunk} from "../Services/reviews-thunk";
+import {createReview} from "../Services/reviews-services";
 
 const initialState = {
     review : [],
     reviewsLoading: false
 }
+
 
 const reviewsSlice = createSlice({
                                      name: 'reviews',
@@ -25,20 +27,20 @@ const reviewsSlice = createSlice({
                                                  state.reviewsLoading = false
                                                  state.review = action.error
                                              },
-                                         // [createTuitThunk.fulfilled]:
-                                         //     (state, {payload}) => {
-                                         //         state.reviewLoading = false
-                                         //         state.reviews.push(payload)
-                                         //     },
+                                         [createReviewThunk.fulfilled]:
+                                             (state, { payload }) => {
+                                                 state.loading = false
+                                                 state.review.push(payload)
+                                             },
                                      },
                                      // reducers: {
                                      //     createTuit(state, action) {
                                      //         state.unshift({
                                      //                           ...action.payload,
-                                     //                           ...templateTuit,
-                                     //                           _id: (new Date()).getTime(),
+                                     //                           ...templateReview,
                                      //                       })
                                      //     },
+                                     // }
                                      //     todoLikeToggle(state, action) {
                                      //         const tuitStat = state.find((tuitStat) =>
                                      //                                         tuitStat._id
@@ -48,6 +50,6 @@ const reviewsSlice = createSlice({
                                      // tuitStat.likes--; tuitStat.liked = false; } } }
                                  });
 
-// export const {todoLikeToggle, createTuit} = reviewsSlice.actions;
+export const {createTuit} = reviewsSlice.actions;
 export default reviewsSlice.reducer;
 

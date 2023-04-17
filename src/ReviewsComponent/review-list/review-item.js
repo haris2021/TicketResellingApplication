@@ -14,10 +14,8 @@ const toggleLike = (reviewStat) => {
 }
 
 const ReviewItem = ({reviewItem}) => {
-    console.log(JSON.stringify(reviewItem) + "in review now");
-
     return (
-        <li className="list-group-item">
+        <li className="list-group-item border-0">
             <div className="row align-items-center">
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"

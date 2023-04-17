@@ -7,3 +7,9 @@ export const findReviews = async () => {
     const reviews = await response.data;
     return reviews;
 }
+
+export const createReview = async (review) => {
+    console.log(JSON.stringify(review) + "in service")
+    const response = await axios.post(REVIEWS_API, review)
+    return response.data;
+}

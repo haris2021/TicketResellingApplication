@@ -18,14 +18,6 @@ const Search = ( ) =>
             </div>
 
             <span className="wd-textoverimage"> Find your next Memory</span>
-
-
-            <div className="input-group mb-3 wd-inputbox">
-                <input type="text" className="form-control" placeholder="Search for Events"
-                       aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-                <span className="input-group-text wd-searchtxt" id="basic-addon2">Search</span>
-            </div>
-
                     <div className="input-group mb-3 wd-inputbox">
                         <input type="text" className="form-control" 
                                 onChange={(e) => { setSearch(e.target.value) }}

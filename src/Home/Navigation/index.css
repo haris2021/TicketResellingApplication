@@ -1,4 +1,4 @@
-
+/*
 
 .wd-logo
 {
@@ -26,17 +26,6 @@
     color: grey;
 }
 
-.wd-removeunderline
-{
-    text-decoration: none;
-    color:grey;
-    font-weight: bolder;
-
-}
-
-.wd-removeunderline:hover {
-    color: grey;
-}
 
 .wd-signinlogo
 {
@@ -52,22 +41,20 @@
 .wd-lol
 {
     font-weight: bolder;
+}*/
+
+.wd-removeunderline
+{
+    text-decoration: none;
+    color:grey;
+    font-weight: bolder;
+
 }
 
-
+.wd-removeunderline:hover {
+    color: grey;
+}
 @media (max-width: 649px) {
-
-}
-
-
-@media(min-width: 650px)
-and (max-width: 767px){
-
-}
-
-
-@media (min-width: 768px)
-and (max-width: 991px){
 
 
     .wd-logo
@@ -102,7 +89,7 @@ and (max-width: 991px){
 
     .wd-withoutlogin
     {
-        margin-left: 50px;
+        margin-left: 200px;
     }
 
     .wd-wholediv
@@ -114,7 +101,7 @@ and (max-width: 991px){
     {
         font-weight: bold;
         font-size: medium;
-        margin-right: 10px;
+        margin-right: 20px;
     }
 
     .wd-login
@@ -122,10 +109,144 @@ and (max-width: 991px){
         font-weight: bolder;
         text-decoration: none;
         color:grey;
-        padding-left: 10px;
+        padding-left: 100px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
     }
 
 
+}
+
+
+@media(min-width: 650px)
+and (max-width: 767px){
+
+
+    .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-withoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
+    }
+
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 20px;
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 2px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+
+
+}
+
+
+@media (min-width: 768px)
+and (max-width: 991px){
+      .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+        background-color: red;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 1px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
+    }
+
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
+    }
+
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 30px;
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        background-color: red;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
 }
 
 @media (min-width: 992px)
@@ -161,11 +282,6 @@ and (max-width: 1199px){
         margin-left: 10px;
     }
 
-    .wd-withoutlogin
-    {
-        margin-left: 50px;
-    }
-
     .wd-wholediv
     {
         margin-top:30px!important;
@@ -175,7 +291,8 @@ and (max-width: 1199px){
     {
         font-weight: bold;
         font-size: medium;
-        margin-right: 40px;
+        margin-right: 30px;
+        margin-left: 50px;
     }
 
     .wd-login
@@ -183,8 +300,14 @@ and (max-width: 1199px){
         font-weight: bolder;
         text-decoration: none;
         color:grey;
-        padding-left: 120px;
+        padding-left: 130px;
     }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+
 
 
 }
@@ -236,7 +359,6 @@ and (max-width: 1400px){
     {
         font-weight: bold;
         font-size: medium;
-        background-color: red!important;
         margin-right: 20px;
     }
 
@@ -250,11 +372,8 @@ and (max-width: 1400px){
 
     .wd-navlinks
     {
-        display: inline-block;
-
+        display: inline!important;
     }
-
-
 
 
 }

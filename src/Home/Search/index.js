@@ -19,6 +19,7 @@ const Search = ( ) =>
 
             <span className="wd-textoverimage"> Find your next Memory</span>
                     <div className="input-group mb-3 wd-inputbox">
+
                         <input type="text" className="form-control" 
                                 onChange={(e) => { setSearch(e.target.value) }}
                                aria-label="Recipient's username"

@@ -2,13 +2,13 @@ import "./AllUserCard.css"
 
 import EachUserCard from "../EachUserCard/EachUserCard.js"
 
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 import Navigation from "../../Home/Navigation/index.js"
 
 const AllUserCard = () => {
 
-    const {allusers,loading} = useSelector(state => state.UserLogin);
+    const {allusers, loading} = useSelector(state => state.UserLogin);
 
     return (
         <div className="wd-eachcategorydiv">
@@ -25,7 +25,7 @@ const AllUserCard = () => {
                     allusers.map((Event) =>
                                      <div className="col-sm-6 col-md-4 col-lg-3">
                                          <EachUserCard key={Event._id}
-                                                    post={Event}
+                                                       post={Event}
                                          />
                                      </div>
                     )

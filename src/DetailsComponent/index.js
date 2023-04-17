@@ -5,34 +5,32 @@ import {findDetailsThunk} from "../Services/details-thunk";
 
 import Navigation from "../Home/Navigation/index.js"
 
-const Profile = () => {
+const DetailsComponent = () => {
     const {details, loading} = useSelector(state => state.details)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findDetailsThunk())
     }, [])
     return (
-      <div>
+        <div>
+            <Navigation/>
+            <ul className="list-group">
+                {
+                    loading &&
+                    <li className="list-group-item">
+                        Loading...
+                    </li>
+                }
+                {
+                    details.map((detail) =>
+                                    <DetailInformation key={detail._id} details={detail}/>)
+                }
+            </ul>
 
-          <Navigation/>
-
-          <ul className="list-group">
-              {
-                  loading &&
-                  <li className="list-group-item">
-                      Loading...
-                  </li>
-              }
-              {
-                  details.map((detail) =>
-                                  <DetailInformation key={detail._id} details={detail}/>)
-              }
-          </ul>
-
-      </div>
+        </div>
 
     );
 
 };
 
-export default Profile;
+export default DetailsComponent;

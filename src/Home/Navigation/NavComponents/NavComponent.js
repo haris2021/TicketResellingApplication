@@ -5,21 +5,19 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {LogOutThunk} from "../../../Services/Users-Thunks.js";
 
-const NavComponent = ( ) =>
-{
-    const { u } = useSelector(state => state.UserLogin);
+const NavComponent = () => {
+    const {u} = useSelector(state => state.UserLogin);
     console.log("Before Login In " + u._id);
 
     const dispatch = useDispatch();
 
-    const CallLogOut = ( )=>
-    {
+    const CallLogOut = () => {
         console.log("Calling login");
         dispatch(LogOutThunk());
 
     }
 
-    return(
+    return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
@@ -40,10 +38,14 @@ const NavComponent = ( ) =>
                 <div className="wd-dropdown">
                     <Link className="wd-signin" to="/logIn">Sign In/ Up </Link>
 
-                    {u._id ?  <Link className="wd-signin" to="/Profile"> Profile </Link> :  <Link className="wd-signin" to="/logIn"> LogIn </Link> }
-                    {u._id ? <Link className="wd-signin" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
-                    {u.Role === 'User' ? <Link className="wd-signin" to="/createEvent"> Create Event </Link> : " " }
-                    {u.Role === 'Seller' ? <Link className="wd-signin" to="/Profile"> My Tickets </Link>: " "  }
+                    {u._id ? <Link className="wd-signin" to="/Profile"> Profile </Link> : <Link
+                        className="wd-signin" to="/logIn"> LogIn </Link>}
+                    {u._id ? <Link className="wd-signin" to="/" onClick={CallLogOut}> LogOut </Link>
+                           : " "}
+                    {u.Role === 'User' ? <Link className="wd-signin" to="/createEvent"> Create
+                        Event </Link> : " "}
+                    {u.Role === 'Seller' ? <Link className="wd-signin" to="/Profile"> My
+                        Tickets </Link> : " "}
 
                     <CgProfile size={25} className="wd-signinlogo"/>
                 </div>

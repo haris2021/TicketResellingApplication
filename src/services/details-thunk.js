@@ -5,8 +5,4 @@ export const findDetailsThunk = createAsyncThunk(
     '/details', async () => await service.findDetails()
 )
 
-export const createDetailsThunk = createAsyncThunk(
-    '/details', async (review) => {
-        return await service.createReview(review)
-    })
 

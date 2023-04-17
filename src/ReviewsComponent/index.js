@@ -1,11 +1,9 @@
 import React from "react";
-import TuitList from "./tuits-list"
+import ReviewList from "./review-list";
 
 const Reviews = () => {
-    return(
-        <>
-            <ReviewList/>
-        </>
+    return (
+        <ReviewList/>
     );
 };
 export default Reviews;

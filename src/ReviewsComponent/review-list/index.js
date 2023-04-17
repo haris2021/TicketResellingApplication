@@ -1,28 +1,28 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {findTuitsThunk} from "../../services/tuits-thunk";
-import TuitItem from "./tuit-item";
+import {findReviewsThunk} from "../../Services/reviews-thunk";
+import ReviewItem from "./review-item";
 
-const TuitList = () => {
-    const {tuits, loading} = useSelector(state => state.tuits)
+const ReviewList = () => {
+    const {review, reviewsLoading} = useSelector(state => state.reviews)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(findTuitsThunk())
+        dispatch(findReviewsThunk())
     }, [])
+
     return (
         <ul className="list-group">
             {
-                loading &&
+                reviewsLoading &&
                 <li className="list-group-item">
                     Loading...
                 </li>
             }
             {
-                tuits.map((tuititem) =>
-                              <TuitItem
-                                  key={tuititem._id} tuititem={tuititem}/>)
+                review.map((review) =>
+                                <ReviewItem key={review._id} reviewItem={review}/>)
             }
         </ul>
     );
 };
-export default TuitList;
+export default ReviewList;

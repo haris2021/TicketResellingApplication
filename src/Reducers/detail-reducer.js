@@ -1,11 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {createDetailsThunk, findDetailsThunk} from "../Services/details-thunk";
+import {findDetailsThunk} from "../Services/details-thunk";
 
 const initialState = {
     details: [],
     loading: false
 }
-
 
 const detailsSlice = createSlice({
                                      name: "details",

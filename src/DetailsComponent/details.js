@@ -1,34 +1,33 @@
 import React, {useState} from 'react';
-import {Button, ButtonGroup, Col, Container, Form, Image, Row} from 'react-bootstrap';
+import {Button, ButtonGroup, Col, Container, Image, Row} from 'react-bootstrap';
 import {faCalendarAlt, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router";
-import {createDetailsThunk, createTuitThunk} from "../Services/details-thunk";
-import {useDispatch} from "react-redux";
+import Reviews from "../ReviewsComponent";
 
 function DetailInformation({details}) {
-    const [review, setReview] = useState('');
+    // const [review, setReview] = useState('');
     const [count, setCount] = useState(0);
-    const [existingReview, setExistingReview] = useState(details.reviews);
+    // const [existingReview, setExistingReview] = useState(details.reviews);
+    //
+    // const dispatch = useDispatch();
+    // const handleReviewChange = () => {
+    //     alert("called");
+    //     const newReview = {
+    //         newReview: review
+    //     }
+    //     console.log(newReview);
+    //     // dispatch(createDetailsThunk(newReview));
+    //     // setReview(event.target.value);
+    // };
 
-    const dispatch = useDispatch();
-    const handleReviewChange = () => {
-        alert("called");
-        const newReview = {
-            newReview: review
-        }
-        console.log(newReview);
-        // dispatch(createDetailsThunk(newReview));
-        // setReview(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (review.trim() !== "") {
-            setExistingReview(review);
-            setReview("");
-        }
-    };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if (review.trim() !== "") {
+    //         setExistingReview(review);
+    //         setReview("");
+    //     }
+    // };
     const [buttonText, setButtonText] = useState('Follow');
 
     const followBtn = () => {
@@ -119,27 +118,31 @@ function DetailInformation({details}) {
                             <Button variant="success" onClick={handlePlusClick}>+</Button>
                         </ButtonGroup>
                     </div>
-                    <div className="container mt-5">
-                        {existingReview && (
-                            <div className="p-3 mb-3 bg-light">
-                                <h4>Reviews:</h4>
-                                <p>{existingReview}</p>
-                            </div>
-                        )}
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="exampleForm.ControlTextarea1">
-                                <Form.Label>Write a Review</Form.Label>
-                                <Form.Control
-                                    as="textarea"
-                                    rows={3}
-                                    value={review}
-                                    onChange={(event) => setReview(event.target.value)}
-                                />
-                            </Form.Group>
-                            <Button style={{marginTop: 12}} variant="primary" onClick={handleReviewChange}>
-                                Submit Review
-                            </Button>
-                        </Form>
+                    {/*<div className="container mt-5">*/}
+                    {/*    {existingReview && (*/}
+                    {/*        <div className="p-3 mb-3 bg-light">*/}
+                    {/*            <h4>Reviews:</h4>*/}
+                    {/*            <p>{existingReview}</p>*/}
+                    {/*        </div>*/}
+                    {/*    )}*/}
+                    {/*    <Form onSubmit={handleSubmit}>*/}
+                    {/*        <Form.Group controlId="exampleForm.ControlTextarea1">*/}
+                    {/*            <Form.Label>Write a Review</Form.Label>*/}
+                    {/*            <Form.Control*/}
+                    {/*                as="textarea"*/}
+                    {/*                rows={3}*/}
+                    {/*                value={review}*/}
+                    {/*                onChange={(event) => setReview(event.target.value)}*/}
+                    {/*            />*/}
+                    {/*        </Form.Group>*/}
+                    {/*        <Button style={{marginTop: 12}} variant="primary"*/}
+                    {/*                onClick={handleReviewChange}>*/}
+                    {/*            Submit Review*/}
+                    {/*        </Button>*/}
+                    {/*    </Form>*/}
+                    {/*</div>*/}
+                    <div className={"mt-3"}>
+                        <Reviews/>
                     </div>
                 </Col>
             </Row>

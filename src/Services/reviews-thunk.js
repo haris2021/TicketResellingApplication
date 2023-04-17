@@ -10,3 +10,9 @@ export const createReviewThunk = createAsyncThunk(
         const newReview = await service.createReview(tuit)
         return newReview
     })
+
+export const updateReviewThunk = createAsyncThunk(
+    '/reviews/updateReview',
+    async (review) =>
+        await service.updateReview(review)
+)

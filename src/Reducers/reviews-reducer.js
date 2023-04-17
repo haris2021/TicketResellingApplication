@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {createReviewThunk, findReviewsThunk} from "../Services/reviews-thunk";
+import {createReviewThunk, findReviewsThunk, updateReviewThunk} from "../Services/reviews-thunk";
 import {createReview} from "../Services/reviews-services";
 
 const initialState = {
@@ -32,6 +32,16 @@ const reviewsSlice = createSlice({
                                                  state.loading = false
                                                  state.review.push(payload)
                                              },
+                                         [updateReviewThunk.fulfilled]:
+                                             (state, { payload }) => {
+                                                 state.loading = false
+                                                 const reviewNdx = state.review
+                                                     .findIndex((t) => t._id === payload._id)
+                                                 state.review[reviewNdx] = {
+                                                     ...state.review[reviewNdx],
+                                                     ...payload
+                                                 }
+                                             }
                                      },
                                      // reducers: {
                                      //     createTuit(state, action) {

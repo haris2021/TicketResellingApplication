@@ -1,16 +1,52 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
 import * as service from "./Users-services.js"
+import axios from "axios";
 
-export const GetUser = createAsyncThunk('/profile', async ( ) => await service.GetUser());
+/*
+export const GetProfileInfoThunk = createAsyncThunk('/profile', async ( ) =>{
 
-export const DeleteUser = createAsyncThunk('/delete', async ( userid ) => {
-    await service.DeleteUser(id)
+    console.log("Inside Getprofile Thunk");
+    const currentUser = await service.GetProfileInfo();
+    console.log("From thunks Current user" , currentUser );
+    return currentUser;
+});
+*/
+
+export const LogInThunk = createAsyncThunk('/login', async ({Username, Password}) => {
+    console.log("Inside Login thunks");
+    const userinfo =  await service.Login(Username,Password)
+    console.log(userinfo.Username);
+    console.log(userinfo.Password);
+    console.log("Returned from service" , userinfo);
+    return  userinfo;
 });
 
-export const UpdateUser = createAsyncThunk ('/update' , async (user) =>{
+export const UpdateLogInThunk = createAsyncThunk('/editProfile', async (UpdatedUser) =>{
 
-   const Updateu =  await service.UpdateUser(user);
-   return Updateu;
+    console.log("Inside Updated profile");
+    const userInfo = await service.Update(UpdatedUser);
+    console.log("From service", userInfo);
+    return userInfo;
+});
 
+export const DeleteUserThunk = createAsyncThunk ('/profile', async ( userid)=>{
+
+    console.log("Delete user of id", userid);
+    const Response = await service.Delete(userid);
+    console.log(Response);
+});
+
+export const CreateUserThunk = createAsyncThunk('/createProfile', async(newuser) =>
+{
+    console.log("Inside Create USER Thunk", newuser);
+    const reponse = await service.Create(newuser);
+    console.log(reponse);
+});
+
+export const LogOutThunk = createAsyncThunk ('/profile', async () =>{
+
+    console.log("Inside LogOut Thunk");
+    const response = await service.Logout();
+    console.log("From service" + response);
 });

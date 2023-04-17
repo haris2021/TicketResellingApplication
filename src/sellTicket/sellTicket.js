@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
+
+
+
 import './sellTicket.css'
 import axios from "axios";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createEventThunk} from "../Services/Event-Thunks.js";
 
+import Navigation from "../Home/Navigation/index.js"
+import {useNavigate} from "react-router";
+
+
 function EventForm() {
+
+    const {u} = useSelector (state => state.UserLogin);
     const [Ename, setEname] = useState("");
     const [Elocation, setElocation] = useState("");
     const [Edescription, setEdescription] = useState("");
@@ -19,6 +28,8 @@ function EventForm() {
     const [Eorganizer, setEorganizer] = useState("");
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,11 +45,11 @@ function EventForm() {
                         Eimage,
                         EshortDescription,
                         Ecategory,
-                        Eorganizer,
+                        Eorganizer:u._id,
                     },
         }
         dispatch(createEventThunk(newEvent.data));
-
+        navigate('/');
     }
     return (
         <div className="d-flex justify-content-center align-items-center h-100 auth-container">
@@ -135,6 +146,7 @@ function EventForm() {
                 </Card.Body>
             </Card>
         </div>
+
     );
 }
 

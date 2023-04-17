@@ -1,6 +1,5 @@
 import "./index.css"
 import Navigation from "./Navigation/index.js";
-import Categories from "./Categories/index.js";
 import Search from "./Search/index.js";
 import CategoriesCard from "./CategoriesCard/index.js";
 import FootBar from "./FootBar/FootBar.js";

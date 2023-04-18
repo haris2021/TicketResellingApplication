@@ -1,12 +1,15 @@
 import './index.css';
 
 import {useDispatch, useSelector} from "react-redux";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
 import {GetAllUserThunk} from "../../Services/Users-Thunks";
 
 import Navigation from "../../Home/Navigation/index.js"
-
+import ListOfEvents from "./ListOfEvents.js";
+import {findDetailsThunk} from "../../Services/details-thunk";
+import {FindAllEventsByUserThunk} from "../../Services/Concert-thunks.js";
+import EachEvent from "../../Home/CategoriesCard/EachEvent/EachEvent";
 const ProfileComponent = () => {
 
     const [editprofile, seteditprofile] = useState(false);
@@ -35,6 +38,25 @@ const ProfileComponent = () => {
     }
 
     const {u} = useSelector(state => state.UserLogin);
+    const {EventsByUser} = useSelector(state => state.ConcertData);
+
+   /* const Send = () => {
+        console.log("hello");
+        console.log(u._id);
+        dispatch(FindAllEventsByUserThunk(u._id));
+
+    }*/
+    useEffect(() => {
+        dispatch(FindAllEventsByUserThunk(u._id));
+    }, [])
+
+
+    const FollowBtn = () =>
+    {
+        console.log("Follow Btn");
+    }
+
+    console.log(JSON.stringify(EventsByUser));
 
     return (
 
@@ -63,7 +85,7 @@ const ProfileComponent = () => {
                                                     Developer</p>
                                                 <p className="text-muted font-size-sm">Bay Area, San
                                                     Francisco, CA</p>
-                                                <button className="btn btn-primary">Follow</button>
+                                                <button className="btn btn-primary" onClick={ FollowBtn } >Follow</button>
                                                 <button
                                                     className="btn btn-outline-primary">Message
                                                 </button>
@@ -217,10 +239,36 @@ const ProfileComponent = () => {
                                  <div className="row gutters-sm">
                                      <div className="col-sm-6 mb-3">
                                          <div className="card h-100">
+
                                              <div className="card-body">
+
                                                  <h6 className="d-flex align-items-center mb-3"><i
                                                      className="material-icons text-info mr-2">Listings</i>
                                                  </h6>
+
+                                                     <ul className="list-group list-group-flush">
+
+
+                                                        {/* {
+                                                             loading && <li className="list-group-item">
+                                                                         Loading...
+                                                                     </li>
+                                                         }*/}
+
+                                                         {
+
+                                                            /* EventsByUser.map((Event) =>
+                                                                                  <ListOfEvents
+                                                                                      key={Event._id}
+                                                                                      post={Event}
+                                                                                  />
+                                                             )*/
+
+                                                         }
+
+                                                     < /ul>
+
+
 
                                              </div>
                                          </div>
@@ -231,6 +279,16 @@ const ProfileComponent = () => {
                                                  <h6 className="d-flex align-items-center mb-3"><i
                                                      className="material-icons text-info mr-2">Following</i>
                                                  </h6>
+
+                                                 <ul className="list-group list-group-flush">
+
+                                                     <li className="list-group-item">A fourth item
+                                                     </li>
+                                                     <li className="list-group-item">And a fifth
+                                                         one
+                                                     </li>
+                                                 </ul>
+
 
                                              </div>
                                          </div>

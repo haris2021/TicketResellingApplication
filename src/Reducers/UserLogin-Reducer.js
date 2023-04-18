@@ -63,8 +63,6 @@ const UserLoginSlice  = createSlice({
                     state.loading=false;
                 }
 
-
-
         },
     reducers:{
 

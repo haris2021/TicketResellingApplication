@@ -1,11 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {FindallConcertThunk} from "../Services/Concert-thunks";
+import {FindallConcertThunk, FindAllEventsByUserThunk} from "../Services/Concert-thunks.js";
 
 const InitialState =
     {
         Concerts: [],
-        loading: false
+        EventsbyUser : [],
+        loading: false,
+        loadingforEvents : false,
     };
 
 const ConcertSlice = createSlice({
@@ -16,19 +18,37 @@ const ConcertSlice = createSlice({
                                              [FindallConcertThunk.pending]:
                                                  (state) => {
                                                      state.loading = true
-                                                     state.concerts = []
+                                                     state.Concerts = []
                                                  },
                                              [FindallConcertThunk.fulfilled]:
                                                  (state, {payload}) => {
                                                      state.loading = false
-                                                     state.concerts = payload
+                                                     state.Concerts = payload
                                                  },
                                              [FindallConcertThunk.rejected]:
                                                  (state, action) => {
                                                      state.loading = false
-                                                     state.concerts = action.error
+                                                     state.Concerts = action.error
                                                  },
+                                             [FindAllEventsByUserThunk.pending]:
+                                                 (state) =>{
+                                                     state.loadingforEvents = true;
+                                                     state.EventsbyUser = []
+                                                 },
+
+                                             [FindAllEventsByUserThunk.fulfilled]:
+                                                 (state,{payload}) =>{
+                                                     state.loadingforEvents = false;
+                                                     state.EventsbyUser=  payload
+                                                     console.log("From reducer events" , state.EventsbyUser);
+                                                 },
+                                             [FindAllEventsByUserThunk.rejected]:
+                                                 (state,action) =>{
+                                                     state.loadingforEvents = true;
+                                                     state.EventsbyUser  =  action.error
+                                                 }
                                          }
+
 
                                  });
 

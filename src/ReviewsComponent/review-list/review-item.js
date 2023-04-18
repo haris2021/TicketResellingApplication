@@ -1,23 +1,23 @@
 import {faHeart, faHeart as regularHeart} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
-
-const toggleLike = (reviewStat) => {
-    alert("Liked review")
-    // dispatch(updateTuitThunk({
-    //                              ...tuitStat,
-    //                              liked: !tuitStat.liked,
-    //                              likes: (tuitStat.liked === true) ? tuitStat.likes - 1
-    //                                                               : tuitStat.likes + 1
-    //                          }))
-    // // dispatch(todoLikeToggle(tuitStat));
-}
+import {updateReviewThunk} from "../../Services/reviews-thunk";
+import {useDispatch} from "react-redux";
 
 const ReviewItem = ({reviewItem}) => {
-    console.log(JSON.stringify(reviewItem) + "in review now");
 
+    const dispatch = useDispatch();
+    const toggleLike = (reviewStat) => {
+        dispatch(updateReviewThunk({
+                                       ...reviewStat,
+                                       liked: !reviewStat.liked,
+                                       likes: (reviewStat.liked === true) ? reviewStat.likes - 1
+                                                                          : reviewStat.likes + 1
+                                   }))
+        // dispatch(todoLikeToggle(tuitStat));
+    }
     return (
-        <li className="list-group-item">
+        <li className="list-group-item border-0">
             <div className="row align-items-center">
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"

@@ -14,7 +14,6 @@ const ReviewItem = ({reviewItem}) => {
                                        likes: (reviewStat.liked === true) ? reviewStat.likes - 1
                                                                           : reviewStat.likes + 1
                                    }))
-        // dispatch(todoLikeToggle(tuitStat));
     }
     return (
         <li className="list-group-item border-0">

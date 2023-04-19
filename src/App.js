@@ -27,6 +27,7 @@ import SearchComponent from './components/search';
 
 
 import FollowingUserInfo from "./components/profile/FollowingUserInfo.js";
+import MyTicketsComponent from './components/myTickets';
 
 const store = configureStore({
                                  reducer: {
@@ -52,6 +53,7 @@ function App() {
                     <Route path="/importEvents" element={<SearchAndImport/>}/>
                     <Route path="/moreInfo" element={<AllUserCard/>}/>
                     <Route path="/search/*" element={<SearchComponent/>}/>
+                    <Route path="/myTickets" element={<MyTicketsComponent/>}/>
                 </Routes>
             </BrowserRouter>
         </Provider>

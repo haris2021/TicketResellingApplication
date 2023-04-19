@@ -1,9 +1,9 @@
+import "./index.css";
 import React from "react";
 import Navigation from "../../Home/Navigation/index.js";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { searchConcerts } from '../../Services/search-service.js'
-import "./index.css";
 
 const SearchComponent = () => {
     const location = useLocation();
@@ -35,25 +35,29 @@ const SearchComponent = () => {
                      >Search</button>
                 </div>
                 
-                <div class="container d-flex justify-content-center">
+                <div class=" d-flex justify-content-center">
 
                     <ul class="list-group  text-light">
                 {results.length > 0 && results.map((result) => {
                     return (
-                        <li class="list-group-item d-flex justify-content-between align-content-center">
+                        <li class="list-group-item  ">
                              <div className="row">
-                                <div class="col-4 ">
-                                    <img src="https://hbomax-images.warnermediacdn.com/images/GX9q5dgf0LMILwgEAAAF0/tile?size=1280x720&format=jpeg&partner=hbocom&v=a024e04a96b526e734f81f7fe74de1c3&host=art-gallery.api.hbo.com&w=1200" 
+                                <div class="col-2 mt-2 ">
+                                    <img src={result.Eimage}
                                     className="img-fluid rounded"
                                     alt={"event pic"}  />
                                 </div>
-                                <div className="col-8">
-                                    <div class="ms-3">
-                                        <div class="about">
+                                <div className="col-10">
+                                    <div className="ms-3">
+                                        <div className="about">
                                             <div className="h3 text-light">{result.Ename}</div>
                                             <div className="h4 text-light">{result.Edescription}</div>
-                                            <div className="h5 text-light">Location: {result.Elocation}</div>
-                                            <div className="h5 text-light">Date: {result.Edate}</div>
+                                            <div className="h5 text-light">
+                                                <span className="text-dark"><b>Location:</b></span>
+                                                 {result.Elocation}</div>
+                                            <div className="h5 text-light">
+                                            <span className="text-dark"><b>Date:</b></span>
+                                                {result.Edate}</div>
                                         </div>
                                     </div>
                                 </div>

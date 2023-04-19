@@ -37,9 +37,9 @@ const ConcertSlice = createSlice({
                                                  },
 
                                              [FindAllEventsByUserThunk.fulfilled]:
-                                                 (state,{payload}) =>{
+                                                 (state,action) =>{
                                                      state.loadingforEvents = false;
-                                                     state.EventsbyUser=  payload
+                                                     state.EventsbyUser=  action.payload
                                                      console.log("From reducer events" , state.EventsbyUser);
                                                  },
                                              [FindAllEventsByUserThunk.rejected]:

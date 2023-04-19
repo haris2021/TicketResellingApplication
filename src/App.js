@@ -22,6 +22,9 @@ import UserLoginReducer from "./Reducers/UserLogin-Reducer.js"
 import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
 import SearchComponent from './components/search';
 
+
+import FollowingUserInfo from "./components/profile/FollowingUserInfo.js";
+
 const store = configureStore({
                                  reducer: {
                                      ConcertData: ConcertReducer,
@@ -38,6 +41,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Home/>}/>
+                    <Route path="/check" element={<FollowingUserInfo/>}/>
                     <Route path="/logIn" element={<AuthForm/>}/>
                     <Route path="/editProfile" element={<EditProfile/>}/>
                     <Route path="/profile" element={<Profile/>}/>

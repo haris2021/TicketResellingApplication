@@ -2,6 +2,8 @@ import axios from "axios";
 
 const Users_API = "http://localhost:4000/api/users";
 
+const Followers_API = "http://localhost:4000/api/followers";
+
 export const Login = async (Username, Password) => {
     console.log(Username + Password);
     const response = await axios.post(`${Users_API}/login`, {Username, Password});
@@ -53,6 +55,16 @@ export const DeleteUserByAdmin = async (id) => {
     return response.data;
 
 }
+
+export const FindAllFollowers = async (id) =>
+{
+    console.log("Inside service", id);
+    const response = await axios.get(`${Followers_API}/following/${id}`);
+    console.log("From server" + response.data);
+    return response.data;
+}
+
+
 
 /*export const GetProfileInfo = async ( ) =>
 {

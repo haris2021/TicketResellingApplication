@@ -13,7 +13,7 @@ const NavComponent = () => {
     const dispatch = useDispatch();
 
     const CallLogOut = () => {
-        console.log("Calling login");
+        console.log("Calling logout");
         dispatch(LogOutThunk());
         dispatch( logoutUser());
 
@@ -29,13 +29,20 @@ const NavComponent = () => {
 
                             <ul className=" wd-navlinks navbar-nav wd-lop">
 
-                                <Link to="/details" className=" wd-removeunderline">Concerts</Link>
+                                {
+                                    u._id ? <Link   to="/details" className=" wd-removeunderline">Concerts</Link> :  <Link   to="/login" className=" wd-removeunderline">Concerts</Link>
+
+                                }
 
                             </ul>
 
                             <ul className=" wd-navlinks navbar-nav ">
 
-                                <Link to="/details" className="  wd-removeunderline">Movies</Link>
+                                {
+                                    u._id ?<Link to="/details" className="  wd-removeunderline">Movies</Link> :  <Link   to="/login" className=" wd-removeunderline">Movies</Link>
+
+                                }
+
 
                             </ul>
                     </div>

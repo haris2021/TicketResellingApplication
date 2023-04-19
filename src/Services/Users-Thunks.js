@@ -12,7 +12,7 @@ export const GetProfileInfoThunk = createAsyncThunk('/profile', async ( ) =>{
 });
 */
 
-export const LogInThunk = createAsyncThunk('/login', async ({Username, Password}) => {
+export const LogInThunk = createAsyncThunk('/profile/login', async ({Username, Password}) => {
     console.log("Inside Login thunks");
     const userinfo = await service.Login(Username, Password)
     console.log(userinfo.Username);
@@ -21,7 +21,7 @@ export const LogInThunk = createAsyncThunk('/login', async ({Username, Password}
     return userinfo;
 });
 
-export const UpdateLogInThunk = createAsyncThunk('/editProfile', async (UpdatedUser) => {
+export const UpdateLogInThunk = createAsyncThunk('/profile/editProfile', async (UpdatedUser) => {
 
     console.log("Inside Updated profile");
     const userInfo = await service.Update(UpdatedUser);
@@ -29,20 +29,20 @@ export const UpdateLogInThunk = createAsyncThunk('/editProfile', async (UpdatedU
     return userInfo;
 });
 
-export const DeleteUserThunk = createAsyncThunk('/profile', async (userid) => {
+export const DeleteUserThunk = createAsyncThunk('/profile/deleteuser', async (userid) => {
 
     console.log("Delete user of id", userid);
     const Response = await service.Delete(userid);
     console.log(Response);
 });
 
-export const CreateUserThunk = createAsyncThunk('/createProfile', async (newuser) => {
+export const CreateUserThunk = createAsyncThunk('profile/createProfile', async (newuser) => {
     console.log("Inside Create USER Thunk", newuser);
     const reponse = await service.Create(newuser);
     console.log(reponse);
 });
 
-export const LogOutThunk = createAsyncThunk('/profile', async () => {
+export const LogOutThunk = createAsyncThunk('/profile/logout', async () => {
 
     console.log("Inside LogOut Thunk");
     const response = await service.Logout();
@@ -57,7 +57,7 @@ export const GetAllUserThunk = createAsyncThunk('/moreInfo', async () => {
     return response;
 });
 
-export const DeleteUserAdminThunk = createAsyncThunk('/', async (id) => {
+export const DeleteUserAdminThunk = createAsyncThunk('/admin/deleteuser', async (id) => {
 
     console.log("Into DeleteUseAdminThunk");
     const response = await service.DeleteUserByAdmin(id);
@@ -65,3 +65,12 @@ export const DeleteUserAdminThunk = createAsyncThunk('/', async (id) => {
     return response;
 
 });
+
+export const FindFollowersThunk = createAsyncThunk ('/Profile/listofallfollowing', async (id) =>{
+
+    console.log("Inside Find Followers Thunk");
+    const response  = await service.FindAllFollowers(id);
+    console.log("From service", response);
+    return response;
+});
+

@@ -1,8 +1,7 @@
 import "./FootBar.css"
 
-const FootBar = ( ) =>
-{
-    return(
+const FootBar = () => {
+    return (
         <div>
 
             <div className="row wd-footrow1">

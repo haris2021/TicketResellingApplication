@@ -1,3 +1,4 @@
+/*
 
 .wd-logo
 {
@@ -25,17 +26,6 @@
     color: grey;
 }
 
-.wd-removeunderline
-{
-    text-decoration: none;
-    color:grey;
-    font-weight: bolder;
-
-}
-
-.wd-removeunderline:hover {
-    color: grey;
-}
 
 .wd-signinlogo
 {
@@ -51,44 +41,27 @@
 .wd-lol
 {
     font-weight: bolder;
-}
+}*/
 
-.wd-lop
+.wd-removeunderline
 {
-    margin-left: 150px;
-    margin-right: 10px;
+    text-decoration: none;
+    color:grey;
+    font-weight: bolder;
 
 }
 
-
-
-
+.wd-removeunderline:hover {
+    color: grey;
+}
 @media (max-width: 649px) {
 
-}
-
-
-@media(min-width: 650px)
-and (max-width: 767px){
-
-}
-
-
-@media (min-width: 768px)
-and (max-width: 991px){
-
-
-
-
-}
-
-@media (min-width: 992px)
-and (max-width: 1199px){
 
     .wd-logo
     {
-        width: 15%;
-        margin-left: 25px;
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
     }
 
     .wd-dropdown
@@ -101,16 +74,152 @@ and (max-width: 1199px){
     {
         border: none!important;
     }
+
     .wd-signin
     {
-        padding-right: 20px;
-        padding-left: 5px;
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
     }
 
-    .wd-signinlogo
+    .wd-signinlogowithoutlogin
     {
-        margin-left: 5px;
+        margin-left: 10px;
+    }
+
+    .wd-withoutlogin
+    {
+        margin-left: 200px;
+    }
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
+    }
+
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 20px;
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 100px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+
+
+}
+
+
+@media(min-width: 650px)
+and (max-width: 767px){
+
+
+    .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-withoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
+    }
+
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 20px;
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 2px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+
+
+}
+
+
+@media (min-width: 768px)
+and (max-width: 991px){
+      .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+        background-color: red;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 1px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
     }
 
 
@@ -119,16 +228,87 @@ and (max-width: 1199px){
         margin-top:30px!important;
     }
 
-    .wd-lol
+    .wd-lop
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 30px;
+    }
+
+    .wd-login
     {
         font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        background-color: red;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+}
+
+@media (min-width: 992px)
+and (max-width: 1199px){
+
+    .wd-logo
+    {
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
+    }
+
+    .wd-dropdown
+    {
+        display: inline!important;
+        width: 100%;
+    }
+
+    .navbar-nav
+    {
+        border: none!important;
+    }
+
+    .wd-signin
+    {
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
+    }
+
+    .wd-signinlogowithoutlogin
+    {
+        margin-left: 10px;
+    }
+
+    .wd-wholediv
+    {
+        margin-top:30px!important;
     }
 
     .wd-lop
     {
-        margin-left: 5px;
-
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 30px;
+        margin-left: 50px;
     }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 130px;
+    }
+
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
+
+
 
 }
 
@@ -137,8 +317,9 @@ and (max-width: 1400px){
 
     .wd-logo
     {
-        width: 15%;
-        margin-left: 25px;
+        width: 20%;
+        margin-left: 35px;
+        margin-bottom: 10px;
     }
 
     .wd-dropdown
@@ -151,35 +332,48 @@ and (max-width: 1400px){
     {
         border: none!important;
     }
+
     .wd-signin
     {
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 15px;
     }
 
-    .wd-signinlogo
+    .wd-signinlogowithoutlogin
     {
-        margin-left: 1px;
+        margin-left: 10px;
     }
 
+    .wd-withoutlogin
+    {
+        margin-left: 200px;
+    }
 
     .wd-wholediv
     {
         margin-top:30px!important;
     }
 
-    .wd-lol
-    {
-        font-weight: bolder;
-    }
-
     .wd-lop
     {
-        margin-left: 50px;
-        margin-right: 10px;
-
+        font-weight: bold;
+        font-size: medium;
+        margin-right: 20px;
     }
 
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
+        padding-left: 100px;
+    }
 
+    .wd-navlinks
+    {
+        display: inline!important;
+    }
 
 
 }
@@ -228,6 +422,13 @@ and (max-width: 1400px){
         margin-left: 80px;
         margin-right: 10px;
 
+    }
+
+    .wd-login
+    {
+        font-weight: bolder;
+        text-decoration: none;
+        color:grey;
     }
 
 

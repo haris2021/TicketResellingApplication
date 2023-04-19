@@ -1,11 +1,18 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {LogInThunk, LogOutThunk, UpdateLogInThunk} from "../Services/Users-Thunks.js";
+import {
+    DeleteUserAdminThunk,
+    GetAllUserThunk,
+    LogInThunk,
+    LogOutThunk,
+    UpdateLogInThunk
+} from "../Services/Users-Thunks.js";
 
-const InitialState  =
+const InitialState =
     {
-        login : false,
-        u : [],
+        login : JSON.parse(localStorage.getItem('u')) ? true:false,
+        u : JSON.parse(localStorage.getItem('u')) || {},
+        allusers : [],
         loading : true
     }
 
@@ -24,7 +31,7 @@ const UserLoginSlice  = createSlice({
                         console.log("Username", state.u.FirstName);
                         state.login = true;
                         console.log("from Reducer" , state.login);
-
+                        localStorage.setItem('u', JSON.stringify(payload));
                     },
             [UpdateLogInThunk.fulfilled]:
                 (state,{payload}) =>
@@ -39,10 +46,39 @@ const UserLoginSlice  = createSlice({
                     state.u =[];
                     state.login = false;
                     state.loading = false;
+                },
+            [GetAllUserThunk.fulfilled]:
+                (state,{payload}) =>
+                {
+                    console.log("Inside ALL user reducer", payload);
+                    state.allusers = payload;
+                    console.log("All users" , state.allusers );
+                    state.loading = false;
+                },
+            [DeleteUserAdminThunk.fulfilled]:
+                (state,{payload}) =>
+                {
+                    console.log("Inside delete by admin"+ payload);
+                    console.log("Result" , state.allusers);
+                    state.loading=false;
                 }
 
+
+
+        },
+    reducers:{
+
+        loadUserFromStorage: (state) => {
+            state.u = JSON.parse(localStorage.getItem('u')) || {};
+        },
+
+        logoutUser: (state) => {
+            state.u = {};
+            localStorage.removeItem('u');
         }
-                                      });
+    }
+});
 
 
+export const { loadUserFromStorage, logoutUser } = UserLoginSlice.actions;
 export default UserLoginSlice.reducer;

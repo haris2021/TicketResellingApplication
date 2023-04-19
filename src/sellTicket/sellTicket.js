@@ -1,27 +1,29 @@
-import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
-
-
+import React, {useState} from "react";
+import {Button, Card, Form} from "react-bootstrap";
 
 import './sellTicket.css'
-import axios from "axios";
+import queryString from 'query-string';
 import {useDispatch, useSelector} from "react-redux";
 import {createEventThunk} from "../Services/Event-Thunks.js";
 
 import Navigation from "../Home/Navigation/index.js"
 import {useNavigate} from "react-router";
+import { useLocation } from 'react-router-dom';
 
 
 function EventForm() {
+    const location = useLocation();
+    const { name, date, time, place,price } = queryString.parse(location.search);
+
 
     const {u} = useSelector (state => state.UserLogin);
-    const [Ename, setEname] = useState("");
-    const [Elocation, setElocation] = useState("");
+    const [Ename, setEname] = useState(name || "");
+    const [Elocation, setElocation] = useState(place || "");
     const [Edescription, setEdescription] = useState("");
-    const [EticketPrice, setEticketPrice] = useState("");
+    const [EticketPrice, setEticketPrice] = useState(price || "");
     const [EticketQuantity, setEticketQuantity] = useState("");
-    const [Edate, setEdate] = useState("");
-    const [Etime, setEtime] = useState("");
+    const [Edate, setEdate] = useState(date || "");
+    const [Etime, setEtime] = useState(time || "");
     const [Eimage, setEimage] = useState("");
     const [EshortDescription, setEshortDescription] = useState("");
     const [Ecategory, setEcategory] = useState("");
@@ -29,6 +31,10 @@ function EventForm() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const callfun = ( category ) =>
+    {   console.log(category);
+        setEcategory(category);
+    }
 
 
     const handleSubmit = (e) => {
@@ -44,12 +50,16 @@ function EventForm() {
                         EticketQuantity,
                         Eimage,
                         EshortDescription,
-                        Ecategory,
+                        Ecategory:Ecategory,
                         Eorganizer:u._id,
                     },
         }
+        console.log(newEvent.data);
         dispatch(createEventThunk(newEvent.data));
         navigate('/');
+    }
+    const handleSearchImport = () => {
+        navigate('/importEvents');
     }
     return (
         <div className="d-flex justify-content-center align-items-center h-100 auth-container">
@@ -101,6 +111,24 @@ function EventForm() {
                                 required
                             />
                         </Form.Group>
+                        <Form.Group controlId="userType" className="d-flex justify-content-between radio-group"   style={{ marginBottom: "20px" }}>
+                            <Form.Label>Event Type</Form.Label>
+                            <Form.Check type="radio" label="Movies" name="userType" id="seller" value={Ecategory} onClick={()=>{callfun('Movies')}}/>
+                            <Form.Check type="radio" label="Concerts" name="userType" id="buyer" value={Ecategory} onClick={()=>{callfun('Concerts')}}  />
+                            <Form.Check type="radio" label="Other" name="userType" id="admin" value={Ecategory} onClick={()=>{callfun('Other')}}/>
+                        </Form.Group>
+                        <Form.Group controlId="formEventImage" style={{ marginBottom: "20px" }}>
+                            <Form.Label>Event Image</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={1}
+                                placeholder="Enter event url"
+                                name="Edescription"
+                                value={Eimage}
+                                onChange={(e) => setEimage(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
                         <Form.Group controlId="formEventDescription" style={{ marginBottom: "20px" }}>
                             <Form.Label>Event Description</Form.Label>
                             <Form.Control
@@ -137,10 +165,13 @@ function EventForm() {
                                 required
                             />
                         </Form.Group>
-
                         <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}
                                 style={{ backgroundColor: "rebeccapurple", borderColor: "rebeccapurple" }}>
                             Submit
+                        </Button>
+                        <Button variant="primary" type="submit" onClick={() => handleSearchImport()}
+                                style={{ backgroundColor: "rebeccapurple", borderColor: "rebeccapurple" }}>
+                            Import Event
                         </Button>
                     </Form>
                 </Card.Body>

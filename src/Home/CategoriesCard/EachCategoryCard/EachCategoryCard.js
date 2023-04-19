@@ -14,8 +14,6 @@ const EachCategoryCard = () => {
         dispatch(FindallConcertThunk())
     }, [])
 
-    console.log("From cateegory" ,Concerts);
-
     return (
         <div className="wd-eachcategorydiv">
             {
@@ -31,7 +29,6 @@ const EachCategoryCard = () => {
 
                         {
                             Concerts.map( (Event) =>
-
                                 <div className="col-sm-6 col-md-4 col-lg-3">
 
                                               <EachEvent key = {Event._id}

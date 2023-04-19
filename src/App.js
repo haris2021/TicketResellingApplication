@@ -43,7 +43,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Home/>}/>
-                    <Route path="/check" element={<FollowingUserInfo/>}/>
+                    <Route path="/otherUserInfo/:username" element={<FollowingUserInfo/>}/>
                     <Route path="/logIn" element={<AuthForm/>}/>
                     <Route path="/editProfile" element={<EditProfile/>}/>
                     <Route path="/profile" element={<Profile/>}/>

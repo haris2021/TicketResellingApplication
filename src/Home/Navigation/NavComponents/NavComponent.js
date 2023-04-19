@@ -49,16 +49,12 @@ const NavComponent = () => {
                             </ul>
                     </div>
 
-                    {/*<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    */}
 
                 </div>
 
                 <div className="wd-dropdown">
 
-                    {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login" to="/logIn"> LogIn </Link> }
+                    {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login wd-removeunderline" to="/logIn"> LogIn </Link> }
                     {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/importEvents"> Create Event </Link> : " " }
                     {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
                     {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/Profile"> My Tickets </Link>: " "  }

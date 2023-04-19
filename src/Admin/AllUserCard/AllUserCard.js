@@ -19,7 +19,6 @@ const AllUserCard = () => {
                             Loading...
                         </li>
             }
-            <span className="wd-EachCategoryTitle">All users</span>
             <div className="row">
                 {
                     allusers.map((Event) =>

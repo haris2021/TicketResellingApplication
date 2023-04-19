@@ -1,4 +1,5 @@
 import axios from "axios";
+import {useDispatch} from "react-redux";
 
 const Users_API = "http://localhost:4000/api/users";
 
@@ -64,6 +65,21 @@ export const FindAllFollowers = async (id) =>
     return response.data;
 }
 
+export const FindUserinfobyusername = async (username) =>
+{
+    console.log("Inside find user info by username");
+    const response = await axios.get(`${Users_API}/${username}`);
+    console.log("Response from server" + response.data);
+    console.log({response});
+    return response.data;
+}
+
+export const FollowUser = async (followingUserinfo) =>
+{
+  console.log("Inside service to create following");
+  const response = await axios.post(Followers_API, followingUserinfo);
+  console.log(response.data);
+}
 
 
 /*export const GetProfileInfo = async ( ) =>

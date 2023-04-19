@@ -39,8 +39,6 @@ const LoginForm = ({onSwitchToSignUp}) => {
 
         <div>
 
-            <Navigation/>
-
             <div>
 
                 <Card>
@@ -136,7 +134,6 @@ const SignUpForm = ({onSwitchToLogin}) => {
     return (
 
         <div>
-            <Navigation/>
 
             <div>
 

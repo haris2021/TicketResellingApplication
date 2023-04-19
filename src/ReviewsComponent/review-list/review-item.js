@@ -18,17 +18,22 @@ const ReviewItem = ({reviewItem, userId}) => {
     }
 
     const navigate = useNavigate();
-    function handleUserClick() {
-        navigate('/' + userId);
+
+    const handleUserClick = ( username) =>
+    {
+        console.log("user click"+ username);
+        navigate(`/otherUserInfo/${username}`);
     }
+
 
     return (
         <li className="list-group-item border-0">
+
             <div className="row align-items-center">
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
                          width={"100%"}
-                         alt="Avatar" onClick={handleUserClick}/>
+                         alt="Avatar" onClick={()=>{handleUserClick(reviewItem.userHandle)}}/>
                     <span className="wd-time-handle-color">{reviewItem.userHandle}</span>
                 </div>
 
@@ -47,6 +52,7 @@ const ReviewItem = ({reviewItem, userId}) => {
                     </div>
                 </div>
             </div>
+
         </li>
     );
 };

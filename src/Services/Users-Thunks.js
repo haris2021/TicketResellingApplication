@@ -2,16 +2,6 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 
 import * as service from "./Users-services.js"
 
-/*
-export const GetProfileInfoThunk = createAsyncThunk('/profile', async ( ) =>{
-
-    console.log("Inside Getprofile Thunk");
-    const currentUser = await service.GetProfileInfo();
-    console.log("From thunks Current user" , currentUser );
-    return currentUser;
-});
-*/
-
 export const LogInThunk = createAsyncThunk('/profile/login', async ({Username, Password}) => {
     console.log("Inside Login thunks");
     const userinfo = await service.Login(Username, Password)

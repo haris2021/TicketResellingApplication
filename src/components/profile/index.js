@@ -73,13 +73,12 @@ const ProfileComponent = () => {
                         <img src={u.Image} alt="Admin" className="rounded-circle" width="150"/>
 
                         <div className="mt-3">
-                            <h4>{u.FirstName}{u.LastName}</h4>
+
+                            <h4>{u.FirstName} {u.LastName}</h4>
+
                             <p className="text-secondary mb-1">Full Stack Developer</p>
                             <p className="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                           {/* <button className="btn btn-primary me-2">Follow</button>*/}
-{/*
-                            <button className="btn btn-outline-primary">Message</button>
-*/}
+
                         </div>
 
                     </div>
@@ -129,19 +128,31 @@ const ProfileComponent = () => {
                         </div>
                     </div>
                     <hr/>
+
                     <div className="row mb-2">
-                        <div className="col-sm-12">
+
+                        <div className="col-lg-6 col-md-6 col-sm-12">
                             <button className="btn btn-info "  target="__blank"
                                     onClick={routeChange}><b>Edit</b></button>
                         </div>
-                        {u.role === "admin" ?
-                         <button className="btn btn-danger profile-button float-end"
-                                 type="button" onClick={() => {
-                             CallDeleteBtn(u._id)
-                         }}>Delete Profile
-                         </button>: null}
-                    </div>
 
+
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+
+                            {u.Role === "Admin" ?
+                             <button className="btn btn-info"  onClick={() => {
+                                 CallDeleteBtn(u._id)
+                             }}> View All Users
+                             </button>: null
+                            }
+
+                          {/*  <button className="btn btn-danger profile-button float-end"
+                                    type="button" onClick={() => {
+                                CallDeleteBtn(u._id)*/}
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -151,69 +162,81 @@ const ProfileComponent = () => {
             <div className="row mt-2">
                 <div className = "col-lg-1  d-none d-lg-block">
                 </div>
-                <div className = "col-md-5 col-lg-4 border rounded">
-                    <ul className="list-group list-group-flush">
-
-                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                            <span className="h6 text-primary">
-                                               <b> Following</b>
-                                            </span>
-
-                        </li>
 
 
-                        {
-                            allfollowersloading && <li className="list-group-item">
-                                                    Loading...
-                                                </li>
-                        }
+                {u.Role === 'Admin'? " " :
 
-                        {
+                            <div className = "col-md-5 col-lg-4 border rounded">
+                                <ul className="list-group list-group-flush">
 
-                            allfollowers.map((Follower) =>
-                                                 <ListOfFollowers
-                                                     key={Follower._id}
-                                                     post={Follower}
-                                                 />
-                            )
+                                    <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                        <span className="h6 text-primary">
+                                                           <b> Following</b>
+                                                        </span>
 
-                        }
+                                    </li>
 
 
-                    </ul>
-                </div>
+                                    {
+                                        allfollowersloading && <li className="list-group-item">
+                                                                Loading...
+                                                            </li>
+                                    }
+
+                                    {
+
+                                        allfollowers.map((Follower) =>
+                                                             <ListOfFollowers
+                                                                 key={Follower._id}
+                                                                 post={Follower}
+                                                             />
+                                        )
+
+                                    }
+
+
+                                </ul>
+                             </div>
+                }
+
+
                 <div className = "col-1 ">
                 </div>
-                <div className = "d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
 
-                    <ul className="list-group list-group-flush">
+                {u.Role === 'Admin' ? " " :
 
-                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                         <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
 
-                                            <span className="h6 text-primary">
-                                                <b>Listing</b>
-                                            </span>
-                        </li>
+                             <ul className="list-group list-group-flush">
 
-                           {
-                                loading && <li className="list-group-item">
-                                            Loading...
-                                        </li>
-                            }
+                                 <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
 
-                        {
+                                                                <span className="h6 text-primary">
+                                                                    <b>Listing</b>
+                                                                </span>
+                                 </li>
 
-                            EventsbyUser.map((Event) =>
-                                                 <ListOfEvents
-                                                     key={Event._id}
-                                                     post={Event}
-                                                 />
-                            )
+                                 {
+                                     loading && <li className="list-group-item">
+                                                 Loading...
+                                             </li>
+                                 }
 
-                        }
+                                 {
 
-                    </ul>
-                </div>
+                                     EventsbyUser.map((Event) =>
+                                                          <ListOfEvents
+                                                              key={Event._id}
+                                                              post={Event}
+                                                          />
+                                     )
+
+                                 }
+
+                             </ul>
+                         </div>
+                }
+
                 <div className = "col-lg-1 d-none d-lg-block">
                 </div>
 

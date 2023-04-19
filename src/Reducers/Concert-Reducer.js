@@ -1,13 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {FindallConcertThunk, FindAllEventsByUserThunk} from "../Services/Concert-thunks.js";
+import {
+    FindallConcertThunk,
+    FindAllEventsByUserThunk,
+    FindallMoviesThunk, FindallOtherThunk
+} from "../Services/Concert-thunks.js";
 
 const InitialState =
     {
         Concerts: [],
         EventsbyUser : [],
-        loading: false,
+        loadingConcerts: false,
         loadingforEvents : false,
+        movies:[],
+        loadingMovies: false,
+        other:[],
+        loadingOther:false
     };
 
 const ConcertSlice = createSlice({
@@ -17,18 +25,18 @@ const ConcertSlice = createSlice({
                                          {
                                              [FindallConcertThunk.pending]:
                                                  (state) => {
-                                                     state.loading = true
+                                                     state.loadingConcerts = true
                                                      state.Concerts = []
                                                  },
                                              [FindallConcertThunk.fulfilled]:
                                                  (state, {payload}) => {
                                                  console.log("inside the reducer", payload)
-                                                     state.loading = false
+                                                     state.loadingConcerts = false
                                                      state.Concerts = payload
                                                  },
                                              [FindallConcertThunk.rejected]:
                                                  (state, action) => {
-                                                     state.loading = false
+                                                     state.loadingConcerts = false
                                                      state.Concerts = action.error
                                                  },
                                              [FindAllEventsByUserThunk.pending]:
@@ -47,7 +55,19 @@ const ConcertSlice = createSlice({
                                                  (state,action) =>{
                                                      state.loadingforEvents = true;
                                                      state.EventsbyUser  =  action.error
-                                                 }
+                                                 },
+                                             [FindallMoviesThunk.fulfilled]:
+                                                 (state, {payload}) =>
+                                                 {
+                                                     state.movies = payload;
+                                                     state.loadingMovies = false;
+                                                 },
+                                             [FindallOtherThunk.fulfilled]:
+                                                 (state, {payload}) =>
+                                                 {
+                                                     state.other = payload;
+                                                     state.loadingOther =false;
+                                                 },
                                          }
 
 

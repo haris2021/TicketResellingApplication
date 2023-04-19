@@ -1,47 +1,4 @@
-/*
 
-.wd-logo
-{
-    width: 15%;
-}
-
-.wd-dropdown
-{
-    display: inline!important;
-    width: 40%;
-}
-
-.navbar-nav
-{
-    border: none!important;
-}
-.wd-signin
-{
-    text-decoration: none;
-    color:grey;
-    font-weight: bolder;
-}
-
-.wd-signin:hover {
-    color: grey;
-}
-
-
-.wd-signinlogo
-{
-    margin-left: 10px;
-}
-
-
-.wd-wholediv
-{
-    margin-top:30px!important;
-}
-
-.wd-lol
-{
-    font-weight: bolder;
-}*/
 
 .wd-removeunderline
 {
@@ -54,14 +11,15 @@
 .wd-removeunderline:hover {
     color: grey;
 }
-@media (max-width: 649px) {
 
+
+@media (max-width: 568px)
+{
 
     .wd-logo
     {
         width: 20%;
-        margin-left: 35px;
-        margin-bottom: 10px;
+        margin-left: 170px;
     }
 
     .wd-dropdown
@@ -72,7 +30,7 @@
 
     .navbar-nav
     {
-        border: none!important;
+        margin-left: 10px;
     }
 
     .wd-signin
@@ -89,7 +47,7 @@
 
     .wd-withoutlogin
     {
-        margin-left: 200px;
+        margin-left: 120px;
     }
 
     .wd-wholediv
@@ -110,6 +68,7 @@
         text-decoration: none;
         color:grey;
         padding-left: 100px;
+        margin-left: 70px;
     }
 
     .wd-navlinks
@@ -119,7 +78,6 @@
 
 
 }
-
 
 @media(min-width: 650px)
 and (max-width: 767px){

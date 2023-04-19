@@ -2,14 +2,23 @@ import "./EachUserCard.css"
 import {useDispatch} from "react-redux";
 
 import {DeleteUserAdminThunk} from "../../Services/Users-Thunks.js"
+import {useEffect} from "react";
 
 const EachUserCard = ({post}) => {
-    const dipsatch = useDispatch();
+
+    const dispatch = useDispatch();
 
     const DeleteUserbtn = (id) => {
         console.log("Delete this user", id);
-        dipsatch(DeleteUserAdminThunk(id));
+
+        useEffect(() => {
+
+            dispatch(DeleteUserAdminThunk(id));
+
+        }, [])
     }
+
+
 
     return (
         <div className="row">
@@ -24,10 +33,12 @@ const EachUserCard = ({post}) => {
                     <p className="card-text wd-EventTitle">{post.Username}</p>
                     <p className="card-text wd-EventTitle">{post.Role}</p>
                     <p className="card-text wd-EventTitle">{post.Email}</p>
+
                     <button className="btn btn-danger" onClick={() => {
                         DeleteUserbtn(post._id)
                     }}>Delete User
                     </button>
+
                 </div>
 
             </div>

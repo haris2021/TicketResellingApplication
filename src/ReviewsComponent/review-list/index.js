@@ -5,13 +5,16 @@ import ReviewItem from "./review-item";
 import {Button, Form} from "react-bootstrap";
 
 const ReviewList = () => {
+
+    const {u} = useSelector(state => state.UserLogin);
+
     const {review, reviewsLoading} = useSelector(state => state.reviews)
     let [newReview, setNewReview] = useState('');
     const dispatch = useDispatch();
     const login = useSelector(state => state.UserLogin);
     const userId = login.u._id;
     const userName = login.u.FirstName;
-    const userImage = login.u.Image;
+    const userImage = u.Image;
 
     useEffect(() => {
         dispatch(findReviewsThunk())

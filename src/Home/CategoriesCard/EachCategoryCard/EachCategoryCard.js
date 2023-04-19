@@ -1,37 +1,23 @@
 import "./EachCategoryCard.css"
 import EachEvent from "../EachEvent/EachEvent.js";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-// import Concerts from "../../../Data/Concerts/Concert.json"
-import {FindallConcertThunk} from "../../../Services/Concert-thunks.js";
+;
 
-const EachCategoryCard = () => {
-    const {Concerts, loading} = useSelector(state => state.ConcertData)
+const EachCategoryCard = ( {Data} ) => {
 
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(FindallConcertThunk())
-    }, [])
-
-    console.log("inside card" , Concerts);
 
     return (
 
         <div className="wd-eachcategorydiv">
-            {
-                loading && <li className="list-group-item">
-                            Loading...
-                        </li>
-            }
-            <span className="wd-EachCategoryTitle">Concerts</span>
 
+{/*
+            <span className="wd-EachCategoryTitle">Concerts</span>
+*/}
 
                     <div className="row">
 
-
                         {
-                            Concerts.map( (Event) =>
+                            Data.map( (Event) =>
                                 <div className="col-sm-6 col-md-4 col-lg-3">
 
                                               <EachEvent key = {Event._id}
@@ -44,18 +30,7 @@ const EachCategoryCard = () => {
 
                         }
                     </div>
-            <div className="row">
-                {
 
-                    Concerts.map((Event) =>
-                                     <div className="col-sm-6 col-md-4 col-lg-3">
-                                         <EachEvent key={Event._id}
-                                                    post={Event}
-                                         />
-                                     </div>
-                    )
-                }
-            </div>
         </div>
     );
 }

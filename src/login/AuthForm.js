@@ -41,45 +41,51 @@ const LoginForm = ({onSwitchToSignUp}) => {
 
             <Navigation/>
 
-            <Card>
-                <Card.Header
-                    style={{backgroundColor: "rebeccapurple", borderBottomColor: "rebeccapurple"}}>
-                    <img src={logoImage} style={{width: "150px", height: "50px"}}/>
-                </Card.Header>
-                <Card.Body className="card-customization">
-                    <h2 style={{textAlign: "center", color: "white"}}>Login</h2>
-                    {showError && <Alert variant="danger">Invalid email or password.</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="email" style={{marginBottom: "40px"}}>
-                            <Form.Label class="white-text">Email address</Form.Label>
-                            <Form.Control type="text" placeholder="Enter email" value={email}
-                                          onChange={(e) => setEmail(e.target.value)}/>
-                        </Form.Group>
+            <div>
 
-                        <Form.Group controlId="password" style={{marginBottom: "40px"}}>
-                            <Form.Label class="white-text">Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" value={password}
-                                          onChange={(e) => setPassword(e.target.value)}/>
-                        </Form.Group>
-                        <div className="text-center">
-                            <Button variant="dark" type="submit">
-                                Login
-                            </Button>
-                            <br/>
-                            <Button variant="link" style={{color: "black"}}
-                                    onClick={onSwitchToSignUp}>
-                                New User? Create Account
-                            </Button>
-                            <Button variant="link" style={{color: "lightgray"}}>
-                                By signing in or creating an account, you acknowledge and accept our
-                                privacy policy.
-                            </Button>
-                        </div>
-                    </Form>
-                </Card.Body>
-            </Card>
+                <Card>
+                    <Card.Header
+                        style={{backgroundColor: "rebeccapurple", borderBottomColor: "rebeccapurple"}}>
+                        <img src={logoImage} style={{width: "150px", height: "50px"}}/>
+                    </Card.Header>
+                    <Card.Body className="card-customization">
+                        <h2 style={{textAlign: "center", color: "white"}}>Login</h2>
+                        {showError && <Alert variant="danger">Invalid email or password.</Alert>}
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group controlId="email" style={{marginBottom: "40px"}}>
+                                <Form.Label class="white-text">Email address</Form.Label>
+                                <Form.Control type="text" placeholder="Enter email" value={email}
+                                              onChange={(e) => setEmail(e.target.value)}/>
+                            </Form.Group>
+
+                            <Form.Group controlId="password" style={{marginBottom: "40px"}}>
+                                <Form.Label class="white-text">Password</Form.Label>
+                                <Form.Control type="password" placeholder="Password" value={password}
+                                              onChange={(e) => setPassword(e.target.value)}/>
+                            </Form.Group>
+                            <div className="text-center">
+                                <Button variant="dark" type="submit">
+                                    Login
+                                </Button>
+                                <br/>
+                                <Button variant="link" style={{color: "black"}}
+                                        onClick={onSwitchToSignUp}>
+                                    New User? Create Account
+                                </Button>
+                                <Button variant="link" style={{color: "lightgray"}}>
+                                    By signing in or creating an account, you acknowledge and accept our
+                                    privacy policy.
+                                </Button>
+                            </div>
+                        </Form>
+                    </Card.Body>
+                </Card>
+
+            </div>
 
         </div>
+
+
 
     );
 };
@@ -130,102 +136,105 @@ const SignUpForm = ({onSwitchToLogin}) => {
     return (
 
         <div>
-
             <Navigation/>
 
-            <Card>
-                <Card.Header
-                    style={{backgroundColor: "rebeccapurple", borderBottomColor: "rebeccapurple"}}>
-                    <img src={logoImage} alt="Logo" style={{width: "150px", height: "60px"}}/>
-                </Card.Header>
-                <Card.Body className="card-customization">
-                    <h2 style={{textAlign: "center", color: "white"}}>Sign Up</h2>
-                    {showError && <Alert variant="danger">Passwords do not match.</Alert>}
+            <div>
+
+                <Card>
+                    <Card.Header
+                        style={{backgroundColor: "rebeccapurple", borderBottomColor: "rebeccapurple"}}>
+                        <img src={logoImage} alt="Logo" style={{width: "150px", height: "60px"}}/>
+                    </Card.Header>
+                    <Card.Body className="card-customization">
+                        <h2 style={{textAlign: "center", color: "white"}}>Sign Up</h2>
+                        {showError && <Alert variant="danger">Passwords do not match.</Alert>}
 
 
-                    <Form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit}>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">FirstName</Form.Label>
-                            <Form.Control type="text" placeholder="Enter FirstName"
-                                          value={FirstName}
-                                          onChange={(e) => setFirstName(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">FirstName</Form.Label>
+                                <Form.Control type="text" placeholder="Enter FirstName"
+                                              value={FirstName}
+                                              onChange={(e) => setFirstName(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">LastName</Form.Label>
-                            <Form.Control type="text" placeholder="Enter LastName" value={LastName}
-                                          onChange={(e) => setLastName(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">LastName</Form.Label>
+                                <Form.Control type="text" placeholder="Enter LastName" value={LastName}
+                                              onChange={(e) => setLastName(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" value={email}
-                                          onChange={(e) => setEmail(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Email address</Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" value={email}
+                                              onChange={(e) => setEmail(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Location</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Location" value={Location}
-                                          onChange={(e) => setLocation(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Location</Form.Label>
+                                <Form.Control type="text" placeholder="Enter Location" value={Location}
+                                              onChange={(e) => setLocation(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Phone Number</Form.Label>
-                            <Form.Control type="Number" placeholder="Enter email"
-                                          value={PhoneNumber}
-                                          onChange={(e) => setPhoneNumber(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Phone Number</Form.Label>
+                                <Form.Control type="Number" placeholder="Enter email"
+                                              value={PhoneNumber}
+                                              onChange={(e) => setPhoneNumber(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Username</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Username" value={Username}
-                                          onChange={(e) => setUsername(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Username</Form.Label>
+                                <Form.Control type="text" placeholder="Enter Username" value={Username}
+                                              onChange={(e) => setUsername(e.target.value)}/>
+                            </Form.Group>
 
-                        <Form.Group controlId="email" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Image</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Image" value={Image}
-                                          onChange={(e) => setImage(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="email" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Image</Form.Label>
+                                <Form.Control type="text" placeholder="Enter Image" value={Image}
+                                              onChange={(e) => setImage(e.target.value)}/>
+                            </Form.Group>
 
 
-                        <Form.Group controlId="password" style={{marginBottom: "10px"}}>
-                            <Form.Label class="white-text">Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" value={password}
-                                          onChange={(e) => setPassword(e.target.value)}/>
-                        </Form.Group>
+                            <Form.Group controlId="password" style={{marginBottom: "10px"}}>
+                                <Form.Label class="white-text">Password</Form.Label>
+                                <Form.Control type="password" placeholder="Password" value={password}
+                                              onChange={(e) => setPassword(e.target.value)}/>
+                            </Form.Group>
 
-                        {/* <Form.Group controlId="confirmPassword" style={{ marginBottom: "10px" }}>
+                            {/* <Form.Group controlId="confirmPassword" style={{ marginBottom: "10px" }}>
                             <Form.Label class="white-text">Confirm Password</Form.Label>
                             <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         </Form.Group>*/}
 
-                        <Form.Group controlId="userType" className="d-flex justify-content-between radio-group"   style={{ marginBottom: "20px" }}>
-                            <Form.Check type="radio" label="Seller" name="userType" id="seller" value={Role} onClick={()=>{callfun('Seller')}} className="mx-2 white-text" />
-                            <Form.Check type="radio" label="Buyer" name="userType" id="buyer" value={Role} onClick={()=>{callfun('Buyer')}} className="mx-2 white-text"  />
-                            <Form.Check type="radio" label="Admin" name="userType" id="admin" value={Role} onClick={()=>{callfun('Admin')}} className="ml-2 white-text" />
-                        </Form.Group>
+                            <Form.Group controlId="userType" className="d-flex justify-content-between radio-group"   style={{ marginBottom: "20px" }}>
+                                <Form.Check type="radio" label="Seller" name="userType" id="seller" value={Role} onClick={()=>{callfun('Seller')}} className="mx-2 white-text" />
+                                <Form.Check type="radio" label="Buyer" name="userType" id="buyer" value={Role} onClick={()=>{callfun('Buyer')}} className="mx-2 white-text"  />
+                                <Form.Check type="radio" label="Admin" name="userType" id="admin" value={Role} onClick={()=>{callfun('Admin')}} className="ml-2 white-text" />
+                            </Form.Group>
 
-                        <div className="text-center">
-                            <Button variant="dark" type="submit">
-                                Sign Up
-                            </Button>
-                            <br/>
-                            <Button variant="link" style={{color: "black"}}
-                                    onClick={onSwitchToLogin}>
-                                Already have an account? Login here
-                            </Button>
-                            <Button variant="link" style={{color: "lightgray"}}>
-                                By signing in or creating an account, you acknowledge and accept our
-                                privacy policy.
-                            </Button>
-                        </div>
+                            <div className="text-center">
+                                <Button variant="dark" type="submit">
+                                    Sign Up
+                                </Button>
+                                <br/>
+                                <Button variant="link" style={{color: "black"}}
+                                        onClick={onSwitchToLogin}>
+                                    Already have an account? Login here
+                                </Button>
+                                <Button variant="link" style={{color: "lightgray"}}>
+                                    By signing in or creating an account, you acknowledge and accept our
+                                    privacy policy.
+                                </Button>
+                            </div>
 
-                    </Form>
+                        </Form>
 
-                </Card.Body>
-            </Card>
+                    </Card.Body>
+                </Card>
+            </div>
+
         </div>
 
     );

@@ -1,28 +1,34 @@
 import {faHeart, faHeart as regularHeart} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
+import {updateReviewThunk} from "../../Services/reviews-thunk";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 
-const toggleLike = (reviewStat) => {
-    alert("Liked review")
-    // dispatch(updateTuitThunk({
-    //                              ...tuitStat,
-    //                              liked: !tuitStat.liked,
-    //                              likes: (tuitStat.liked === true) ? tuitStat.likes - 1
-    //                                                               : tuitStat.likes + 1
-    //                          }))
-    // // dispatch(todoLikeToggle(tuitStat));
-}
+const ReviewItem = ({reviewItem, userId}) => {
 
-const ReviewItem = ({reviewItem}) => {
-    console.log(JSON.stringify(reviewItem) + "in review now");
+    const dispatch = useDispatch();
+    const toggleLike = (reviewStat) => {
+        dispatch(updateReviewThunk({
+                                       ...reviewStat,
+                                       liked: !reviewStat.liked,
+                                       likes: (reviewStat.liked === true) ? reviewStat.likes - 1
+                                                                          : reviewStat.likes + 1
+                                   }))
+    }
+
+    const navigate = useNavigate();
+    function handleUserClick() {
+        navigate('/' + userId);
+    }
 
     return (
-        <li className="list-group-item">
+        <li className="list-group-item border-0">
             <div className="row align-items-center">
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
                          width={"100%"}
-                         alt="Avatar"/>
+                         alt="Avatar" onClick={handleUserClick}/>
                     <span className="wd-time-handle-color">{reviewItem.userHandle}</span>
                 </div>
 

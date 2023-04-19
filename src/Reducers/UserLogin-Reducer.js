@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 import {
-    DeleteUserAdminThunk,
+    DeleteUserAdminThunk, FindFollowers, FindFollowersThunk,
     GetAllUserThunk,
     LogInThunk,
     LogOutThunk,
@@ -13,7 +13,9 @@ const InitialState =
         login : JSON.parse(localStorage.getItem('u')) ? true:false,
         u : JSON.parse(localStorage.getItem('u')) || {},
         allusers : [],
-        loading : true
+        loading : true,
+        allfollowers : [ ],
+        allfollowersloading : true
     }
 
 const UserLoginSlice  = createSlice({
@@ -43,7 +45,7 @@ const UserLoginSlice  = createSlice({
                 (state,{payload}) =>
                 {
                     console.log("Inside Logout REDUCER", payload);
-                    state.u =[];
+                    state.u =null;
                     state.login = false;
                     state.loading = false;
                 },
@@ -61,9 +63,16 @@ const UserLoginSlice  = createSlice({
                     console.log("Inside delete by admin"+ payload);
                     console.log("Result" , state.allusers);
                     state.loading=false;
+                },
+            [FindFollowersThunk.fulfilled]:
+                (state,action) =>
+                {
+                    // console.log("Inside Find all followers by user thunk", payload);
+                    state.allfollowers = action.payload;
+                    // console.log("result" , state.allfollowers );
+                    state. allfollowersloading = false;
+
                 }
-
-
 
         },
     reducers:{
@@ -73,6 +82,7 @@ const UserLoginSlice  = createSlice({
         },
 
         logoutUser: (state) => {
+            console.log("Inside nestha code");
             state.u = {};
             localStorage.removeItem('u');
         }

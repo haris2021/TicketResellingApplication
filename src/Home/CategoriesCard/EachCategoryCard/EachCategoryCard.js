@@ -14,7 +14,10 @@ const EachCategoryCard = () => {
         dispatch(FindallConcertThunk())
     }, [])
 
+    console.log("inside card" , Concerts);
+
     return (
+
         <div className="wd-eachcategorydiv">
             {
                 loading && <li className="list-group-item">
@@ -44,6 +47,7 @@ const EachCategoryCard = () => {
                     </div>
             <div className="row">
                 {
+
                     Concerts.map((Event) =>
                                      <div className="col-sm-6 col-md-4 col-lg-3">
                                          <EachEvent key={Event._id}

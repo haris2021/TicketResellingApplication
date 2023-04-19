@@ -1,11 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {FindallConcertThunk} from "../Services/Concert-thunks";
+import {FindallConcertThunk, FindAllEventsByUserThunk} from "../Services/Concert-thunks.js";
 
 const InitialState =
     {
         Concerts: [],
-        loading: false
+        EventsbyUser : [],
+        loading: false,
+        loadingforEvents : false,
     };
 
 const ConcertSlice = createSlice({
@@ -29,7 +31,25 @@ const ConcertSlice = createSlice({
                                                      state.loading = false
                                                      state.Concerts = action.error
                                                  },
+                                             [FindAllEventsByUserThunk.pending]:
+                                                 (state) =>{
+                                                     state.loadingforEvents = true;
+                                                     state.EventsbyUser = []
+                                                 },
+
+                                             [FindAllEventsByUserThunk.fulfilled]:
+                                                 (state,action) =>{
+                                                     state.loadingforEvents = false;
+                                                     state.EventsbyUser=  action.payload
+                                                     console.log("From reducer events" , state.EventsbyUser);
+                                                 },
+                                             [FindAllEventsByUserThunk.rejected]:
+                                                 (state,action) =>{
+                                                     state.loadingforEvents = true;
+                                                     state.EventsbyUser  =  action.error
+                                                 }
                                          }
+
 
                                  });
 

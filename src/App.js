@@ -49,7 +49,7 @@ function App() {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/details" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
-                    <Route path={"/importEvents"} element={<SearchAndImport/>}/>
+                    <Route path="/importEvents" element={<SearchAndImport/>}/>
                     <Route path="/moreInfo" element={<AllUserCard/>}/>
                     <Route path="/search/*" element={<SearchComponent/>}/>
                 </Routes>

@@ -11,6 +11,7 @@ const ReviewList = () => {
     const login = useSelector(state => state.UserLogin);
     const userId = login.u._id;
     const userName = login.u.FirstName;
+    const userImage = login.u.Image;
 
     useEffect(() => {
         dispatch(findReviewsThunk())
@@ -21,7 +22,7 @@ const ReviewList = () => {
             "userHandle": userName,
             "liked": false,
             "likes": 0,
-            "avatar": "eventbanner.jpg"
+            "avatar": userImage
         }
         const createReview = {
             ...templateReview,

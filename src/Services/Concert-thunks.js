@@ -13,5 +13,14 @@ export const FindAllEventsByUserThunk = createAsyncThunk('Concert/FindEvents', a
     console.log("Inside Find all events by user");
     const response = await service.FindAllEventsByUser(id);
     return response;
-
 })
+
+export const createEventThunk = createAsyncThunk('/createEvent', async (data) =>{
+    console.log("Inside Create Event Thunk", data)
+    const datafromserver =  await service.createEvent(data);
+    console.log(datafromserver)
+    return datafromserver;
+})
+
+
+

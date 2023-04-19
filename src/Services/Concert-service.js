@@ -16,3 +16,10 @@ export const FindAllEventsByUser = async ( id ) =>
     console.log("Response from server" , response.data);
     return response.data;
 }
+
+export const createEvent = async (data) => {
+    console.log("Inside service for creating event", data)
+    const response = await axios.post(Concerts_API,data);
+    console.log("From server", response.data);
+    return response.data;
+}

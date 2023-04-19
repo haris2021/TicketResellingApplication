@@ -4,6 +4,7 @@ import {faCalendarAlt, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-sv
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router";
 import Reviews from "../ReviewsComponent";
+import {useSelector} from "react-redux";
 
 function DetailInformation({details}) {
     const [count, setCount] = useState(0);

@@ -43,7 +43,6 @@ const EachCategoryCard = () => {
                             )
 
                         }
-
                     </div>
             <div className="row">
                 {

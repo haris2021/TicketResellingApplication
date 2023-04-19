@@ -57,7 +57,7 @@ const NavComponent = () => {
                 <div className="wd-dropdown">
 
                     {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login" to="/logIn"> LogIn </Link> }
-                    {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/createEvent"> Create Event </Link> : " " }
+                    {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/importEvents"> Create Event </Link> : " " }
                     {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
                     {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/Profile"> My Tickets </Link>: " "  }
                     <CgProfile size={25} className={ u._id ? "wd-signinlogo " : "wd-signinlogowithoutlogin" } />

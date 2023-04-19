@@ -8,13 +8,17 @@ const ReviewList = () => {
     const {review, reviewsLoading} = useSelector(state => state.reviews)
     let [newReview, setNewReview] = useState('');
     const dispatch = useDispatch();
+    const login = useSelector(state => state.UserLogin);
+    const userId = login.u._id;
+    const userName = login.u.FirstName;
+
     useEffect(() => {
         dispatch(findReviewsThunk())
     }, [])
 
     const handleReviewChange = () => {
         const templateReview = {
-            "userHandle": "@user",
+            "userHandle": userName,
             "liked": false,
             "likes": 0,
             "avatar": "eventbanner.jpg"
@@ -41,7 +45,7 @@ const ReviewList = () => {
                 }
                 {
                     review.map((review) =>
-                                   <ReviewItem key={review._id} reviewItem={review}/>)
+                                   <ReviewItem key={review._id} reviewItem={review} userId={userId}/>)
                 }
             </ul>
             <div className="container mt-5">

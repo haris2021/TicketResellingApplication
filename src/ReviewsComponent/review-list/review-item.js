@@ -3,8 +3,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
 import {updateReviewThunk} from "../../Services/reviews-thunk";
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 
-const ReviewItem = ({reviewItem}) => {
+const ReviewItem = ({reviewItem, userId}) => {
 
     const dispatch = useDispatch();
     const toggleLike = (reviewStat) => {
@@ -14,15 +15,20 @@ const ReviewItem = ({reviewItem}) => {
                                        likes: (reviewStat.liked === true) ? reviewStat.likes - 1
                                                                           : reviewStat.likes + 1
                                    }))
-        // dispatch(todoLikeToggle(tuitStat));
     }
+
+    const navigate = useNavigate();
+    function handleUserClick() {
+        navigate('/' + userId);
+    }
+
     return (
         <li className="list-group-item border-0">
             <div className="row align-items-center">
                 <div className="col-sm-2">
                     <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
                          width={"100%"}
-                         alt="Avatar"/>
+                         alt="Avatar" onClick={handleUserClick}/>
                     <span className="wd-time-handle-color">{reviewItem.userHandle}</span>
                 </div>
 

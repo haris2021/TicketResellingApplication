@@ -21,7 +21,7 @@ const ListOfFollowers = ({post} ) =>
                          &followingImage=${followingInfo.followingImage}&followingAddress=${followingInfo.followingAddress}`,
                      });*/
 
-        navigate(`otherUserInfo/${followingInfo.followingUsername}`);
+        navigate(`../otherUserInfo/${followingInfo.followingUsername}`);
 
     }
 

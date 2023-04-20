@@ -176,23 +176,34 @@ const ProfileComponent = () => {
 
                                     </li>
 
+                                    {allfollowers.length > 0 ?
+                                     <>
+                                         {
+                                             allfollowersloading && <li className="list-group-item">
+                                                                     Loading...
+                                                                 </li>
+                                         }
 
-                                    {
-                                        allfollowersloading && <li className="list-group-item">
-                                                                Loading...
-                                                            </li>
+
+                                         {
+
+                                             allfollowers.map((Follower) =>
+                                                                  <ListOfFollowers
+                                                                      key={Follower._id}
+                                                                      post={Follower}
+                                                                  />
+                                             )
+
+                                         }
+                                     </> :
+                                     <>
+                                         <span style= { {display: 'block', textAlign: 'center',color: 'grey'}} >No Following Information</span>
+                                     </>
+
                                     }
 
-                                    {
 
-                                        allfollowers.map((Follower) =>
-                                                             <ListOfFollowers
-                                                                 key={Follower._id}
-                                                                 post={Follower}
-                                                             />
-                                        )
 
-                                    }
 
 
                                 </ul>
@@ -203,38 +214,46 @@ const ProfileComponent = () => {
                 <div className = "col-1 ">
                 </div>
 
-                {u.Role === 'Admin' ? " " :
+                {u.Role === 'Admin' ? " " : u.Role === 'Seller' ?
 
-                         <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
+                                            <>
+                                                <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
 
-                             <ul className="list-group list-group-flush">
+                                                    <ul className="list-group list-group-flush">
 
-                                 <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
 
                                                                 <span className="h6 text-primary">
                                                                     <b>Listing</b>
                                                                 </span>
-                                 </li>
+                                                        </li>
 
-                                 {
-                                     loading && <li className="list-group-item">
-                                                 Loading...
-                                             </li>
-                                 }
 
-                                 {
+                                                        {
+                                                            loading && <li className="list-group-item">
+                                                                        Loading...
+                                                                    </li>
+                                                        }
 
-                                     EventsbyUser.map((Event) =>
-                                                          <ListOfEvents
-                                                              key={Event._id}
-                                                              post={Event}
-                                                          />
-                                     )
+                                                        {
 
-                                 }
+                                                            EventsbyUser.map((Event) =>
+                                                                                 <ListOfEvents
+                                                                                     key={Event._id}
+                                                                                     post={Event}
+                                                                                 />
+                                                            )
 
-                             </ul>
-                         </div>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            </>:
+                                            <>
+                                                List of Tickets
+                                            </>
+
+
                 }
 
                 <div className = "col-lg-1 d-none d-lg-block">

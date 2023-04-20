@@ -13,7 +13,7 @@ const ReviewList = () => {
     const dispatch = useDispatch();
     const login = useSelector(state => state.UserLogin);
     const userId = login.u._id;
-    const userName = login.u.FirstName;
+    const userName = login.u.Username;
     const userImage = u.Image;
 
     useEffect(() => {

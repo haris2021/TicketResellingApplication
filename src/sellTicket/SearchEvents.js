@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Card, Carousel } from 'react-bootstrap';
+import {Button, Card, Carousel} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import './SearchEvent.css'
 
@@ -17,9 +17,10 @@ const SearchAndImport = () => {
         if (selectedEvent) {
             console.log(selectedEvent);
             console.log(selectedEvent._embedded.venues[0].city.name);
-            console.log(selectedEvent.priceRanges[0].min);
-            navigate(`/createEvent?name=${selectedEvent.name}&date=${selectedEvent.dates.start.localDate}&time=${selectedEvent.dates.start.localTime}&place=${selectedEvent._embedded.venues[0].city.name}&price=${selectedEvent.priceRanges[0].min}`);
-        }else{
+            const imageurl ='https://www.billboard.com/wp-content/uploads/2021/08/concert-crowd-billboard-1548-1629382874.jpg?w=942&h=623&crop=1'
+            const price = selectedEvent.priceRanges ? selectedEvent.priceRanges[0].min : "Not Available"; // provide default value "Not Available"
+            navigate(`/createEvent?name=${selectedEvent.name}&date=${selectedEvent.dates.start.localDate}&time=${selectedEvent.dates.start.localTime}&place=${selectedEvent._embedded.venues[0].city.name}&price=${price}&image=${imageurl}`);
+        } else {
             navigate('/createEvent')
         }
     };
@@ -71,10 +72,23 @@ const SearchAndImport = () => {
                             value={searchQuery}
                             onChange={handleSearchQueryChange}
                             placeholder="Type something to search..."
+                            style={{
+                                width: "450px",
+                                padding: "5px 10px",
+                                borderRadius: "5px",
+                                border: "3px solid rebeccapurple ",
+                                marginLeft: "15px",
+                                marginRight: "10px"
+                            }}
                         />
-                        <button onClick={handleImportData}>Import</button>
-                        <button onClick={handleCreateEventClick}>Create Event</button>
-                        <div className="mt-4 d-flex justify-content-center">
+                        <button onClick={handleImportData}    style={{
+                            backgroundColor: "white",
+                            border: "1px solid rebeccapurple",
+                            borderRadius: "20px",
+                            padding: "5px 10px",
+                            color: "rebeccapurple"
+                        }}>Import</button>
+                        <div className="mt-4 d-flex justify-content-center" style={{ marginBottom: "70px" }}>
                             {importedData.length > 0 ? (
                                 <Carousel slide={false}>
                                     {importedData.map((item, index) => (
@@ -87,7 +101,7 @@ const SearchAndImport = () => {
                                                             style={{ width: "18rem", margin: "0 10px" }}
                                                             onClick={() => setSelectedEvent(item)}
                                                             className={selectedEvent && selectedEvent.id === item.id ? "selected" : ""}>
-                                                            <Card.Img variant="top" src={item.images[0].url} />
+                                                            <Card.Img className="image" variant="top" src={item.images[0].url} />
                                                             <Card.Body>
                                                                 <Card.Title>{item.name}</Card.Title>
                                                                 <Card.Text>{item.dates.start.localDate}</Card.Text>
@@ -105,6 +119,20 @@ const SearchAndImport = () => {
                              )}
                         </div>
                     </Card.Body>
+
+                    <Button variant="primary" type="submit" onClick={() => handleCreateEventClick()}
+                            style={{
+                                backgroundColor: "rebeccapurple",
+                                borderColor: "rebeccapurple",
+                                display: "block",
+                                position: "absolute",
+                                bottom: "10px",
+                                left: "50%",
+                                transform: "translateX(-50%)"
+                            }}>
+                        Create Event
+                    </Button>
+                    {/*<button onClick={handleCreateEventClick}>Create Event</button>*/}
                 </Card>
             </div>
 

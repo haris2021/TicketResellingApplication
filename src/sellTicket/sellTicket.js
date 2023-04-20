@@ -15,7 +15,7 @@ import Navigation from "../Home/Navigation/index.js"
 
 function EventForm() {
     const location = useLocation();
-    const { name, date, time, place,price } = queryString.parse(location.search);
+    const { name, date, time, place,price, image } = queryString.parse(location.search);
 
 
     const {u} = useSelector (state => state.UserLogin);
@@ -26,7 +26,7 @@ function EventForm() {
     const [EticketQuantity, setEticketQuantity] = useState("");
     const [Edate, setEdate] = useState(date || "");
     const [Etime, setEtime] = useState(time || "");
-    const [Eimage, setEimage] = useState("");
+    const [Eimage, setEimage] = useState(image || "");
     const [EshortDescription, setEshortDescription] = useState("");
     const [Ecategory, setEcategory] = useState("");
     const [Eorganizer, setEorganizer] = useState("");
@@ -57,6 +57,10 @@ function EventForm() {
                     },
         }
         console.log("Inside SellTicket",  newEvent.data);
+        if (!Ename || !Elocation || !Edate || !Etime || !Ecategory || !Eimage || !EshortDescription || !Edescription || !EticketPrice || !EticketQuantity) {
+            alert('Please fill out all fields.');
+            return;
+        }
         dispatch(createEventThunk(newEvent.data));
         navigate('/');
     }
@@ -72,7 +76,7 @@ function EventForm() {
             <div className="d-flex justify-content-center align-items-center h-100 auth-container">
                 <Card style={{ width: "50rem", border: "2px solid purple" }}>
                     <Card.Header style={{backgroundColor:"rebeccapurple", borderBottomColor:"rebeccapurple",color:"white"}}>Create Event</Card.Header>
-                    <Card.Body >
+                    <Card.Body style={{ overflowY: "scroll", maxHeight: "600px" }}>
                         <Form onSubmit={(e)=>handleSubmit(e)}>
                             <Form.Group controlId="formEventName" style={{ marginBottom: "20px" }}>
                                 <Form.Label>Event Name</Form.Label>
@@ -185,7 +189,7 @@ function EventForm() {
                                 />
                             </Form.Group>
                             <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}
-                                    style={{ backgroundColor: "rebeccapurple", borderColor: "rebeccapurple" }}>
+                                    style={{ backgroundColor: "rebeccapurple", borderColor: "rebeccapurple", marginRight: "50px"}}>
                                 Submit
                             </Button>
                             <Button variant="primary" type="submit" onClick={() => handleSearchImport()}

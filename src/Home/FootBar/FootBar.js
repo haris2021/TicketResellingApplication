@@ -1,6 +1,21 @@
 import "./FootBar.css"
 
+import Subscribe from "../Subscribe/Subscribe.js"
+import {useState} from "react";
+
 const FootBar = () => {
+
+    const [susbcribebtn , setsubscribebtn] = useState(false);
+
+    const handlesubscribebtn = ( ) =>
+    {
+        console.log("Hello");
+        setsubscribebtn(true);
+    }
+
+
+
+
     return (
         <div>
 
@@ -14,13 +29,16 @@ const FootBar = () => {
                 </div>
 
                 <div className="col-xl-5">
-                    <button type="button" className="btn btn-sm wd-footerbtn">Join The List</button>
+                    <button  onClick={handlesubscribebtn} type="button" className="btn btn-sm wd-footerbtn">Join The List</button>
                 </div>
             </div>
 
             <div className="row wd-footrow3">
                 <span className="wd-spanrow3">By signing up, you acknowledge and accept our privacy policy and consent to receiving emails. </span>
             </div>
+
+            {susbcribebtn && <Subscribe/>}
+
 
         </div>
     );

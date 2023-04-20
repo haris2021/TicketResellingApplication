@@ -9,7 +9,6 @@ import {useSelector} from "react-redux";
 function DetailInformation({details}) {
     const [count, setCount] = useState(0);
     const [buttonText, setButtonText] = useState('Follow');
-
     const followBtn = () => {
         if (buttonText === 'Follow') {
             setButtonText('Following');

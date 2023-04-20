@@ -51,7 +51,7 @@ const LoginForm = ({onSwitchToSignUp}) => {
                         {showError && <Alert variant="danger">Invalid email or password.</Alert>}
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="email" style={{marginBottom: "40px"}}>
-                                <Form.Label class="white-text">Email address</Form.Label>
+                                <Form.Label class="white-text">UserName</Form.Label>
                                 <Form.Control type="text" placeholder="Enter email" value={email}
                                               onChange={(e) => setEmail(e.target.value)}/>
                             </Form.Group>

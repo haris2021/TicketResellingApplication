@@ -9,13 +9,11 @@ export const findReviews = async () => {
 }
 
 export const createReview = async (review) => {
-    console.log(JSON.stringify(review) + "in service")
     const response = await axios.post(REVIEWS_API, review)
     return response.data;
 }
 
 export const updateReview = async (review) => {
-    console.log(JSON.stringify(review));
     const response = await axios.put(`${REVIEWS_API}/${review._id}`, review);
     return review;
 }

@@ -8,16 +8,30 @@ const EachUserCard = ({post}) => {
 
     const dispatch = useDispatch();
 
+
     const DeleteUserbtn = (id) => {
+
+        console.log("Delete this user", id);
+        dispatch(DeleteUserAdminThunk(id));
+}
+
+ /*
+
+
+
+    const DeleteUserbtn = (id) => {
+
         console.log("Delete this user", id);
 
-        useEffect(() => {
+        /!*useEffect(() => {
 
-            dispatch(DeleteUserAdminThunk(id));
 
-        }, [])
+
+        }, [id])*!/
+
+        dispatch(DeleteUserAdminThunk(id));
     }
-
+*/
 
 
     return (

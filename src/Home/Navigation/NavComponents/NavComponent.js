@@ -1,11 +1,13 @@
 import {CgProfile} from "react-icons/cg";
 import "../index.css"
-import {Link} from "react-router-dom";
+import {HashRouter, Link, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 import {LogOutThunk} from "../../../Services/Users-Thunks.js";
 import {logoutUser} from "../../../Reducers/UserLogin-Reducer.js";
+import {Alert} from "react-bootstrap";
 
+import CategoryCard from "../../CategoriesCard/index.js"
 
 
 const NavComponent = () => {
@@ -32,7 +34,16 @@ const NavComponent = () => {
                             <ul className=" wd-navlinks navbar-nav wd-lop">
 
                                 {
-                                    u._id ? <Link   to="/details" className=" wd-removeunderline">Concerts</Link> :  <Link   to="/login" className=" wd-removeunderline">Concerts</Link>
+                                    u._id ?
+                                    <>
+
+                                            <Link to="/concert" className=" wd-removeunderline">Concerts</Link>
+
+                                    </> :
+                                    <>
+                                        <Link  to="/login" className=" wd-removeunderline">Concerts</Link>
+                                    </>
+
 
                                 }
 
@@ -57,7 +68,7 @@ const NavComponent = () => {
                     {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login wd-removeunderline" to="/logIn"> LogIn </Link> }
                     {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/importEvents"> Create Event </Link> : " " }
                     {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
-                    {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/Profile"> My Tickets </Link>: " "  }
+                    {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/myTickets"> My Tickets </Link>: " "  }
                     <CgProfile size={25} className={ u._id ? "wd-signinlogo " : "wd-signinlogowithoutlogin" } />
                 </div>
 

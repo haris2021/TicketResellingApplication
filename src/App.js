@@ -21,13 +21,15 @@ import UserLoginReducer from "./Reducers/UserLogin-Reducer.js"
 
 import UserInfoReducer from "./Reducers/UserInfo-Reducer.js";
 import SearchAndImport from "./sellTicket/SearchEvents";
-
+import MyTickets from "./components/myTickets/index.js";
 
 import SearchComponent from './components/search';
 
 
 import FollowingUserInfo from "./components/profile/FollowingUserInfo.js";
 import MyTicketsComponent from './components/myTickets';
+
+import CategoryCard from "../src/Home/CategoriesCard/index.js"
 
 const store = configureStore({
                                  reducer: {
@@ -38,12 +40,16 @@ const store = configureStore({
                                      reviews: reviews
                                  }
                              })
+
+
 function App() {
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Home/>}/>
+                    <Route path="/myTickets" element={<MyTickets/>}/>
+                    <Route path="/concert" element={<CategoryCard/>}/>
                     <Route path="/otherUserInfo/:username" element={<FollowingUserInfo/>}/>
                     <Route path="/logIn" element={<AuthForm/>}/>
                     <Route path="/editProfile" element={<EditProfile/>}/>

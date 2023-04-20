@@ -4,12 +4,14 @@ import DetailInformation from "./details";
 import {findDetailsThunk} from "../Services/details-thunk";
 
 import Navigation from "../Home/Navigation/index.js"
+import {useParams} from "react-router-dom";
 
 const DetailsComponent = () => {
     const {details, loading} = useSelector(state => state.details)
     const dispatch = useDispatch();
+    const {id} = useParams();
     useEffect(() => {
-        dispatch(findDetailsThunk())
+        dispatch(findDetailsThunk(id))
     }, [])
     return (
         <div>

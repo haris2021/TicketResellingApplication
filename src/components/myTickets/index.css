@@ -5,8 +5,8 @@
 
 .list-group-item{
     margin-top:10px;
-    border-radius: none; 
-    background: #5E35B1;
+    border-radius: none;
+    /*background: #5E35B1;*/
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }

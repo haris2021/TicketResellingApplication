@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit"
 import * as service from "./reviews-services"
 
 export const findReviewsThunk = createAsyncThunk(
-    '/reviews', async () => await service.findReviews()
+    '/reviews', async (eventId) => await service.findReviews(eventId)
 )
 
 export const createReviewThunk = createAsyncThunk(

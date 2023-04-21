@@ -6,7 +6,6 @@ import {useNavigate} from "react-router";
 import Reviews from "../ReviewsComponent";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-import {createReviewThunk} from "../Services/reviews-thunk";
 import {buyTicketThunk} from "../Services/details-thunk";
 
 function DetailInformation({details}) {
@@ -20,6 +19,7 @@ function DetailInformation({details}) {
     //     }
     // }
 
+
     const handlePlusClick = () => {
         setCount(count + 1);
     };
@@ -32,6 +32,8 @@ function DetailInformation({details}) {
 
     const { id } = useParams();
     const login = useSelector(state => state.UserLogin);
+    const isSeller = login.u.Role === 'Seller';
+
     const userId = login.u._id;
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -43,10 +45,8 @@ function DetailInformation({details}) {
             "quantity": count,
             "date": details.Edate,
         }
-
-        console.log(ticketBought);
+        window.alert("Ticket bought successfully");
         dispatch(buyTicketThunk(ticketBought));
-
         navigate('/');
     }
 
@@ -88,13 +88,18 @@ function DetailInformation({details}) {
                                                     style={{paddingRight: 7}}/>{details.Etime}</p>
                                 <p>{details.Edescription}</p>
                             </div>
-                            <Button block className="btn btn-primary btn-lg my-4"
-                                    onClick={handleBuyTicket}>Buy Ticket</Button>
-                            <ButtonGroup className="ps-2">
-                                <Button variant="secondary" onClick={handleMinusClick}>-</Button>
-                                <Button variant="light">{count}</Button>
-                                <Button variant="success" onClick={handlePlusClick}>+</Button>
-                            </ButtonGroup>
+                            {
+                                !isSeller &&
+                                <>
+                                    <Button block className="btn btn-primary btn-lg my-4"
+                                            onClick={handleBuyTicket}>Buy Ticket</Button>
+                                    <ButtonGroup className="ps-2">
+                                    <Button variant="secondary" onClick={handleMinusClick}>-</Button>
+                                    <Button variant="light">{count}</Button>
+                                    <Button variant="success" onClick={handlePlusClick}>+</Button>
+                                    </ButtonGroup>
+                                </>
+                            }
                         </div>
                         <div className={"my-4"}>
                             <Reviews/>

@@ -26,7 +26,6 @@ const EditProfileComponent = () => {
     const dispatch = useDispatch();
 
     const CallSubmitBtn = () => {
-        console.log(updateduser);
         dispatch(UpdateLogInThunk(updateduser));
         navigate('/profile');
     }

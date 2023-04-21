@@ -1,9 +1,8 @@
 import "./index.css";
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import Navigation from "../../Home/Navigation/index.js";
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
-import { searchConcerts } from '../../Services/search-service.js'
+import {useLocation, useNavigate} from "react-router";
+import {searchConcerts} from '../../Services/search-service.js'
 
 const SearchComponent = () => {
     const location = useLocation();

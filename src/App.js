@@ -1,4 +1,3 @@
-import './App.css';
 import 'bootstrap';
 import AuthForm from './login/AuthForm'
 import EventForm from './sellTicket/sellTicket.js'
@@ -24,7 +23,6 @@ import SearchAndImport from "./sellTicket/SearchEvents";
 import MyTickets from "./components/myTickets/index.js";
 
 import SearchComponent from './components/search';
-
 
 import FollowingUserInfo from "./components/profile/FollowingUserInfo.js";
 import MyTicketsComponent from './components/myTickets';
@@ -54,7 +52,7 @@ function App() {
                     <Route path="/logIn" element={<AuthForm/>}/>
                     <Route path="/editProfile" element={<EditProfile/>}/>
                     <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/details" element={<DetailsComponent/>}/>
+                    <Route path="/details/:id" element={<DetailsComponent/>}/>
                     <Route path="/createEvent" element={<EventForm/>}/>
                     <Route path="/importEvents" element={<SearchAndImport/>}/>
                     <Route path="/moreInfo" element={<AllUserCard/>}/>

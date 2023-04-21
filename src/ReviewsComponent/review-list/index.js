@@ -31,7 +31,6 @@ const ReviewList = () => {
             ...templateReview,
             review: newReview
         }
-        console.log(createReview);
         dispatch(createReviewThunk(createReview));
     };
 

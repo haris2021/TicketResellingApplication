@@ -1,23 +1,17 @@
 import {CgProfile} from "react-icons/cg";
 import "../index.css"
-import {HashRouter, Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 import {LogOutThunk} from "../../../Services/Users-Thunks.js";
 import {logoutUser} from "../../../Reducers/UserLogin-Reducer.js";
-import {Alert} from "react-bootstrap";
-
-import CategoryCard from "../../CategoriesCard/index.js"
-
 
 const NavComponent = () => {
     const {u} = useSelector(state => state.UserLogin);
-    console.log("Before Login In " + u._id);
 
     const dispatch = useDispatch();
 
     const CallLogOut = () => {
-        console.log("Calling logout");
         dispatch(LogOutThunk());
         dispatch( logoutUser());
 
@@ -37,7 +31,7 @@ const NavComponent = () => {
                                     u._id ?
                                     <>
 
-                                            <Link to="/concert" className=" wd-removeunderline">Concerts</Link>
+                                            <Link to="/" className=" wd-removeunderline">Concerts</Link>
 
                                     </> :
                                     <>
@@ -52,7 +46,7 @@ const NavComponent = () => {
                             <ul className=" wd-navlinks navbar-nav ">
 
                                 {
-                                    u._id ?<Link to="/details" className="  wd-removeunderline">Movies</Link> :  <Link   to="/login" className=" wd-removeunderline">Movies</Link>
+                                    u._id ?<Link to="/" className="  wd-removeunderline">Movies</Link> :  <Link   to="/login" className=" wd-removeunderline">Movies</Link>
 
                                 }
 

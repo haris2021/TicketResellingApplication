@@ -2,7 +2,6 @@ import "./EachUserCard.css"
 import {useDispatch} from "react-redux";
 
 import {DeleteUserAdminThunk} from "../../Services/Users-Thunks.js"
-import {useEffect} from "react";
 
 const EachUserCard = ({post}) => {
 
@@ -11,7 +10,6 @@ const EachUserCard = ({post}) => {
 
     const DeleteUserbtn = (id) => {
 
-        console.log("Delete this user", id);
         dispatch(DeleteUserAdminThunk(id));
 }
 
@@ -21,7 +19,6 @@ const EachUserCard = ({post}) => {
 
     const DeleteUserbtn = (id) => {
 
-        console.log("Delete this user", id);
 
         /!*useEffect(() => {
 

@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {
     FindallConcertThunk,
     FindAllEventsByUserThunk,
-    FindallMoviesThunk, FindallOtherThunk
+    FindallMoviesThunk,
+    FindallOtherThunk
 } from "../Services/Concert-thunks.js";
 
 const InitialState =
@@ -30,7 +31,6 @@ const ConcertSlice = createSlice({
                                                  },
                                              [FindallConcertThunk.fulfilled]:
                                                  (state, {payload}) => {
-                                                 console.log("inside the reducer", payload)
                                                      state.loadingConcerts = false
                                                      state.Concerts = payload
                                                  },
@@ -49,7 +49,6 @@ const ConcertSlice = createSlice({
                                                  (state,action) =>{
                                                      state.loadingforEvents = false;
                                                      state.EventsbyUser=  action.payload
-                                                     console.log("From reducer events" , state.EventsbyUser);
                                                  },
                                              [FindAllEventsByUserThunk.rejected]:
                                                  (state,action) =>{

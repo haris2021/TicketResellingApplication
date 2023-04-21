@@ -2,7 +2,11 @@ import "./index.css"
 import EachCategoryCard from "./EachCategoryCard/EachCategoryCard.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {FindallConcertThunk, FindallMoviesThunk, FindallOtherThunk } from "../../Services/Concert-thunks.js";
+import {
+    FindallConcertThunk,
+    FindallMoviesThunk,
+    FindallOtherThunk
+} from "../../Services/Concert-thunks.js";
 
 const CategoriesCard = () => {
 

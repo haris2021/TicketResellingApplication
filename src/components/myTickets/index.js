@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Navigation from "../../Home/Navigation/index.js";
 import {loggedInUserTickets} from '../../Services/myTickets-service.js'
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import "./index.css";
 
 const MyTicketsComponent = () => {

@@ -12,7 +12,7 @@ const ListOfFollowers = ({post} ) =>
         /* navigate(`/check?followingUsername=${post.followingUsername}
          &followingFirstname=${post.followingFirstName}&followingImage=${post.followingImage}
          &followingAddress=${post.followingAddress}`);*/
-    /*    console.log("Inside following", followingInfo.followingUsername);
+    /*
 
 
          navigate({

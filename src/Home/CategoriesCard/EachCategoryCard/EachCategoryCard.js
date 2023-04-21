@@ -1,5 +1,6 @@
 import "./EachCategoryCard.css"
 import EachEvent from "../EachEvent/EachEvent.js";
+
 ;
 
 const EachCategoryCard = ( {Data} ) => {

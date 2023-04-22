@@ -76,8 +76,8 @@ const ProfileComponent = () => {
 
                             <h4>{u.FirstName} {u.LastName}</h4>
 
-                            <p className="text-secondary mb-1">Full Stack Developer</p>
-                            <p className="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                            <p className="text-secondary mb-1">{u.Role}</p>
+                            <p className="text-muted font-size-sm">{u.Location}</p>
 
                         </div>
 
@@ -214,47 +214,72 @@ const ProfileComponent = () => {
                 <div className = "col-1 ">
                 </div>
 
-                {u.Role === 'Admin' ? " " : u.Role === 'Seller' ?
+                {u.Role === 'Buyer' ? <>
+                                        List of Tickets
+                                      </>
+                                    :
 
                                             <>
-                                                <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
 
-                                                    <ul className="list-group list-group-flush">
+                     {
+                         EventsbyUser.length > 0 ?
+                         <>
+                             <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
 
-                                                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                 <ul className="list-group list-group-flush">
+
+                                     <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
 
                                                                 <span className="h6 text-primary">
                                                                     <b>Listing</b>
                                                                 </span>
-                                                        </li>
+                                     </li>
 
 
-                                                        {
-                                                            loading && <li className="list-group-item">
-                                                                        Loading...
-                                                                    </li>
-                                                        }
+                                     {
+                                         loading && <li className="list-group-item">
+                                                     Loading...
+                                                 </li>
+                                     }
 
-                                                        {
+                                     {
 
-                                                            EventsbyUser.map((Event) =>
-                                                                                 <ListOfEvents
-                                                                                     key={Event._id}
-                                                                                     post={Event}
-                                                                                 />
-                                                            )
+                                         EventsbyUser.map((Event) =>
+                                                              <ListOfEvents
+                                                                  key={Event._id}
+                                                                  post={Event}
+                                                              />
+                                         )
 
-                                                        }
+                                     }
 
-                                                    </ul>
-                                                </div>
-                                            </>:
-                                            <>
-                                                List of Tickets
+                                 </ul>
+                             </div>
+                         </> :
+                         <>
+                             <div className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
+
+                                 <ul className="list-group list-group-flush">
+
+                                     <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+
+                                                                <span className="h6 text-primary">
+                                                                    <b>You do not have Any Listing</b>
+                                                                </span>
+                                     </li>
+
+                                 </ul>
+                             </div>
+                         </>
+                     }
+
+
                                             </>
 
 
                 }
+
+
 
                 <div className = "col-lg-1 d-none d-lg-block">
                 </div>

@@ -21,7 +21,6 @@ const ReviewItem = ({reviewItem, userId}) => {
 
     const handleUserClick = ( username) =>
     {
-        console.log("user click"+ username);
         navigate(`/otherUserInfo/${username}`);
     }
 
@@ -31,7 +30,7 @@ const ReviewItem = ({reviewItem, userId}) => {
 
             <div className="row align-items-center">
                 <div className="col-sm-2">
-                    <img src={`/images/${reviewItem.avatar}`} className="rounded-circle"
+                    <img src={reviewItem.avatar} className="rounded-circle"
                          width={"100%"}
                          alt="Avatar" onClick={()=>{handleUserClick(reviewItem.userHandle)}}/>
                     <span className="wd-time-handle-color">{reviewItem.userHandle}</span>

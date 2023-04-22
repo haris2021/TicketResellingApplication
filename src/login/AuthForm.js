@@ -4,7 +4,6 @@ import './AuthForm.css'
 import {useDispatch, useSelector} from "react-redux";
 import {CreateUserThunk, LogInThunk} from "../Services/Users-Thunks.js";
 import {useNavigate} from "react-router";
-import Navigation from "../Home/Navigation/index.js"
 
 const logoImage = require('./logo1.png');
 
@@ -29,7 +28,6 @@ const LoginForm = ({onSwitchToSignUp}) => {
 
         if (login) {
             navigate('/');
-            console.log("Logged iN")
         } else {
             setShowError(false);
         }
@@ -119,7 +117,6 @@ const SignUpForm = ({onSwitchToLogin}) => {
                 Password:password,
                 Role: Role
             }
-        console.log("Inside handleSubmit", newuser);
 
        dispatch(CreateUserThunk(newuser));
         navigate('/');
@@ -249,7 +246,6 @@ const AuthForm = () => {
         setDisplayLoginForm(true);
     };
 
-    console.log("Auth form" + displayLoginForm);
 
     return (
         <div className="container auth-container" style={{height: "80vh"}}>

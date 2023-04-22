@@ -24,8 +24,7 @@ const DetailsComponent = () => {
                     </li>
                 }
                 {
-                    details.map((detail) =>
-                                    <DetailInformation key={detail._id} details={detail}/>)
+                    <DetailInformation key={details._id} details={details}/>
                 }
             </ul>
 

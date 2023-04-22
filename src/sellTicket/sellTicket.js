@@ -7,11 +7,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {createEventThunk} from "../Services/Concert-thunks.js";
 
 import {useNavigate} from "react-router";
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 import Navigation from "../Home/Navigation/index.js"
-
-
 
 function EventForm() {
     const location = useLocation();
@@ -34,7 +32,7 @@ function EventForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const callfun = ( category ) =>
-    {   console.log(category);
+    {
         setEcategory(category);
     }
 
@@ -56,7 +54,6 @@ function EventForm() {
                         Eorganizer:u._id,
                     },
         }
-        console.log("Inside SellTicket",  newEvent.data);
         if (!Ename || !Elocation || !Edate || !Etime || !Ecategory || !Eimage || !EshortDescription || !Edescription || !EticketPrice || !EticketQuantity) {
             alert('Please fill out all fields.');
             return;

@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Carousel} from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import './SearchEvent.css'
 
 import Navigation from "../Home/Navigation/index.js"
-
 
 const SearchAndImport = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -15,8 +14,6 @@ const SearchAndImport = () => {
 
     const handleCreateEventClick = () => {
         if (selectedEvent) {
-            console.log(selectedEvent);
-            console.log(selectedEvent._embedded.venues[0].city.name);
             const imageurl ='https://www.billboard.com/wp-content/uploads/2021/08/concert-crowd-billboard-1548-1629382874.jpg?w=942&h=623&crop=1'
             const price = selectedEvent.priceRanges ? selectedEvent.priceRanges[0].min : "Not Available"; // provide default value "Not Available"
             navigate(`/createEvent?name=${selectedEvent.name}&date=${selectedEvent.dates.start.localDate}&time=${selectedEvent.dates.start.localTime}&place=${selectedEvent._embedded.venues[0].city.name}&price=${price}&image=${imageurl}`);

@@ -7,7 +7,6 @@ const EachEvent = ({post}) => {
 
     const RedirectToDetail = ( id) =>
     {
-        console.log(id);
         navigate(`/details/${id}`);
     }
 

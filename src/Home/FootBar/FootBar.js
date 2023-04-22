@@ -9,7 +9,6 @@ const FootBar = () => {
 
     const handlesubscribebtn = ( ) =>
     {
-        console.log("Hello");
         setsubscribebtn(true);
     }
 

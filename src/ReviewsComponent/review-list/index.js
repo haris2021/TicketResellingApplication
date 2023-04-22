@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {createReviewThunk, findReviewsThunk} from "../../Services/reviews-thunk";
 import ReviewItem from "./review-item";
 import {Button, Form} from "react-bootstrap";
+import {useParams} from "react-router-dom";
 
 const ReviewList = () => {
 
@@ -15,23 +16,24 @@ const ReviewList = () => {
     const userId = login.u._id;
     const userName = login.u.Username;
     const userImage = u.Image;
+    const {id} = useParams();
 
     useEffect(() => {
-        dispatch(findReviewsThunk())
+        dispatch(findReviewsThunk(id))
     }, [])
-
     const handleReviewChange = () => {
         const templateReview = {
             "userHandle": userName,
             "liked": false,
             "likes": 0,
-            "avatar": userImage
+            "avatar": userImage,
+            "userId": userId,
+            "eventId": id,
         }
         const createReview = {
             ...templateReview,
             review: newReview
         }
-        console.log(createReview);
         dispatch(createReviewThunk(createReview));
     };
 
@@ -49,7 +51,8 @@ const ReviewList = () => {
                 }
                 {
                     review.map((review) =>
-                                   <ReviewItem key={review._id} reviewItem={review} userId={userId}/>)
+                                   <ReviewItem key={review._id} reviewItem={review}
+                                               userId={userId}/>)
                 }
             </ul>
             <div className="container mt-5">

@@ -19,7 +19,6 @@ const UserInfoSlice = createSlice({
                 [GetProfileInfoThunk.fulfilled]:
                     (state, {payload})=>
                     {
-                        console.log("Inside Unserinfo Reducer"+ {payload});
                         state.user.push({payload});
                         state.loading = false;
                     }

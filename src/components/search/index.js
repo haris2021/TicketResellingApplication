@@ -14,6 +14,10 @@ const SearchComponent = () => {
     const searchButtonHandler = () => {
         navigate('/search?Ename='+search);
     }
+
+    function redirectToDetails(id) {
+        navigate(`/details/${id}`);
+    }
     
     useEffect(() => {
         if (ename) {
@@ -24,6 +28,12 @@ const SearchComponent = () => {
             searchEvent();
         }
     }, [ename]);
+
+    function handleClickEvent(Eid) {
+        alert(Eid);
+        // navigate('/event/'+Eid);
+    }
+
     return (
         <div className="container">
             <Navigation/>
@@ -38,34 +48,34 @@ const SearchComponent = () => {
                 </div>
                 
                 <div className=" d-flex justify-content-center">
-
                     <ul className="list-group  text-light">
                 {results.length > 0 && results.map((result) => {
                     return (
-                        <li className="list-group-item  ">
-                             <div className="row">
+                        <li className="list-group-item">
+                            <div className="row">
                                 <div className="col-2 mt-2 ">
                                     <img src={result.Eimage}
-                                    className="img-fluid rounded"
-                                    alt={"event pic"}  />
+                                         className="img-fluid rounded"
+                                         alt={"event pic"}  />
                                 </div>
-                                <div className="col-10">
+                                <div className="col-8">
                                     <div className="ms-3">
                                         <div className="about">
                                             <div className="h3 text-light">{result.Ename}</div>
                                             <div className="h4 text-light">{result.Edescription}</div>
                                             <div className="h5 text-light">
                                                 <span className="text-dark"><b>Location:</b></span>
-                                                 {result.Elocation}</div>
+                                                {result.Elocation}</div>
                                             <div className="h5 text-light">
-                                            <span className="text-dark"><b>Date:</b></span>
+                                                <span className="text-dark"><b>Date:</b></span>
                                                 {result.Edate}</div>
                                         </div>
                                     </div>
                                 </div>
+                                <div className="col-2">
+                                    <button className="btn btn-secondary" onClick={() => redirectToDetails(result._id)}>Details</button>
+                                </div>
                             </div>
-                            
-
                         </li>
                     )
                 })}

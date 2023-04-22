@@ -51,6 +51,10 @@ const ProfileComponent = () => {
         seteditprofile(false);
         navigate('/editProfile');
     }
+    const routeChangeTickets = () => {
+        seteditprofile(false);
+        navigate('/myTickets');
+    }
 
     return (
 
@@ -123,8 +127,10 @@ const ProfileComponent = () => {
                     <div className="row mb-2">
 
                         <div className="col-lg-6 col-md-6 col-sm-12">
-                            <button className="btn btn-info " target="__blank"
+                            <button className="btn btn-info m-1 " target="__blank"
                                     onClick={routeChange}><b>Edit</b></button>
+                            <button className="btn btn-info m-1" target="__blank"
+                                    onClick={routeChangeTickets}><b>List Tickets</b></button>
                         </div>
 
 
@@ -203,7 +209,6 @@ const ProfileComponent = () => {
                 </div>
 
                 {u.Role === 'Admin' ? " " : u.Role === 'Seller' ?
-
                                             <>
                                                 <div
                                                     className="d-none d-md-block col-5 col-md-6 col-lg-5 border rounded">
@@ -240,8 +245,7 @@ const ProfileComponent = () => {
                                                 </div>
                                             </> :
                                             <>
-                                                List of Tickets
-                                                {/*<Link></Link>*/}
+
                                             </>
 
                 }

@@ -10,7 +10,7 @@ const Followers_API = "http://localhost:4000/api/followers";
 
 export const Login = async (Username, Password) => {
 
-    const response = await api.post(`${Users_API}/login`, {Username, Password});
+    const response = await api.post(`${Users_API}/user/login`, {Username, Password});
 
 /*
     const response = await axios.post(`${Users_API}/login`, {Username, Password});
@@ -92,6 +92,7 @@ export const FindAllFollowers = async (id) =>
 
 export const FindUserinfobyusername = async (username) =>
 {
+    console.log("From following, calling server", username);
     const response = await api.get(`${Users_API}/find/${username}`);
     console.log("Response from server" + response.data);
     console.log({response});

@@ -118,7 +118,12 @@ import {useSelector} from "react-redux";
 
 const FollowingUserInfo = () => {
 
-    const {username} = useParams();
+    const username = useParams();
+    console.log(username.username);
+    const Username = username.username
+    console.log("Final" + Username);
+
+
     const {u} = useSelector(state => state.UserLogin);
 
     const [userinfo, setuserinfo] = useState('');
@@ -126,7 +131,10 @@ const FollowingUserInfo = () => {
     const [follow, setfollow] = useState('false');
 
     const check = async () => {
-        const response = await FindUserinfobyusername(username);
+
+        const response = await FindUserinfobyusername(Username);
+        console.log("Talking to server", response);
+
         const serveruserinfo =
             {
                 email: response.Email,
@@ -137,7 +145,11 @@ const FollowingUserInfo = () => {
                 image: response.Image,
                 id: response._id
             }
+
         setuserinfo(serveruserinfo);
+
+        console.log("Printing user info" , userinfo)
+
         const followingresponse = await FindAllFollowers(u._id);
         const followingornot = followingresponse.some(
             user => user.followingUsername === response.Username);
@@ -211,7 +223,7 @@ const FollowingUserInfo = () => {
                                 <h6 className="mb-0"><b>Full Name</b></h6>
                             </div>
                             <div className="col-sm-9 text-secondary">
-                                {userinfo.firstname} {username.lastname}
+                                {userinfo.firstname} {userinfo.lastname}
                             </div>
                         </div>
                         <hr/>

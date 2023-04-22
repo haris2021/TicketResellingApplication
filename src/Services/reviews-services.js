@@ -3,7 +3,7 @@ import axios from "axios";
 const REVIEWS_API = 'http://localhost:4000/api/reviews';
 
 export const findReviews = async (eventId) => {
-    const response = await axios.get(REVIEWS_API + '/events/' + eventId);
+    const response = await axios.get(REVIEWS_API + '/event/' + eventId);
     const reviews = await response.data;
     return reviews;
 }

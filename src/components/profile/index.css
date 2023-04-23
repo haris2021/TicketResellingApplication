@@ -52,3 +52,16 @@ body{
     box-shadow: none!important;
 }
 
+.wd-followingtitle
+{
+    font-weight: bolder;
+    margin-left: 120px;
+    font-size: large;
+    color:mediumpurple;
+}
+
+.wd-nofoolowing
+{
+    margin-left:2px;
+    padding-left: 10px;
+}

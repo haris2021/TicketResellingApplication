@@ -12,7 +12,10 @@
     color: grey;
 }
 
-
+.wd-wholediv
+{
+    margin-bottom: 10px!important;
+}
 @media (max-width: 568px)
 {
 

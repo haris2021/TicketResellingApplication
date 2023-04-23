@@ -1,203 +1,106 @@
-
-.wd-searchimgdiv
-{
+.wd-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-.wd-searchimg
-{
-    width: 80%;
-    height:500px;
-    border-radius: 10px;
+.wd-searchimgdiv {
     margin-bottom: 20px;
-    margin-left: 10px;
-    position: absolute;
+    display: flex;
+    justify-content: center;
 }
 
-.wd-textoverimage
-{
-   margin-top:120px;
-    margin-left: 450px;
+.wd-searchimg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.wd-textoverimage {
+    margin-top: 20px;
     font-weight: bolder;
-    color:white;
+    color: white;
     font-size: 40px;
-    display: inline;
+    text-align: center;
     position: absolute;
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.wd-inputbox
-{
-    width:60% !important;
-    margin-left: 260px;
-    padding-top:200px;
+.wd-inputbox {
+    width: 60%;
 }
-
-.wd-searchtxt
-{
-    background-color: lightgrey;
-    padding:10px;
-    font-weight: bold;
-    color:white;
-}
-
 
 @media (max-width: 572px) {
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 130px;
-        font-weight: bolder;
-        color:white;
+    .wd-textoverimage {
         font-size: 25px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 100px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
-
-
 }
 
-
-@media (min-width: 573px)
-and (max-width: 649px) {
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 170px;
-        font-weight: bolder;
-        color:white;
+@media (min-width: 573px) and (max-width: 649px) {
+    .wd-textoverimage {
         font-size: 25px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 150px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
-
-
 }
 
-
-@media(min-width: 650px)
-and (max-width: 767px){
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 180px;
-        font-weight: bolder;
-        color:white;
+@media (min-width: 650px) and (max-width: 767px) {
+    .wd-textoverimage {
         font-size: 30px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 170px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
-
 }
 
-
-@media (min-width: 768px)
-and (max-width: 991px){
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 250px;
-        font-weight: bolder;
-        color:white;
+@media (min-width: 768px) and (max-width: 991px) {
+    .wd-textoverimage {
         font-size: 30px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 200px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
-
 }
 
-@media (min-width: 992px)
-and (max-width: 1199px){
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 290px;
-        font-weight: bolder;
-        color:white;
+@media (min-width: 992px) and (max-width: 1199px) {
+    .wd-textoverimage {
         font-size: 40px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 220px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
-
 }
 
-@media (min-width: 1200px)
-and (max-width: 1400px){
-
-    .wd-textoverimage
-    {
-        margin-top:120px;
-        margin-left: 400px;
-        font-weight: bolder;
-        color:white;
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .wd-textoverimage {
         font-size: 40px;
-        display: inline;
-        position: absolute;
-
     }
 
-    .wd-inputbox
-    {
-        width:60% !important;
-        margin-left: 260px;
-        padding-top:200px;
+    .wd-inputbox {
+        width: 60%;
     }
 
-    .wd-searchtxt
-    {
+    .wd-searchtxt {
         background-color: lightgrey;
-        padding:10px;
+        padding: 10px;
         font-weight: bold;
-        color:white;
+        color: white;
     }
-
 }
 
-@media (min-width: 1401px )
-{
-
+@media (min-width: 1401px) {
+    /* larger screen styles here */
 }

@@ -8,6 +8,8 @@ import {FindFollowersThunk, GetAllUserThunk} from "../../Services/Users-Thunks.j
 import {FindAllEventsByUserThunk} from "../../Services/Concert-thunks.js";
 import ListOfEvents from "./ListOfEvents.js";
 import ListOfFollowers from "./Following.js";
+import {Container} from "react-bootstrap";
+import {all} from "axios";
 
 const ProfileComponent = () => {
 
@@ -141,84 +143,87 @@ const ProfileComponent = () => {
                              </button> : null
                             }
 
+
                             {/*  <button className="btn btn-danger profile-button float-end"
                                     type="button" onClick={() => {
                                 CallDeleteBtn(u._id)*/}
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
                 <div className="col-lg-1 d-none d-lg-block">
                 </div>
+
             </div>
+
             <div className="row mt-2">
                 <div className="col-lg-1  d-none d-lg-block">
                 </div>
 
+                <div className="col-md-5 col-lg-4 ">
 
-                {u.Role === 'Admin' ? " " :
-
-                 <div className="col-md-5 col-lg-4 border rounded">
-                     <ul className="list-group list-group-flush">
-
-                         <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                                        <span className="h6 text-primary">
-                                                           <b> Following</b>
-                                                        </span>
-
-                         </li>
-
-                         {allfollowers.length > 0 ?
-                          <>
-                              {
-                                  allfollowersloading && <li className="list-group-item">
-                                                          Loading...
-                                                      </li>
-                              }
+                        <span className="wd-followingtitle">Following Users</span>
+                        {u.Role === 'Admin' ? " " :
+                                                    <>
+                                                                    {allfollowers.length > 0 ?
+                                                                     <>
+                                                                         {
+                                                                             allfollowersloading && <li className="list-group-item">
+                                                                                                     Loading...
+                                                                                                 </li>
+                                                                         }
 
 
-                              {
-
-                                  allfollowers.map((Follower) =>
-                                                       <ListOfFollowers
-                                                           key={Follower._id}
-                                                           post={Follower}
-                                                       />
-                                  )
-
-                              }
-                          </> :
-                          <>
-                              <span style={{display: 'block', textAlign: 'center', color: 'grey'}}>No Following Information</span>
-                          </>
-
-                         }
 
 
-                     </ul>
-                 </div>
-                }
+                                                                         <ul className="list-group list-group-flush">
+
+                                                                             {
+                                                                                 allfollowers.map((Follower) =>
+                                                                                                      <ListOfFollowers
+                                                                                                          key={Follower._id}
+                                                                                                          following={Follower}
+                                                                                                      />
+                                                                                 )
+
+                                                                             }
+
+                                                                         </ul>
+
+                                                                     </>
+                                                                                             :
+                                                                     <>
+                                                                         <ul className="wd-nofoolowing list-group list-group-flush">
+
+                                                                             <li className="list-group-item">OOP's You have are following Anyone!</li>
+                                                                         </ul>
+
+                                                                     </>
+                                                                    }
+
+                                                    </>
+                            }
+
+                </div>
 
 
                 <div className="col-1 ">
                 </div>
 
-                {u.Role === 'Buyer' ? <>
-                                        <button className="btn btn-info m-1" target="__blank"
-                                                onClick={routeChangeTickets}><b>List Tickets</b></button>
-                                      </>
-                                    : <>None</>}
-
-
-               {/*<div className = "col-lg-1 d-none d-lg-block">*/}
                 <div className="col-lg-1 d-none d-lg-block">
+
                 </div>
 
 
+
             </div>
+
+
 
         </div>
 

@@ -81,9 +81,9 @@ export const DeleteUserByAdmin = async (id) => {
 
 export const FindAllFollowers = async (id) =>
 {
-    console.log("Inside service", id);
+    console.log("Inside service to find all he is following", id);
     const response = await api.get(`${Followers_API}/following/${id}`);
-    console.log("From server" + response.data);
+    console.log("From server inside service to find following" + JSON.stringify(response.data));
 /*
     const response = await axios.get(`${Followers_API}/following/${id}`);
 */
@@ -119,6 +119,13 @@ export const GetProfileInfo = async ( ) =>
     return userinfo;
 }
 
+export const GetProfileInfoById = async ( id) =>
+{
+    const response = await api.get(`${Users_API}/${id}`);
+    const userinfo  = response.data;
+    console.log("From service getting profile info " + userinfo.Username);
+    return userinfo;
+}
 
 /*
   const response = await axios.post(Followers_API, followingUserinfo);

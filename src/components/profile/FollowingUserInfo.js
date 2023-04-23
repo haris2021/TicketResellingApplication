@@ -151,9 +151,15 @@ const FollowingUserInfo = () => {
         console.log("Printing user info" , userinfo)
 
         const followingresponse = await FindAllFollowers(u._id);
+
+
         const followingornot = followingresponse.some(
-            user => user.followingUsername === response.Username);
+            user => user.followingUserId === response._id);
         setfollow(followingornot);
+
+        console.log("Following or not" + followingornot);
+        console.log("Setfollow is set to"  + follow);
+
 
     }
     if (userinfo === '') {

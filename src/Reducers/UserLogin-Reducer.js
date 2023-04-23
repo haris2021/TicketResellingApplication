@@ -67,7 +67,7 @@ const UserLoginSlice  = createSlice({
                                                     },
                                                 [FindFollowersThunk.fulfilled]:
                                                     (state, action) => {
-                                                        // console.log("Inside Find all followers by user thunk", payload);
+                                                        console.log("Inside Find all followers by user thunk", action.payload);
                                                         state.allfollowers = action.payload;
                                                         // console.log("result" , state.allfollowers );
                                                         state.allfollowersloading = false;

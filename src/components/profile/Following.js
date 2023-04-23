@@ -1,10 +1,25 @@
 import {useNavigate} from "react-router";
+import axios from "axios";
+import {GetProfileInfoById} from "../../Services/Users-services";
+import {useState} from "react";
 
-const ListOfFollowers = ({post} ) =>
+const ListOfFollowers = ({following} ) =>
 {
     const navigate= useNavigate();
 
-    const Getinfo = ( followingInfo ) =>
+    const [username, setusername] = useState(' ');
+
+    const findid = async ()=>
+    {
+        const followinguserinfo = await GetProfileInfoById(following.followingUserId);
+        console.log("Inside list of followers" , followinguserinfo.Username);
+        setusername(followinguserinfo.Username);
+    }
+
+    if(username === ' ')
+        findid();
+
+    const Getinfo = ( ) =>
     {
         /*
                 navigate('/check');
@@ -20,15 +35,14 @@ const ListOfFollowers = ({post} ) =>
                          search: `?followingUsername=${ followingInfo.followingUsername}&followingFirstName=${ followingInfo.followingFirstName}
                          &followingImage=${followingInfo.followingImage}&followingAddress=${followingInfo.followingAddress}`,
                      });*/
-
-        navigate(`../otherUserInfo/${followingInfo.followingUsername}`);
-
+        console.log("hello");
+        navigate(`../otherUserInfo/${username}`);
     }
 
     return(
         <div className="list-group-item" >
 
-            <span  className="wd-removeunderline"  onClick={()=>{Getinfo(post)}} >{post.followingUsername}</span>
+            <span  className="wd-removeunderline "  onClick={Getinfo} >{username}</span>
 
         </div>
     )

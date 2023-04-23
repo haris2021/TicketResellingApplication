@@ -95,7 +95,7 @@ const SearchAndImport = () => {
                                                     {importedData.slice(index, index + 3).map((item) => (
                                                         <Card
                                                             key={item.id}
-                                                            style={{ width: "18rem", margin: "0 10px" }}
+                                                            style={{ width: "33%", margin: "0 10px" }}
                                                             onClick={() => setSelectedEvent(item)}
                                                             className={selectedEvent && selectedEvent.id === item.id ? "selected" : ""}>
                                                             <Card.Img className="image" variant="top" src={item.images[0].url} />

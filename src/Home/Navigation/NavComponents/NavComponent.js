@@ -1,74 +1,130 @@
-import {CgProfile} from "react-icons/cg";
-import "../index.css"
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-
-import {LogOutThunk} from "../../../Services/Users-Thunks.js";
-import {logoutUser} from "../../../Reducers/UserLogin-Reducer.js";
+import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOutThunk } from "../../../Services/Users-Thunks.js";
+import { logoutUser } from "../../../Reducers/UserLogin-Reducer.js";
+import "../index.css";
 
 const NavComponent = () => {
-    const {u} = useSelector(state => state.UserLogin);
-
+    const { u } = useSelector((state) => state.UserLogin);
     const dispatch = useDispatch();
 
     const CallLogOut = () => {
         dispatch(LogOutThunk());
-        dispatch( logoutUser());
-
-    }
+        dispatch(logoutUser());
+    };
 
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/">
+                    TSP
+                </Link>
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <Link
+                                className="nav-link"
+                                to="/"
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                }}
+                            >
+                                Concerts
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                className="nav-link"
+                                to="/"
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                }}
+                            >
+                                Movies
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            {u._id ?
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link"  to="/Profile"> Profile
+                                        </Link>
+                                    </li>
 
-                    <div className={u._id? " wd-lol" : " wd-withoutlogin "} id="navbarNavDropdown">
+                                </> :
+
+                                <>
+
+                                 <li className="nav-item">
+                                     <Link className="nav-link" to="/logIn"> LogIn
+                                     </Link>
+                                 </li>
+
+                                </>
+                            }
+                        </li>
+
+                        {u.Role === "Seller" && (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/importEvents">
+                                    Create Event
+                                </Link>
+                            </li>
+                        )}
 
 
-                            <ul className=" wd-navlinks navbar-nav wd-lop">
-
-                                {
-                                    u._id ?
+                        {u._id ?
                                     <>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/" onClick={CallLogOut}>
+                                                LogOut
+                                            </Link>
+                                        </li>
+                                    </> : " "
 
-                                            <Link to="/" className=" wd-removeunderline">Concerts</Link>
-
-                                    </> :
-                                    <>
-                                        <Link  to="/login" className=" wd-removeunderline">Concerts</Link>
-                                    </>
-
-
-                                }
-
-                            </ul>
-
-                            <ul className=" wd-navlinks navbar-nav ">
-
-                                {
-                                    u._id ?<Link to="/" className="  wd-removeunderline">Movies</Link> :  <Link   to="/login" className=" wd-removeunderline">Movies</Link>
-
-                                }
+                        }
 
 
-                            </ul>
-                    </div>
+                        {u.Role === "Buyer" && (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/myTickets">
+                                    My Tickets
+                                </Link>
+                            </li>
+                        )}
 
 
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/Profile">
+                                <CgProfile
+                                    size={25}
+                                    className={
+                                        u._id ? "wd-signinlogo" : "wd-signinlogowithoutlogin"
+                                    }
+                                />
+                            </Link>
+                        </li>
+
+
+
+
+                    </ul>
                 </div>
-
-                <div className="wd-dropdown">
-
-                    {u._id ?  <Link className="wd-signin wd-removeunderline" to="/Profile"> Profile </Link> :  <Link className="wd-login wd-removeunderline" to="/logIn"> LogIn </Link> }
-                    {u.Role === 'Seller' ? <Link className="wd-signin wd-removeunderline" to="/importEvents"> Create Event </Link> : " " }
-                    {u._id ? <Link className="wd-signin wd-removeunderline" to="/" onClick={CallLogOut}> LogOut </Link> : " " }
-                    {u.Role === 'Buyer' ? <Link className="wd-signin wd-removeunderline" to="/myTickets"> My Tickets </Link>: " "  }
-                    <CgProfile size={25} className={ u._id ? "wd-signinlogo " : "wd-signinlogowithoutlogin" } />
-                </div>
-
-            </nav>
-        </div>
+            </div>
+        </nav>
     );
-}
+};
 
 export default NavComponent;

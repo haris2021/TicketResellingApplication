@@ -20,7 +20,7 @@ const CategoriesCard = () => {
         dispatch(FindallConcertThunk())
         dispatch(FindallMoviesThunk());
         dispatch(FindallOtherThunk())
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

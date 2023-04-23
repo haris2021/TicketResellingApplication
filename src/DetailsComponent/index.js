@@ -12,6 +12,7 @@ const DetailsComponent = () => {
     const {id} = useParams();
     useEffect(() => {
         dispatch(findDetailsThunk(id))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div>

@@ -16,7 +16,10 @@ const DetailsComponent = () => {
     }, [])
     return (
         <div>
-            <Navigation/>
+            <div style={{marginLeft:40}}>
+                <Navigation/>
+
+            </div>
             <ul className="list-group">
                 {
                     loading &&

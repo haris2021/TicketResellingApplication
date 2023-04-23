@@ -30,6 +30,7 @@ const ReviewItem = ({reviewItem, userId}) => {
 
             <div className="row align-items-center">
                 <div className="col-sm-2">
+
                     <img src={reviewItem.avatar} className="rounded-circle"
                          width={"100%"}
                          alt="Avatar" onClick={()=>{handleUserClick(reviewItem.userHandle)}}/>

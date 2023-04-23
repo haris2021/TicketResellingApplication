@@ -1,8 +1,9 @@
 import axios from "axios";
 
-// const Concerts_API = 'http://localhost:4000/api/events';
-const API_BASE = process.env.REACT_APP_API_BASE
-const Concerts_API = `${API_BASE}/events`;
+ const Concerts_API = 'http://localhost:4000/api/events';
+
+/*const API_BASE = process.env.REACT_APP_API_BASE
+const Concerts_API = `${API_BASE}/events`;*/
 
 export const FindConcerts = async () => {
     const response = await axios.get(Concerts_API);
@@ -12,7 +13,7 @@ export const FindConcerts = async () => {
 
 export const FindAllEventsByUser = async ( id ) =>
 {
-    const response = await axios.get(`${Concerts_API}/findevents/${id}`);
+    const response = await axios.get(`${Concerts_API}/eventinfo/${id}`);
     return response.data;
 }
 

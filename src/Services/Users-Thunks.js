@@ -24,6 +24,7 @@ export const CreateUserThunk = createAsyncThunk('profile/createProfile', async (
 
 export const LogOutThunk = createAsyncThunk('/profile/logout', async () => {
 
+    console.log("logout thunk")
     const response = await service.Logout();
 });
 

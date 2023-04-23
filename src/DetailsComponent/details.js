@@ -10,6 +10,7 @@ import {buyTicketThunk} from "../Services/details-thunk";
 
 function DetailInformation({details}) {
     const [count, setCount] = useState(0);
+
     //const [buttonText, setButtonText] = useState('Follow');
     // const followBtn = () => {
     //     if (buttonText === 'Follow') {
@@ -31,8 +32,9 @@ function DetailInformation({details}) {
     };
 
     const { id } = useParams();
+    const {u} = useSelector(state => state.UserLogin)
     const login = useSelector(state => state.UserLogin);
-    const isSeller = login.u.Role === 'Seller';
+    const isSeller = u.Role === 'Seller';
 
     const userId = login.u._id;
     const navigate = useNavigate();
@@ -90,17 +92,22 @@ function DetailInformation({details}) {
                             </div>
                             {
                                 !isSeller &&
-                                <>
-                                    <Button block className="btn btn-primary btn-lg my-4"
-                                            onClick={handleBuyTicket}>Buy Ticket</Button>
-                                    <ButtonGroup className="ps-2">
-                                    <Button variant="secondary" onClick={handleMinusClick}>-</Button>
-                                    <Button variant="light">{count}</Button>
-                                    <Button variant="success" onClick={handlePlusClick}>+</Button>
-                                    </ButtonGroup>
-                                </>
+                                  <>
+                                      {u._id ? <>
+                                                      <Button block className="btn btn-primary btn-lg my-4"
+                                                              onClick={handleBuyTicket}>Buy Ticket</Button>
+                                                      <ButtonGroup className="ps-2">
+                                                          <Button variant="secondary" onClick={handleMinusClick}>-</Button>
+                                                          <Button variant="light">{count}</Button>
+                                                          <Button variant="success" onClick={handlePlusClick}>+</Button>
+                                                      </ButtonGroup>
+                                               </> : " "
+                                      }
+
+                                  </>
                             }
                         </div>
+
                         <div className={"my-4"}>
                             <Reviews/>
                         </div>

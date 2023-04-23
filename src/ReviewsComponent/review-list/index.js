@@ -37,6 +37,7 @@ const ReviewList = () => {
         dispatch(createReviewThunk(createReview));
     };
 
+
     return (
         <>
             <ul className="list-group">
@@ -56,7 +57,7 @@ const ReviewList = () => {
                 }
             </ul>
             <div className="container mt-5">
-                <Form>
+                {u._id &&  <Form>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Write a Review</Form.Label>
                         <Form.Control
@@ -70,7 +71,8 @@ const ReviewList = () => {
                             onClick={handleReviewChange}>
                         Submit Review
                     </Button>
-                </Form>
+                </Form> }
+
             </div>
         </>
     );

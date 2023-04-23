@@ -10,6 +10,7 @@ const NavComponent = () => {
     const dispatch = useDispatch();
 
     const CallLogOut = () => {
+        console.log("Inside calllogout!");
         dispatch(LogOutThunk());
         dispatch(logoutUser());
     };

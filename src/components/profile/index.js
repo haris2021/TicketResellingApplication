@@ -131,6 +131,10 @@ const ProfileComponent = () => {
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <button className="btn btn-info m-1 " target="__blank"
                                     onClick={routeChange}><b>Edit</b></button>
+
+                            {
+                                u.Role === 'Buyer' && <button  className="btn btn-info m-1 "  onClick={routeChangeTickets}>View my Tickets</button>
+                            }
                         </div>
 
 
@@ -216,23 +220,7 @@ const ProfileComponent = () => {
                 </div>
 
                 <div className = "d-none d-md-block col-5 col-md-6 col-lg-5 ">
-                <span className="wd-followingtitle">User Listings</span>
-                    <ul className="list-group list-group-flush">
-                             
-                                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                            <span className="mb-0">
-                                                Listing1
-                                            </span>
-                                        </li>
-                                        <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                            <span className="mb-0">
-                                                Listing2
-                                            </span>
-                                        </li>
-                                    </ul>
-                </div>
-
-                <div className="col-lg-1 d-none d-lg-block">
+                    {/*<span className="wd-followingtitle">Following Users</span>*/}
 
                 </div>
 

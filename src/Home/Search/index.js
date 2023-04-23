@@ -14,7 +14,7 @@ const Search = ( ) =>
             <div className="wd-searchimgdiv ">
                 <img
                     src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?cs=srgb&dl=pexels-wendy-wei-1190298.jpg&fm=jpg"
-                    className="wd-searchimg"/>
+                    className="wd-searchimg" alt = "search img"/>
             </div>
 
             <span className="wd-textoverimage"> Find your next Memory</span>

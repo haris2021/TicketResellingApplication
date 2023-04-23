@@ -1,8 +1,3 @@
-import {useDispatch, useSelector} from "react-redux";
-import {Navigate, useNavigate} from "react-router";
-import {Route} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {GetProfileInfo} from "../Services/Users-services.js";
 
 const ProtectedRoute = ( {children}) =>
 {

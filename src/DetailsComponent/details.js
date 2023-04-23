@@ -10,7 +10,7 @@ import {buyTicketThunk} from "../Services/details-thunk";
 
 function DetailInformation({details}) {
     const [count, setCount] = useState(0);
-    const [buttonText, setButtonText] = useState('Follow');
+    //const [buttonText, setButtonText] = useState('Follow');
     // const followBtn = () => {
     //     if (buttonText === 'Follow') {
     //         setButtonText('Following');

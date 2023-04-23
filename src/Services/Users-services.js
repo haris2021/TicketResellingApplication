@@ -4,9 +4,13 @@ const api = axios.create({
     withCredentials: true
  })
 
-const Users_API = "http://localhost:4000/api/users";
+// const Users_API = "http://localhost:4000/api/users";
 
-const Followers_API = "http://localhost:4000/api/followers";
+// const Followers_API = "http://localhost:4000/api/followers";
+
+const API_BASE = process.env.REACT_APP_API_BASE
+const Users_API = `${API_BASE}/users`;
+const Followers_API = `${API_BASE}/followers`;
 
 export const Login = async (Username, Password) => {
 

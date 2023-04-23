@@ -17,7 +17,7 @@ const LoginForm = ({onSwitchToSignUp}) => {
 
     const dispatch = useDispatch();
 
-    const {login, loading} = useSelector(state => state.UserLogin);
+    const {login} = useSelector(state => state.UserLogin);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -42,7 +42,7 @@ const LoginForm = ({onSwitchToSignUp}) => {
                 <Card>
                     <Card.Header
                         style={{backgroundColor: "rebeccapurple", borderBottomColor: "rebeccapurple"}}>
-                        <img src={logoImage} style={{width: "150px", height: "50px"}}/>
+                        <img src={logoImage} style={{width: "150px", height: "50px"}} alt = "logo img"/>
                     </Card.Header>
                     <Card.Body className="card-customization">
                         <h2 style={{textAlign: "center", color: "white"}}>Login</h2>
@@ -96,7 +96,7 @@ const SignUpForm = ({onSwitchToLogin}) => {
     const [Username, setUsername] = useState('');
     const [Image, setImage] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
     const [Role, setRole] = useState('');
 
     const [showError, setShowError] = useState(false);

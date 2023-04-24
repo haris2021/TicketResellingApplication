@@ -50,7 +50,11 @@ const SearchAndImport = () => {
 
     return (
         <div>
-            < Navigation/>
+            <div style={{marginLeft:110}}>
+                <Navigation/>
+
+            </div>
+
 
             <div className="d-flex justify-content-center align-items-center h-100 auth-container">
                 <Card style={{ width: '70rem', border: '2px solid purple' }}>

@@ -113,7 +113,7 @@ import {
     FollowUser
 } from "../../Services/Users-services.js"
 import Navigation from "../../Home/Navigation/index.js";
-import {useState} from "react";
+import React, {useState} from "react";
 import {useSelector} from "react-redux";
 
 const FollowingUserInfo = () => {
@@ -190,7 +190,10 @@ const FollowingUserInfo = () => {
 
             <div>
 
-                <Navigation/>
+                <div style={{marginLeft:110}}>
+                    <Navigation/>
+
+                </div>
 
                 <div className="row">
 

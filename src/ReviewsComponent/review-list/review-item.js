@@ -2,12 +2,13 @@ import {faHeart, faHeart as regularHeart} from '@fortawesome/free-solid-svg-icon
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
 import {updateReviewThunk} from "../../Services/reviews-thunk";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 
 const ReviewItem = ({reviewItem, userId}) => {
 
     const dispatch = useDispatch();
+    const {u} = useSelector(state => state.UserLogin);
     const toggleLike = (reviewStat) => {
         dispatch(updateReviewThunk({
                                        ...reviewStat,
@@ -21,7 +22,9 @@ const ReviewItem = ({reviewItem, userId}) => {
 
     const handleUserClick = ( username) =>
     {
-        navigate(`/otherUserInfo/${username}`);
+
+        if(u._id)
+            navigate(`/otherUserInfo/${username}`);
     }
 
 
@@ -33,7 +36,7 @@ const ReviewItem = ({reviewItem, userId}) => {
 
                     <img src={reviewItem.avatar} className="rounded-circle"
                          width={"100%"}
-                         alt="Avatar" onClick={()=>{handleUserClick(reviewItem.userHandle)}}/>
+                         alt="Avatar"  onClick={()=>{handleUserClick(reviewItem.userHandle)}}/>
                     <span className="wd-time-handle-color">{reviewItem.userHandle}</span>
                 </div>
 

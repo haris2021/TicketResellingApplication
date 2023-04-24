@@ -16,7 +16,7 @@ const DetailsComponent = () => {
     }, [])
     return (
         <div>
-            <div style={{marginLeft:40}}>
+            <div style={{marginLeft:80}}>
                 <Navigation/>
 
             </div>

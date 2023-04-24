@@ -171,7 +171,7 @@ const ProfileComponent = () => {
 
                 <div className="col-md-5 col-lg-4 ">
 
-                        <span className="wd-followingtitle">Following Users</span>
+                    {u.Role === 'Admin' ? "" : <span className="wd-followingtitle">Following Users</span>}
                         {u.Role === 'Admin' ? " " :
                                                     <>
                                                                     {allfollowers.length > 0 ?

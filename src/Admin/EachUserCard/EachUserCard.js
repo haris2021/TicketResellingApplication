@@ -45,10 +45,10 @@ const EachUserCard = ({post}) => {
                     <p className="card-text wd-EventTitle">{post.Role}</p>
                     <p className="card-text wd-EventTitle">{post.Email}</p>
 
-                    <button className="btn btn-danger" onClick={() => {
+                  {/*  <button className="btn btn-danger" onClick={() => {
                         DeleteUserbtn(post._id)
                     }}>Delete User
-                    </button>
+                    </button>*/}
 
                 </div>
 

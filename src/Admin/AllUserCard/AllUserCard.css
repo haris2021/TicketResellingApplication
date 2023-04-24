@@ -10,3 +10,13 @@
 {
     margin-left:15px;
 }
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    padding-top: 5vh;
+}
+
+

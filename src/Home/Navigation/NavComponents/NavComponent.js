@@ -107,7 +107,7 @@ const NavComponent = () => {
                         )}
 
 
-                        <li className="nav-item">
+                       {/* <li className="nav-item">
                             <Link className="nav-link" to="/Profile">
                                 <CgProfile
                                     size={25}
@@ -117,7 +117,7 @@ const NavComponent = () => {
                                 />
                             </Link>
                         </li>
-
+*/}
 
 
 

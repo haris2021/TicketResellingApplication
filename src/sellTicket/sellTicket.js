@@ -67,7 +67,11 @@ function EventForm() {
     return (
 
         <div>
-               < Navigation/>
+            <div style={{marginLeft:110}}>
+                <Navigation/>
+
+            </div>
+
 
 
             <div className="d-flex justify-content-center align-items-center h-100 auth-container">

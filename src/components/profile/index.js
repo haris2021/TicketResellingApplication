@@ -4,12 +4,18 @@ import './index.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
-import {FindFollowersThunk, GetAllUserThunk} from "../../Services/Users-Thunks.js";
+import {
+    DeleteUserThunk,
+    FindFollowersThunk,
+    GetAllUserThunk,
+    LogOutThunk
+} from "../../Services/Users-Thunks.js";
 import {FindAllEventsByUserThunk} from "../../Services/Concert-thunks.js";
 import ListOfEvents from "./ListOfEvents.js";
 import ListOfFollowers from "./Following.js";
 import {Container} from "react-bootstrap";
 import {all} from "axios";
+import {logoutUser} from "../../Reducers/UserLogin-Reducer";
 
 const ProfileComponent = () => {
 
@@ -56,6 +62,15 @@ const ProfileComponent = () => {
     const routeChangeTickets = () => {
         seteditprofile(false);
         navigate('/myTickets');
+    }
+
+    const CallDeleteUserBtn = ( id ) =>
+    {
+        console.log(id);
+        dispatch(LogOutThunk());
+        dispatch(logoutUser());
+        DeleteUserThunk(id);
+        navigate('/');
     }
 
     return (
@@ -144,7 +159,10 @@ const ProfileComponent = () => {
                              <button className="btn btn-info" onClick={() => {
                                  CallDeleteBtn(u._id)
                              }}> View All Users
-                             </button> : null
+                             </button> :   <button className="btn btn-danger" onClick={() => {
+                                    CallDeleteUserBtn(u._id)
+                                }}> Delete Profile
+                             </button>
                             }
 
 

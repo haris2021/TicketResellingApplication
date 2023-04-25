@@ -12,6 +12,7 @@ const LoginForm = ({onSwitchToSignUp}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showError, setShowError] = useState(false);
+    const [alert, setalert] = useState(false);
 
     let navigate = useNavigate();
 
@@ -22,7 +23,13 @@ const LoginForm = ({onSwitchToSignUp}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch((LogInThunk({Username: email, Password: password})));
+        setalert(true);
     };
+
+
+
+
+
 
     useEffect(() => {
 

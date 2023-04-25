@@ -13,7 +13,6 @@ export const FindallConcertThunk = createAsyncThunk('Concert/FindAll', async () 
 
 export const FindallMoviesThunk = createAsyncThunk('Movies/FindAll', async () => {
     const data =  await service.FindConcerts();
-
     const allmoviesdata = data.filter((item) => item.Ecategory === "Movies");
 
     return allmoviesdata;
@@ -23,8 +22,9 @@ export const FindallMoviesThunk = createAsyncThunk('Movies/FindAll', async () =>
 export const FindallOtherThunk = createAsyncThunk('Other/FindAll', async () => {
 
     const data =  await service.FindConcerts();
-    const allotherdata = data.filter((item) => item.Ecategory === "Miscellaneous");
-
+    console.log("Other from service" , data)
+    const allotherdata = data.filter((item) => item.Ecategory === "Other");
+    console.log("Other" , allotherdata)
     return allotherdata;
 
 });

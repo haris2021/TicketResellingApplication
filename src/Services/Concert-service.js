@@ -8,6 +8,7 @@ const Concerts_API = `${API_BASE}/events`;*/
 export const FindConcerts = async () => {
     const response = await axios.get(Concerts_API);
     const concert_data = response.data;
+    console.log("Server other" , concert_data);
     return concert_data;
 }
 

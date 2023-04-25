@@ -32,10 +32,10 @@ const FootBar = () => {
                 </div>
             </div>
 
-            <div className="row wd-footrow3">
+          {/*  <div className="row wd-footrow3">
                 <span className="wd-spanrow3">By signing up, you acknowledge and accept our privacy policy and consent to receiving emails. </span>
             </div>
-
+*/}
             {susbcribebtn && <Subscribe/>}
 
 

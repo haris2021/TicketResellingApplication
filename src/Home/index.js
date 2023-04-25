@@ -23,9 +23,9 @@ const Home = () => {
 
 
                 </div>
-                {/*<div className="col-xl-1 col-lg-1 col-md-1 col-sm-1 ">*/}
+                <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1 ">
 
-                {/*</div>*/}
+                </div>
             </div>
         </div>
     );

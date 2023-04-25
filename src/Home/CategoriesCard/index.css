@@ -1,7 +1,54 @@
 
 
-.wd-categoriescarddiv
-{
-    margin-top:300px;
-    margin-left: 30px;
+@media (max-width: 320px) {
+    .wd-categoriescarddiv
+    {
+        margin-left: 10px;
+    }
+
+
+}
+
+@media (min-width: 321px) and (max-width: 424px) {
+    .wd-categoriescarddiv
+    {
+        margin-left: 30px;
+    }
+
+
+}
+
+@media (min-width: 425px) and (max-width: 572px) {
+    .wd-categoriescarddiv
+    {
+        margin-left: 60px;
+    }
+
+
+}
+
+
+
+@media (min-width: 573px) and (max-width: 649px) {
+
+}
+
+@media (min-width: 650px) and (max-width: 767px) {
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+
+}
+
+@media (min-width: 1401px) {
+    /* larger screen styles here */
 }

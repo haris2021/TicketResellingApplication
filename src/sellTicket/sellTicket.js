@@ -67,7 +67,7 @@ function EventForm() {
     return (
 
         <div>
-            <div style={{marginLeft:110}}>
+            <div style={{marginLeft:90}}>
                 <Navigation/>
 
             </div>

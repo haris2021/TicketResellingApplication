@@ -16,6 +16,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-left: -20px;
 }
 
 .wd-textoverimage {
@@ -42,6 +43,14 @@
     .wd-inputbox {
         width: 60%;
     }
+
+    .wd-searchimg {
+        max-width: 95%;
+        height: auto;
+        border-radius: 10px;
+        margin-left: -4px;
+    }
+
 }
 
 @media (min-width: 573px) and (max-width: 649px) {
@@ -51,6 +60,13 @@
 
     .wd-inputbox {
         width: 60%;
+    }
+
+    .wd-searchimg {
+        max-width: 90%;
+        height: auto;
+        border-radius: 10px;
+        margin-left: -60px;
     }
 }
 
@@ -62,6 +78,14 @@
     .wd-inputbox {
         width: 60%;
     }
+
+    .wd-searchimg {
+        max-width: 90%;
+        height: auto;
+        border-radius: 10px;
+        margin-left: -60px;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -72,6 +96,13 @@
     .wd-inputbox {
         width: 60%;
     }
+   .wd-searchimg {
+        max-width: 94%;
+        height: auto;
+        border-radius: 10px;
+        margin-left: -30px;
+    }
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

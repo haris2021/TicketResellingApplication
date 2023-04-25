@@ -38,14 +38,14 @@ const SearchComponent = () => {
         <div className="container">
             <Navigation/>
             <div className="row">
-                <div className="input-group search-width">
+               {/* <div className="input-group search-width">
                     <input className="form-control "
                      type="text" value={search}
                      onChange={(event) => setSearch(event.target.value)}/>
                      <button className="btn btn-primary"
                         onClick={searchButtonHandler}
                      >Search</button>
-                </div>
+                </div>*/}
                 
                 <div className=" d-flex justify-content-center">
                     <ul className="list-group  text-light">

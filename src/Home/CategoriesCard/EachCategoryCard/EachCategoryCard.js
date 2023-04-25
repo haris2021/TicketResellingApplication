@@ -11,10 +11,6 @@ const EachCategoryCard = ( {Data} ) => {
 
         <div className="wd-eachcategorydiv">
 
-{/*
-            <span className="wd-EachCategoryTitle">Concerts</span>
-*/}
-
                     <div className="row">
                         {
                             Array.isArray(Data) ? Data.map( (Event) =>
